@@ -1,0 +1,230 @@
+{%- style -%}
+
+    #other-info-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  @media only screen and (max-width: 768px) {
+    #other-info-{{ section.id }}{
+      padding-top:  {{section.settings.padding_top_mob}}px;
+      padding-bottom: {{section.settings.padding_bottom_mob}}px;
+    }
+  }
+  .other-info-desc p {
+    color: #4F4F4F;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25.2px;
+  }
+  .other-info-desc br {
+    margin:30px 0;
+  }
+
+
+{%- endstyle -%}
+<div id="other-info-{{section.id}}" class="max-sm:px-[20px] {% if section.settings.image %} page-width flex gap-[80px] justify-between max-[1220px]:flex-col max-[1220px]:gap-[24px] max-[1220px]:items-center  max-[1220px]:!px-[0px] max-[1220px]:!max-w-[100%] {% else %} page-width {% endif %} ">
+  {% if section.settings.image %} 
+    <div class="max-w-[700px] w-full max-lg:max-w-dull">
+      {{ section.settings.image |  image_url: width: 700 | image_tag: class:"block object-cover"   }}
+    </div>
+  {% endif %}
+  <div class=" {% if section.settings.image %} flex gap-[37px] flex-col justify-between max-[1220px]:px-[20px] {% else %} flex gap-[80px] max-lg:flex-col max-lg:gap-[24px] {% endif %} ">
+    <div class="max-w-[660px] w-full max-lg:max-w-full">
+      <p class="text-[32px] font-light  leading-[48px] mb-[18px] text-[#1D54A6]">{{section.settings.title}}</p>
+      <div class="other-info-desc">
+        {{section.settings.desc}}
+      </div>
+  
+    </div>
+  <div class="max-w-[663px] w-full bg-[#fbfbfb] p-[40px] max-lg:max-w-full {% if section.settings.image %} page-width {% endif %}">
+      <div class="flex justify-center gap-[80px] max-sm:flex-col max-sm:gap-[55px]">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'location-phone' -%}
+              <div class="max-w-[151px] w-full">
+                <div class="flex gap-[16px]">
+                  {{block.settings.icon}}
+                  <div class="flex-[1]">
+                    <p class="text-[#1E54A5] text-[16px] not-italic font-light leading-[24px] mb-[12px]">{{block.settings.title}}</p>
+                    <div class=" text-[#4F4F4F]  text-[14px] not-italic font-light leading-[25.2px]" >{{block.settings.desc}}</div>
+                  </div>
+                </div>
+                <div class="flex gap-[16px] mt-[42px]">
+                  {{block.settings.icon_2}}
+                  <div class="flex-[1]">
+                    <p  class="text-[#1E54A5] text-[16px] not-italic font-light leading-[24px] mb-[12px]">{{block.settings.title_2}}</p>
+                    <div class=" text-[#4F4F4F]  text-[14px] not-italic font-light leading-[25.2px]" >{{block.settings.desc_2}}</div>
+                  </div>
+                </div>
+              </div>
+              {%- when 'working' -%}
+                <div class="flex gap-[16px]">
+                  {{block.settings.icon}}
+                  <div>
+                    <p  class="text-[#1E54A5] text-[16px] not-italic font-light leading-[24px] mb-[12px]">{{block.settings.title}}</p>
+                    <div>
+                      {%- for block in section.blocks -%}
+                        {%- case block.type -%}
+                          {%- when 'day' -%}
+                          <div class=" text-[#4F4F4F]  text-[14px] not-italic font-light leading-[25.2px] flex  gap-[32px] mb-[5px] text-nowrap">
+                            <p class="w-[40px]">{{block.settings.label}}</p>
+                            <p class="w-[110px]">{{block.settings.value}}</p>
+                          </div>
+                          {%- endcase -%}
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                </div>
+            {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+</div>
+{% schema %}
+  {
+    "name": "Other Info",
+    "tag": "section",
+    "class": "other-info",
+    "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+     },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "desc",
+        "label": "Description"
+      },
+      {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    },
+    {
+        "type": "range",
+        "id": "padding_top_mob",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Mobile Padding Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mob",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Mobile Padding Bottom",
+        "default": 40
+      }
+    ],
+    "blocks": [
+      {
+        "type":"location-phone",
+        "name":"Location Phone",
+        "settings": [
+          {
+            "type": "html",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default":"LOCATION"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "desc",
+            "label": "desc",
+            "default":"36 NE 1st Street Suite 115 Miami, FL 33132"
+          },
+          {
+            "type": "html",
+            "id": "icon_2",
+            "label": "Icon"
+          },
+          {
+            "type": "text",
+            "id": "title_2",
+            "label": "Title",
+            "default":"PHONE"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "desc_2",
+            "label": "desc",
+            "default":"(305) 371-3476"
+          }
+        ]
+      },
+      {
+        "type":"working",
+        "name":"Working Hours",
+        "settings": [
+          {
+            "type": "html",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default":"WORKING HOURS"
+          }
+        ]
+      },
+      {
+        "type":"day",
+        "name":"Working Day",
+        "settings": [
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Label"
+          },
+          {
+            "type": "text",
+            "id": "value",
+            "label": "Value",
+            "default":"WORKING HOURS"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Other Info"
+      }
+    ]
+  }
+{% endschema %}

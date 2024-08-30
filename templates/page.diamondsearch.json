@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "diamond-search",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

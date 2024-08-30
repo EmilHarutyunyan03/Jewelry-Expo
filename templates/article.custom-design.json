@@ -1,0 +1,227 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "breadcrumb_cCQGah": {
+      "type": "breadcrumb",
+      "disabled": true,
+      "settings": {
+        "show_breadcrumb_nav": true,
+        "breadcrumb_delimeter": "angle_right",
+        "breadcrumb_text_color": "#465076"
+      }
+    },
+    "main": {
+      "type": "main-article-education",
+      "blocks": {
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_banner": "{{ article.metafields.custom.education_banner.value.banner.value }}",
+            "mobile_banner": "{{ article.metafields.custom.education_banner.value.mobile_banner.value }}",
+            "image_height": "adapt"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {
+          }
+        },
+        "content_info_H4iMqf": {
+          "type": "content_info",
+          "repeater": "{{ article.metafields.custom.education.value }}",
+          "settings": {
+            "right_or_left": "{{ block.repeater.right_or_left.value }}",
+            "title": "{{ block.repeater.title.value }}",
+            "desc": "<p>{{ block.repeater.description | metafield_tag }}<\/p>",
+            "image": "{{ block.repeater.image.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "featured_image",
+        "content",
+        "content_info_H4iMqf"
+      ],
+      "settings": {
+      }
+    },
+    "title_border_pbiHf8": {
+      "type": "title-border",
+      "settings": {
+        "title": "Design Process",
+        "color_scheme": "",
+        "desc": "Create Your Unique Piece in Three Simple Steps",
+        "desc_color": "#4f4f4f",
+        "padding_top": 70,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn_arrow_miB3dr": {
+      "type": "multicolumn-arrow",
+      "blocks": {
+        "column_beAkye": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Image_1.png",
+            "title": "Discuss Your Vision",
+            "desc": "Begin with a personal consultation where you'll discuss your ideas, style preferences."
+          }
+        },
+        "column_R6wPnx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_17_1.png",
+            "title": "See Your Design Come to Life",
+            "desc": "Our designers will then sketch the initial design or create a 3D rendering of your piece."
+          }
+        },
+        "column_MtpaYw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_18_1.png",
+            "title": "Crafted with Care",
+            "desc": "Once you approve the design, our master jewelers will craft your piece using only the finest materials and techniques."
+          }
+        }
+      },
+      "block_order": [
+        "column_beAkye",
+        "column_R6wPnx",
+        "column_MtpaYw"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "button_link": "",
+        "button_title": "CREATE MY DESIGN",
+        "title_color": "#1e54a5",
+        "desc_color": "#5b5b5b",
+        "svg_1": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"113\" height=\"33\" viewbox=\"0 0 113 33\" fill=\"none\">\n<path d=\"M0.581778 0.41413C0.92966 0.074984 1.48412 0.0748442 1.82792 0.421401C25.9707 24.8271 54.0289 29.1511 73.315 28.4806C91.702 27.8425 105.84 22.6749 109.132 21.3747L101.083 18.1528C100.631 17.9716 100.413 17.4592 100.593 17.0081C100.774 16.5537 101.286 16.3368 101.738 16.5164L112.31 20.7484C112.549 20.8445 112.735 21.0422 112.818 21.2876C112.9 21.5331 112.869 21.8027 112.735 22.0228L106.674 31.9882C106.595 32.1192 106.486 32.2215 106.363 32.2925C106.092 32.4487 105.749 32.4556 105.463 32.2829C105.049 32.03 104.917 31.4882 105.169 31.0727L110.168 22.8555C107.612 23.8932 92.8524 29.551 73.4436 30.2367C53.7864 30.9316 25.1875 26.5375 0.576972 1.6575C0.233919 1.31458 0.236667 0.755743 0.581778 0.41413Z\" fill=\"#1E54A5\" fill-opacity=\"0.1\"><\/path>\n<\/svg>",
+        "svg_2": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"113\" height=\"33\" viewbox=\"0 0 113 33\" fill=\"none\">\n<path d=\"M0.581839 32.0411C0.929721 32.3803 1.48418 32.3804 1.82798 32.0339C25.9708 7.6282 54.0289 3.30421 73.3151 3.97469C91.702 4.61277 105.84 9.78034 109.133 11.0806L101.083 14.3025C100.631 14.4837 100.413 14.9961 100.593 15.4472C100.774 15.9015 101.286 16.1185 101.738 15.9389L112.31 11.7069C112.55 11.6108 112.736 11.4131 112.818 11.1676C112.9 10.9221 112.87 10.6526 112.735 10.4325L106.674 0.46704C106.595 0.336047 106.486 0.233751 106.363 0.162713C106.092 0.00654516 105.749 -0.000366674 105.464 0.172404C105.049 0.425286 104.917 0.96706 105.169 1.38254L110.168 9.59979C107.612 8.56207 92.8525 2.90428 73.4436 2.21853C53.7865 1.52368 25.1876 5.91779 0.577033 30.7978C0.23398 31.1407 0.236728 31.6995 0.581839 32.0411Z\" fill=\"#1E54A5\" fill-opacity=\"0.1\"><\/path>\n<\/svg>",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "product_banner_YPNwtD": {
+      "type": "product-banner",
+      "settings": {
+        "style": "right",
+        "margin_right": 50,
+        "margin_left": 53,
+        "arrow": true,
+        "image_banner": "shopify:\/\/shop_images\/Sections_3_1.png",
+        "padding_top_bottom": 50,
+        "image_banner_mobile": "shopify:\/\/shop_images\/Image_4.jpg",
+        "title": "SHOWCASE YOUR STYLE",
+        "title_font_size": 32,
+        "desc": "Custom jewelry allows you to express your personal style and taste through unique designs. Whether you prefer classic elegance or modern flair, your custom piece will be a direct reflection of your personality.",
+        "desc_font_weight": "400",
+        "desc_font_size": 14,
+        "caption": "PERSONAL EXPRESSION",
+        "title_size": 630,
+        "color_title": "#1e54a5",
+        "desc_size": 700,
+        "color_desc": "#4f4f4f",
+        "button_link": "",
+        "button_title": "",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mob": 40,
+        "padding_bottom_mob": 40
+      }
+    },
+    "product_banner_jpAfFG": {
+      "type": "product-banner",
+      "settings": {
+        "style": "left",
+        "margin_right": 113,
+        "margin_left": 53,
+        "arrow": true,
+        "image_banner": "shopify:\/\/shop_images\/Sections_2.png",
+        "padding_top_bottom": 50,
+        "image_banner_mobile": "shopify:\/\/shop_images\/Image_3.jpg",
+        "title": "TAILORED TO YOU",
+        "title_font_size": 32,
+        "desc": "Each piece is tailored to fit you perfectly. Whether it's a ring sized just for your finger or a necklace with the ideal length, custom design ensures that your jewelry is as comfortable as it is beautiful.",
+        "desc_font_weight": "400",
+        "desc_font_size": 14,
+        "caption": "PERFECT FIT",
+        "title_size": 350,
+        "color_title": "#1e54a5",
+        "desc_size": 580,
+        "color_desc": "#4f4f4f",
+        "button_link": "",
+        "button_title": "",
+        "color_scheme": "",
+        "padding_top": 70,
+        "padding_bottom": 0,
+        "padding_top_mob": 40,
+        "padding_bottom_mob": 40
+      }
+    },
+    "product_banner_VFWXFp": {
+      "type": "product-banner",
+      "settings": {
+        "style": "right",
+        "margin_right": 50,
+        "margin_left": 53,
+        "arrow": true,
+        "image_banner": "shopify:\/\/shop_images\/Sections_1_1.png",
+        "padding_top_bottom": 50,
+        "image_banner_mobile": "shopify:\/\/shop_images\/Image_5.jpg",
+        "title": "CRAFTED WITH PRECISION",
+        "title_font_size": 32,
+        "desc": "Each piece is tailored to fit you perfectly. Whether it's a ring sized just for your finger or a neOur skilled jewelers use only the finest materials and meticulous craftsmanship to create your jewelry. This attention to detail guarantees a final product that stands the test of time in both style and durability.cklace with the ideal length, custom design ensures that your jewelry is as comfortable as it is beautiful.",
+        "desc_font_weight": "400",
+        "desc_font_size": 14,
+        "caption": "EXCEPTIONAL QUALITY",
+        "title_size": 630,
+        "color_title": "#1e54a5",
+        "desc_size": 650,
+        "color_desc": "#4f4f4f",
+        "button_link": "",
+        "button_title": "",
+        "color_scheme": "",
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "padding_top_mob": 40,
+        "padding_bottom_mob": 40
+      }
+    },
+    "title_border_gcJrPX": {
+      "type": "title-border",
+      "settings": {
+        "title": "The Beginning Of Your One-of-a-kind Piece",
+        "color_scheme": "",
+        "desc": "Fill up this form, and we will contact you with further instructions.",
+        "desc_color": "#4f4f4f",
+        "padding_top": 70,
+        "padding_bottom": 60
+      }
+    },
+    "custom_design_form_aiKHDe": {
+      "type": "custom-design-form",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "breadcrumb_cCQGah",
+    "main",
+    "title_border_pbiHf8",
+    "multicolumn_arrow_miB3dr",
+    "product_banner_YPNwtD",
+    "product_banner_jpAfFG",
+    "product_banner_VFWXFp",
+    "title_border_gcJrPX",
+    "custom_design_form_aiKHDe"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "sections": {
+    "breadcrumb_AbDiwe": {
+        "disabled": true,
+      "type": "breadcrumb",
+      "settings": {
+        "show_breadcrumb_nav": true,
+        "breadcrumb_delimeter": "angle_right",
+        "breadcrumb_text_color": "#465076"
+      }
+    },
+    "page_banner_cXkbWP": {
+      "type": "page-banner",
+      "settings": {
+        "title": "{{ blog.title }}",
+        "desc": "{{ blog.metafields.custom.description.value }}",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "adapt",
+        "show_date": false,
+        "show_author": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product_banner_dtW83b": {
+      "type": "product-banner",
+      "settings": {
+        "style": "left",
+        "image_banner": "shopify://shop_images/Schedule_an_appointment_2_1.png",
+        "padding_top_bottom": 70,
+        "image_banner_mobile": "shopify://shop_images/Rectangle_328_7_1.jpg",
+        "title": "READY TO FIND THE PERFECT PIECE?",
+        "desc": "Book an appointment with our expert jewelry consultants today.",
+        "title_size": 470,
+        "color_title": "#1E54A5",
+        "desc_size": 425,
+        "color_desc": "#1E54A5",
+        "button_link": "",
+        "button_title": "SCHEDULE AN APPOINTMENT",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 70
+      }
+    }
+  },
+  "order": [
+    "breadcrumb_AbDiwe",
+    "page_banner_cXkbWP",
+    "main",
+    "product_banner_dtW83b"
+  ]
+}

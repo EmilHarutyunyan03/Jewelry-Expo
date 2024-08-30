@@ -1,0 +1,82 @@
+{% style %}
+  #text-border-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media only screen and (max-width:1024px) {
+    #text-border-{{ section.id }} {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  }
+{% endstyle %}
+
+<div id="text-border-{{ section.id }}" class="text-center page-width color-{{ section.settings.color_scheme }}">
+  <div class="flex gap-[38px] w-full items-center justify-center	my-0 mx-[auto] max-lg:gap-[12px] ">
+    <div class="border-t border-gray-300 w-[80px] max-lg:w-[32px]"></div>
+    <h2 class="font-[300] text-[36px] text-[rgba(var(--color-foreground))] max-lg:text-[23px] max-lg:leading-[normal]">{{ section.settings.title }}</h2>
+    <div class="border-t border-gray-300 w-[80px] max-lg:w-[32px]"></div>
+  </div>
+  {% if section.settings.desc %}
+    <p class="text-[{{section.settings.desc_color}}] text-[14px] font-light text-center mt-[8px]">{{ section.settings.desc }}</p>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Title Border",
+  "tag": "section",
+  "class": "title-border",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "title"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color Scheme"
+    },
+    {
+      "type": "text",
+      "id": "desc",
+      "label": "Description"
+    },
+    {
+      "type": "color",
+      "id": "desc_color",
+      "label": "Description Color",
+      "default": "#4f4f4f"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Title Border",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

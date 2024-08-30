@@ -1,0 +1,80 @@
+{
+  "sections": {
+    "breadcrumb_cCQGah": {
+        "disabled": true,
+      "type": "breadcrumb",
+      "settings": {
+        "show_breadcrumb_nav": true,
+        "breadcrumb_delimeter": "angle_right",
+        "breadcrumb_text_color": "#465076"
+      }
+    },
+    "main": {
+      "type": "main-article-education",
+      "blocks": {
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_banner": "{{ article.metafields.custom.education_banner.value.banner.value }}",
+            "mobile_banner": "{{ article.metafields.custom.education_banner.value.mobile_banner.value }}",
+            "image_height": "adapt"
+          }
+        },
+        "content": { "type": "content", "settings": {} },
+        "content_info_H4iMqf": {
+          "type": "content_info",
+          "repeater": "{{ article.metafields.custom.education.value }}",
+          "settings": {
+            "right_or_left": "{{ block.repeater.right_or_left.value }}",
+            "title": "{{ block.repeater.title.value }}",
+            "desc": "<p>{{ block.repeater.description | metafield_tag }}</p>",
+            "image": "{{ block.repeater.image.value }}"
+          }
+        }
+      },
+      "block_order": ["featured_image", "content", "content_info_H4iMqf"],
+      "settings": {}
+    },
+    "blog_also_like_KhFRkr": {
+      "type": "blog-also-like",
+      "settings": {
+        "blog": "education",
+        "title": "YOU MAY ALSO LIKE",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "product_banner_Bjikbk": {
+      "type": "product-banner",
+      "settings": {
+        "style": "left",
+        "margin_right": 113,
+        "arrow": false,
+        "image_banner": "shopify://shop_images/Schedule_an_appointment_2_1.png",
+        "padding_top_bottom": 70,
+        "image_banner_mobile": "shopify://shop_images/Rectangle_328_7_1.jpg",
+        "title": "READY TO FIND THE PERFECT PIECE?",
+        "title_font_size": 48,
+        "desc": "Book an appointment with our expert jewelry consultants today.",
+        "desc_font_weight": "400",
+        "desc_font_size": 18,
+        "caption": "",
+        "title_size": 470,
+        "color_title": "#1e54a5",
+        "desc_size": 425,
+        "color_desc": "#1e54a5",
+        "button_link": "shopify://pages/schedule-an-appointment",
+        "button_title": "SCHEDULE AN APPOINTMNENT",
+        "color_scheme": "",
+        "padding_top": 70,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "breadcrumb_cCQGah",
+    "main",
+    "blog_also_like_KhFRkr",
+    "product_banner_Bjikbk"
+  ]
+}

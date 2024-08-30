@@ -1,0 +1,71 @@
+{% style %}
+ #map-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    #map-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .map-iframe iframe{
+    width:100%;
+  }
+{% endstyle %}
+
+<div id="map-{{section.id}}">
+  <p class="page-width text-center text-[32px] font-[250] leading-[48px] mb-[32px]">{{section.settings.title}}</p>
+  <div class="map-iframe">
+    {{section.settings.html}}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Map",
+    "tag": "section",
+    "class": "map",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "html",
+        "id": "html",
+        "label": "Map Embedded"
+      },
+      {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 60
+    }
+    ],
+    "presets": [
+      {
+        "name": "Map",
+        "settings": {
+            "title": "VIEW ON MAP",
+            "html":"<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.864550940378!2d-80.192832!3d25.7750371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b69eac663c2b%3A0x26022704f3b199c2!2sBarclay&#39;s%20Jewelers!5e0!3m2!1sen!2sam!4v1714642498886!5m2!1sen!2sam' style='width:100%' height='464' style='border:0;'' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+        }
+      }
+    ]
+  }
+{% endschema %}

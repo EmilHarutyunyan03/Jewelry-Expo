@@ -1,0 +1,127 @@
+{% style %}
+  #banner-with-text-{{section.id}} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media only screen and (max-width: 768px) {
+    #banner-with-text-{{section.id}} {
+      padding-top:  {{section.settings.padding_top_mob}}px;
+      padding-bottom: {{section.settings.padding_bottom_mob}}px;
+    }
+  }
+{% endstyle %}
+<div id="banner-with-text-{{section.id}}" class="flex flex-col gap-[28px]">
+  <div class="page-width  w-full max-lg:max-w-null max-lg:p-[0]">
+      {{ section.settings.image |  image_url: width: 1400 | image_tag: class:"block object-cover max-sm:hidden w-full"   }}
+      {{ section.settings.image_mobile |  image_url: width: 390 | image_tag: class:"block w-full object-cover hidden max-sm:!block"   }}
+  </div>
+  <div class="page-width w-full">
+    <div class="flex justify-between gap-[60px] max-sm:flex-wrap max-sm:gap-[48px]">
+      {% for block in section.blocks %}
+        <div class="max-w-[640px] w-full ">
+          <p class="text-[32px] text-[{{block.settings.color_title}}] font-light m-0 leading-[48px] mb-[16px] max-sm:text-[32px] max-sm:leading-[36px]">{{block.settings.title}}</p>
+          <div class="text-[14px] text-[{{block.settings.color_desc}}] font-light m-0 leading-[25px]">
+            {{ block.settings.desc }}
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Banner With Text Column",
+    "tag": "section",
+    "class": "banner-width-text-column",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Image"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mob",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Mobile Padding Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mob",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Mobile Padding Bottom",
+        "default": 40
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Column",
+        "type": "column",
+        "settings": [
+           {
+             "type": "text",
+             "id": "title",
+             "label": "Title"
+           },
+           {
+             "type": "color",
+             "id": "color_title",
+             "label": "Color Title",
+             "default": "#1D54A6"
+           },
+           {
+             "type": "richtext",
+             "id": "desc",
+             "label": "Description"
+           },
+           {
+             "type": "color",
+             "id": "color_desc",
+             "label": "Color Title",
+             "default": "#4F4F4F"
+           }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Banner With Text Column",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

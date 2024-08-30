@@ -1,0 +1,142 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+
+<section class="article-template page-width max-sm:!px-[0]" itemscope itemtype="http://schema.org/BlogPosting">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when '@app' -%}
+        <div class="page-width page-width--narrow">
+          {% render block %}
+        </div>
+      {%- when 'featured_image' -%}
+    
+          {%- if block.settings.image_banner -%}
+            {%  assign  image =  block.settings.image_banner %} 
+            {%  assign  image_mobile =  block.settings.mobile_banner %} 
+           
+          {%- endif -%}
+          <div
+            class="!mt-[0] {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            <div
+              class="article-template__hero-{{ block.settings.image_height }}  bg-[url('{{ image |  image_url }}')] bg-cover bg-center bg-no-repeat w-full max-sm:bg-[url('{{ image_mobile |  image_url }}')]"
+              itemprop="image"
+            >
+
+              <div class="text-[#fff] py-[83px] max-w-[670px] m-auto text-center max-sm:max-w-[310px] max-sm:w-full max-sm:m-auto">
+                <h2 class="text-[48px] uppercase font-[250] leading-[48px] mb-[24px] font-['Museo_Sans_Cyrl'] max-sm:text-[36px] max-sm:mb-[8px]">
+                  {{ page.title }}
+    
+                </h2>  
+                  <div class="text-[18px] font-light leading-[32px]">
+                    <span>
+                      {{ block.settings.excerpt }}
+                    </span>
+                  </div>
+                </div>
+            </div>
+           
+          </div>
+        
+      {%- when 'content' -%}
+
+        <div class="flex justify-between gap-[120px] mt-[52px] max-lg:gap-[24px] max-md:flex-wrap max-sm:px-[20px]">
+        <div class="w-full max-w-[640px] text-[20px] leading-[30px] font-light ">
+          {{ block.settings.right_content }}
+        </div>
+        <div
+          class="text-[#4f4f4f] text-[14px] max-w-[715px]  leading-[25px] font-light max-lg:max-w-[350px]"
+        >
+          {{ block.settings.richtext }}
+        </div>
+        </div>
+
+    {%- endcase -%}
+  {%- endfor -%}
+</section>
+
+
+{% schema %}
+{
+  "name": "Card More",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+
+    {
+      "type": "featured_image",
+      "name": "t:sections.main-article.blocks.featured_image.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_banner",
+          "label": "Banner Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_banner",
+          "label": "Banner Mobile Image"
+        },
+        {
+          "type": "richtext",
+          "id": "excerpt",
+          "label": "Excerpt"
+        },
+        {
+          "type": "select",
+          "id": "image_height",
+          "options": [
+            {
+              "value": "adapt",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__1.label"
+            },
+            {
+              "value": "small",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__2.label"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__3.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__4.label"
+            }
+          ],
+          "default": "adapt",
+          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.label",
+          "info": "t:sections.main-article.blocks.featured_image.settings.image_height.info"
+        }
+      ]
+    },
+    
+    {
+      "type": "content",
+      "name": "t:sections.main-article.blocks.content.name",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "right_content",
+          "label": "Connter Right"
+        },
+        {
+          "type": "richtext",
+          "id": "richtext",
+          "label": "Content Left"
+        }
+      ],
+      "limit": 1
+    }
+  ],
+  "presets": [
+      {
+        "name": "Card More",
+        "category": "custom"
+      }
+    ]
+}
+{% endschema %}

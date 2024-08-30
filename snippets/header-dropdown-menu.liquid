@@ -1,0 +1,152 @@
+{% comment %}
+  Renders a standard dropdown style menu for the header.
+
+  Usage:
+  {% render 'header-dropdown-menu', menu:menu %}
+{% endcomment %}
+
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in menu.links -%}
+      <li>
+        {%- if link.links != blank -%}
+          {%- if link['handle'] == 'services' -%}
+            <header-menu>
+              <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+                <summary id="HeaderMenu-{{ link.handle }}" class="header__menu-item list-menu__item link focus-inset">
+                  <a
+                    href="{{ link.url }}"
+                    {%- if link.child_active %}
+                    class="header__active-menu-item"
+                    {% endif %}>
+                    {{- link.title | escape -}}
+                  </a>
+                  {% render 'icon-caret' %}
+                </summary>
+                <div
+                  id="MegaMenu-Content-{{ forloop.index }}"
+                  class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                  tabindex="-1">
+                  {% comment %} {% if link.levels == 1 and   %} mega-menu__list--condensed{% endif %} {% endcomment %}
+                  <ul class="
+                      page-width
+                      mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}
+                        !flex !flex-wrap !gap-[10px] !items-center max-w-[1370px] !justify-start
+                    " role="list">
+                    {%- for childlink in link.links -%}
+                      {% comment %} <p>
+                        {{- childlink.title | escape -}}
+
+                      </p> {% endcomment %}
+                       {% assign metaLinks = shop.metaobjects.mega_menu_services.values | where: 'link_name', childlink.handle %} 
+                        {% comment %} {{ metaLinks | json }} {% endcomment %}
+                        
+                        {% for meta in metaLinks -%}
+                          
+                          <li class="w-[310px] h-[172px]">
+                            <a href="{{ childlink.url }}" class="bg-[url('{{  meta.image |  image_url   }}')] flex items-center justify-start w-full h-full  block bg-center bg-no-repeat bg-cover">
+                                <div class="flex flex-col h-full justify-end pl-[24px] pr-[24px] pb-[16px]">
+                                  <h6 class="xoski text-[20px] text-[#fff] font-light leading-[normal] max-w-[200px] w-full">{{- childlink.title | escape -}}</h6>
+                                  <p class="text-[#F2F2F2] text-[14px] not-italic font-light leading-[180%]">{{ meta.description }}</p>
+                                </div>
+                             
+                            </a>
+                          </li>
+                          {% endfor %}
+                    
+                        {%- endfor -%}
+                        </ul>
+          
+          {% else %}
+          <header-menu>
+            <details id="Details-HeaderMenuDrop-{{ forloop.index }}">
+              <summary
+                id="HeaderMenu-{{ link.handle }}"
+                class="header__menu-item list-menu__item link focus-inset"
+              >
+                <a href="{{ link.url }}"
+                  {%- if link.child_active %}
+                    class="header__active-menu-item"
+                  {% endif %}
+                >
+                  {{- link.title | escape -}}
+                </a>
+                {% render 'icon-caret' %}
+              </summary>
+              <ul
+                id="HeaderMenu-MenuList-{{ forloop.index }}"
+                class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
+                role="list"
+                tabindex="-1"
+              >
+                {%- for childlink in link.links -%}
+                  <li>
+                    {%- if childlink.links == blank -%}
+                      <a
+                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                        href="{{ childlink.url }}"
+                        class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %} text-[#5B5B5B] text-[13px] not-italic font-normal leading-[24px]"
+                        {% if childlink.current %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                        {{ childlink.title | escape }}
+                      </a>
+                    {%- else -%}
+                      <details id="Details-HeaderSubMenu-{{ link.handle }}-{{ childlink.handle }}">
+                        <summary
+                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                          class="header__menu-item link link--text list-menu__item focus-inset caption-large"
+                        >
+                          <span>{{ childlink.title | escape }}</span>
+                          {% render 'icon-caret' %}
+                        </summary>
+                        <ul
+                          id="HeaderMenu-SubMenuList-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                          class="header__submenu list-menu motion-reduce"
+                        >
+                          {%- for grandchildlink in childlink.links -%}
+                            <li>
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                href="{{ grandchildlink.url }}"
+                                class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %} text-[#5B5B5B] text-[13px] not-italic font-normal leading-[24px]"
+                                {% if grandchildlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                              >
+                                {{ grandchildlink.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      </details>
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </details>
+          </header-menu>
+        {%- endif -%}
+        {%- else -%}
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span
+              {%- if link.current %}
+                class="header__active-menu-item"
+              {% endif %}
+            >
+              {{- link.title | escape -}}
+            </span>
+          </a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>

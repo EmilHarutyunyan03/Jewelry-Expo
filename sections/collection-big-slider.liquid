@@ -1,0 +1,272 @@
+{% style %}
+  #collection-big-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+{% endstyle %}
+<style>
+  .collection-big-slider {
+    .swiper {
+      width: 100%;
+      padding: 38px 0;
+    }
+
+    .swiper-slide {
+
+
+      /*
+
+   background-position: center; 
+   background-size: cover; 
+*/
+      width: 190px;
+      height: 300px;
+      z-index: 10;
+      p {
+        opacity: 0;
+      }
+      &.swiper-slide-active p {
+        transition: all 0.3s linear;
+        opacity: 1;
+      }
+    }
+
+    .swiper-3d .swiper-slide-shadow-left {
+      background-image: none;
+    }
+    .swiper-3d .swiper-slide-shadow-right {
+      background-image: none;
+    }
+    .swiper-slide img {
+      opacity: 0.5;
+    }
+    .swiper-slide.swiper-slide-active img {
+      opacity: 1;
+      transform: scale(1.1);
+      transition: all 0.3s linear;
+    }
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 160px;
+      overflow:clip !important
+    }
+  }
+  .swiper-nav-wrap {
+    position: absolute;
+    max-width: 360px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* height: 100%; */
+    z-index: 1;
+  }
+</style>
+<div id="collection-big-{{ section.id }}">
+  <div style="background-image: url({{ section.settings.background | img_url: 'master' }});" class="relative [background-size:cover] pt-[50px] pb-[50px] bg-[center_center] bg-no-repeat  max-md:pt-[0] color-{{ section.settings.color_scheme }}">
+    <div class="max-w-[630px] w-full m-auto pt-[60px] text-center text-[#1E54A5] mb-[40px] max-md:pt-[40px]  max-md:max-w-[350px]">
+      <p class="text-[16px] font-normal leading-[24px] mb-[8px]">{{ section.settings.litle_text }}</p>
+      <h2 class="text-[48px] font-light leading-[normal] mb-[12px]  max-md:text-[32px]  ">{{ section.settings.title }}</h2>
+      <p class="text-[16px]  font-normal leading-[24px] mb-[20px] text-[#5B5B5B] max-md:text-[14px]">{{ section.settings.desc }}</p>
+      <p class="text-[16px] font-normal leading-[24px] max-md:text-[14px]">{{ section.settings.info }}</p>
+    </div>
+    <div class="swiper collection-big-swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide " data-url="{{block.settings.button_link}}">
+          <a href="{{block.settings.button_link}}" class="block flex flex-col justify-between h-full items-center ">
+              {{ block.settings.image
+                  | image_url: width: 190
+                  | image_tag: loading: 'lazy', class: 'block object-cover [filter:drop-shadow(1px_22px_21px_#a0a0a0)] max-sm:max-w-[160px] w-full'
+              }}
+              <p class="text-center text-[24px] text-[#1E54A5] font-normal leading-[24px]">{{ block.settings.title }}</p>
+
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-nav-wrap">
+        <div class="swiper-button-prev-big">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none">
+            <circle
+              cx="25"
+              cy="25"
+              r="25"
+              transform="matrix(-1 0 0 1 50 0)"
+              fill="#66A7DE" />
+            <path d="M28.5351 32.3763C28.6979 32.3763 28.8607 32.3134 28.9822 32.1875C29.2231 31.9401 29.2187 31.5451 28.9713 31.3043L22.5043 24.9935L28.9583 18.6958C29.2057 18.4549 29.2101 18.0599 28.9692 17.8125C28.7283 17.5651 28.3311 17.5608 28.0859 17.8017L21.1719 24.5464C21.0525 24.6636 20.9831 24.8242 20.9831 24.9935C20.9831 25.1628 21.0525 25.3234 21.1719 25.4405L28.0989 32.1984C28.2205 32.3177 28.3767 32.3763 28.5351 32.3763Z" fill="white" />
+          </svg>
+        </div>
+        <div class="swiper-button-next-big">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none">
+            <circle
+              cx="25"
+              cy="25"
+              r="25"
+              fill="#66A7DE" />
+            <path d="M21.4649 32.3763C21.3021 32.3763 21.1393 32.3134 21.0178 32.1875C20.7769 31.9401 20.7813 31.5451 21.0287 31.3043L27.4957 24.9935L21.0417 18.6958C20.7943 18.4549 20.7899 18.0599 21.0308 17.8125C21.2717 17.5651 21.6689 17.5608 21.9141 17.8017L28.8281 24.5464C28.9475 24.6636 29.0169 24.8242 29.0169 24.9935C29.0169 25.1628 28.9475 25.3234 28.8281 25.4405L21.9011 32.1984C21.7795 32.3177 21.6233 32.3763 21.4649 32.3763Z" fill="white" />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center mt-[38px] justify-center">
+      {% render 'button-arrow'
+        , text: section.settings.button_title
+        , url: section.settings.button_link
+        , class: 'collection-big-slider-url text-[14px] w-[fit-content]  font-normal  flex justify-center items-center gap-[10px] px-[38px] py-[18px] bg-[rgba(var(--color-button))] text-[rgba(var(--color-button-text))] group '
+      %}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttonUrl = document.querySelector('.collection-big-slider-url')
+    const swiperBigSlider = new Swiper('.collection-big-swiper', {
+      effect: 'coverflow',
+      grabCursor: true,
+      loop: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      spaceBetween: 150,
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 0,
+        modifier: 1,
+        slideShadows: true,
+      },
+      initialSlide: 4,
+      navigation: {
+        nextEl: '.swiper-button-next-big',
+        prevEl: '.swiper-button-prev-big',
+      },
+    });
+    swiperBigSlider.on('slideChange', function (e) {
+      const activeIndex = swiperBigSlider.activeIndex;
+      const activeSlide = swiperBigSlider.slides[activeIndex];
+      buttonUrl.href = activeSlide.dataset.url
+     });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Collection Big Slider",
+    "tag": "section",
+    "class": "collection-big-slider",
+    "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color Schema",
+        "default": "schema-1"
+      },
+      {
+        "type": "collection_list",
+        "id": "collection_list",
+        "label": "Collections",
+        "limit": 50
+      },
+      {
+        "type": "image_picker",
+        "id": "background",
+        "label": "Background Image"
+      },
+      {
+        "type": "text",
+        "id": "litle_text",
+        "label": "Litle Text",
+        "default": "Try Out Our"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title Text",
+        "default": "Diamond Search"
+      },
+
+      {
+        "type": "inline_richtext",
+        "id": "desc",
+        "label": "Description",
+        "default": "Spin actual diamonds in 360° HD and zoom in up to 40x. One of the world's biggest collections of loose diamonds, at your fingertips."
+      },
+      {
+        "type": "text",
+        "id": "info",
+        "label": "Info Text",
+        "default": "To Get Started, Just Select The Shape You Want:"
+      },
+      {
+        "type": "text",
+        "id": "button_title",
+        "label": "Button Title",
+        "default": "SHOP COLLECTION"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 70
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 70
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Img Text",
+        "type": "slide",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Title"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection Big Slider",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

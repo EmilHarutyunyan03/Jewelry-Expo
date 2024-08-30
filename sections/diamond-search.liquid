@@ -1,0 +1,1480 @@
+{{ 'styles.css' | asset_url | stylesheet_tag }}
+
+<svg style="display: none;"><defs><g id="evosem-info-icon"><path d="M7.4375 0.125C3.40772 0.125 0.125 3.40772 0.125 7.4375C0.125 11.4673 3.40772 14.75 7.4375 14.75C11.4673 14.75 14.75 11.4673 14.75 7.4375C14.75 3.40772 11.4673 0.125 7.4375 0.125ZM7.4375 1.25C10.8608 1.25 13.625 4.01416 13.625 7.4375C13.625 10.8608 10.8608 13.625 7.4375 13.625C4.01416 13.625 1.25 10.8608 1.25 7.4375C1.25 4.01416 4.01416 1.25 7.4375 1.25ZM6.875 3.5V4.625H8V3.5H6.875ZM6.875 5.75V11.375H8V5.75H6.875Z" /><g></defs></svg>
+<svg style="display: none;"><defs><g id="evosem-image-icon"><rect x="-87.26" y="227.06" width="356.08" height="33.81" rx="16.19" ry="16.19" transform="translate(-167.71 213.24) rotate(-62.81)" /><rect x="86.6" y="197.27" width="305.82" height="33.81" rx="16.19" ry="16.19" transform="translate(191.68 531.9) rotate(-123.24)" /> <rect x="272.23" y="253.71" width="182.68" height="33.81" rx="16.19" ry="16.19" transform="translate(805.02 167.96) rotate(130.25)" /><rect x="361.46" y="260.33" width="182.68" height="33.81" rx="16.19" ry="16.19" transform="translate(454.84 808.16) rotate(-121.7)" /> <path d="M333.83,33c37.03,0,67.16,30.13,67.16,67.16s-30.13,67.16-67.16,67.16-67.16-30.13-67.16-67.16,30.13-67.16,67.16-67.16m0-33c-55.32,0-100.16,44.84-100.16,100.16s44.84,100.16,100.16,100.16,100.16-44.84,100.16-100.16S389.15,0,333.83,0h0Z" /></g></defs></svg>
+<svg style="display: none;"><defs><g id="evosem-rotate-icon"><path d="M5.94.99c-1.37 0-2.17.88-2.26.98a.75.75 0 0 0 .08 1.05c.3.27.77.24 1.05-.06.02-.02.44-.47 1.13-.47.54 0 .81.2.81.62 0 .51-.55.63-.74.63h-.26a.75.75 0 1 0 0 1.5c.47 0 1.25.13 1.25.62 0 .54-.58.63-.93.63-.81 0-1.24-.46-1.25-.47A.75.75 0 0 0 3.68 7c.09.1.9.99 2.39.99 1.45 0 2.43-.86 2.43-2.13 0-.6-.25-1.1-.68-1.48.27-.33.43-.76.43-1.27C8.25 1.86 7.3 1 5.94 1ZM18 .99a2.5 2.5 0 0 0-2.5 2.5v2a2.5 2.5 0 0 0 5 0v-2A2.5 2.5 0 0 0 18 .99Zm-5.03 0c-1.2.05-3.47 1.04-3.47 4.37v.13a2.5 2.5 0 1 0 2.5-2.5h-.13c.5-.43 1.06-.5 1.17-.5a.75.75 0 0 0-.07-1.5ZM18 2.49a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1Zm-6 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM2.94 8.77C.94 9.53 0 10.53 0 11.5c0 1.9 3.67 3.94 11.7 4l-.98.97a.75.75 0 1 0 1.06 1.06l2.25-2.25a.75.75 0 0 0 0-1.06l-2.25-2.25a.75.75 0 1 0-1.06 1.06l.96.97C5.1 13.94 1.5 12.34 1.5 11.5c0-.5 1.32-1.29 3.8-1.84-.9-.26-1.69-.55-2.36-.9Zm18.12 0c-.67.34-1.47.64-2.36.89 2.48.55 3.8 1.34 3.8 1.84 0 .43-1.4 1.56-5.6 2.17a.75.75 0 0 0 .22 1.48C19.7 14.78 24 13.81 24 11.5c0-.97-.95-1.97-2.94-2.73Z"/></g></defs></svg>
+<div class="page-width">
+  
+  <div id="evosem-diamond-search" class="diamond-search-main">
+	<div class="diamond-search-inner"  :style="{display: !singleDiamondView ? 'block' : 'none'}">
+		<h2 class="diamond-search-page-title uppercase evosem-text-center">Search For Diamonds</h2>
+
+		<div class="diamond-search-main-controller" v-if="!mountended">
+			<div class="diamond-search-shapes">
+				<div>
+					<div class="_evosem-skeleton _10 inline_block" v-for="index in 8">.</div>
+				</div>
+			</div>
+			<div class="diamond-search-filter-columns">
+				<div class="diamond-search-filter-column" v-for="index in 8">
+					<div class="_evosem-skeleton _25">.</div> <div class="_evosem-skeleton">.</div> <div class="_evosem-skeleton _75">.</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="diamond-search-main-controller" v-if="mountended">
+			<div class="diamond-search-head __border-bottom">
+				<div class="uppercase head-left-side d-sm-none"><strong>Filters</strong></div>
+				<div class="uppercase head-right-side">
+					<ul class="head-actions unstyled-list">
+						<li class="head-action">
+							<div class="filter-input-fields">
+								<div class="filter-field filter-search">
+									<label>
+										<div class="label-text"><span class="__label-text">Search by sku</span></div>
+										<input id="sku-search" type="search" name="sku-search" @input="skuSearchInput" v-model="searchParams.skusearch" />
+									</label>
+								</div>
+							</div>
+						</li>
+						<li class="head-action">
+							<div class="wide-checkbox-group">
+								<div class="wide-checkbox">
+									<label for="diamonds-type-natural" class="wide-toggle-checkbox">
+										<input type="radio" id="diamonds-type-natural" name="diamond-type-switch" v-model="is_natural" value="true" @change="switchToNatural"  />
+											<span class="toggle-icon"></span> 
+											<span class="toggle-text">
+												<span>Natural</span>
+											</span>
+									</label>
+								</div>
+								<div class="wide-checkbox">
+									<label for="diamonds-type-labcreated" class="wide-toggle-checkbox">
+										<input type="radio" id="diamonds-type-labcreated" name="diamond-type-switch" v-model="is_natural" value="false" @change="switchToNatural"  />
+										<span class="toggle-icon"></span>
+										<span class="toggle-text">
+											<span>Lab Created</span>
+										</span>
+									</label>
+								</div>
+							</div>
+						</li>
+						<li class="head-action">
+							<button class="action-btn uppercase reset-filter" aria-label="Reset filter" @click="resetSearch">
+								<span class="icon"><svg viewBox="0 0 19 19" fill="#000" xmlns="http://www.w3.org/2000/svg"> <path d="M9.3125 0.375C4.38184 0.375 0.375 4.38184 0.375 9.3125C0.375 14.2432 4.38184 18.25 9.3125 18.25C14.2432 18.25 18.25 14.2432 18.25 9.3125V8.625H16.875V9.3125C16.875 13.4966 13.4966 16.875 9.3125 16.875C5.12842 16.875 1.75 13.4966 1.75 9.3125C1.75 5.12842 5.12842 1.75 9.3125 1.75C11.5684 1.75 13.5718 2.74365 14.9575 4.30664L13.3892 5.875H18.25V1.01416L15.9297 3.33447C14.2915 1.52441 11.939 0.375 9.3125 0.375Z"/> </svg></span>
+								<span class="text">Reset <span class="d-sm-none">filter</span></span>
+							</button>
+						</li>
+						<li class="head-action">
+							<button class="action-btn uppercase share-filter" aria-label="Share" @click="shareYourSearch">
+								<span class="icon"><svg viewBox="0 0 20 19" fill="#000" xmlns="http://www.w3.org/2000/svg"><path d="M16.1875 0.375C14.2969 0.375 12.75 1.92188 12.75 3.8125C12.75 4.04883 12.7769 4.27441 12.8198 4.5L6.58935 7.30371C5.96094 6.44434 4.95117 5.875 3.8125 5.875C1.92188 5.875 0.375 7.42188 0.375 9.3125C0.375 11.2031 1.92188 12.75 3.8125 12.75C4.95654 12.75 5.97705 12.1753 6.6001 11.3052L12.8359 14.0767C12.7822 14.313 12.75 14.5601 12.75 14.8125C12.75 16.7031 14.2969 18.25 16.1875 18.25C18.0781 18.25 19.625 16.7031 19.625 14.8125C19.625 12.9219 18.0781 11.375 16.1875 11.375C15.0435 11.375 14.0229 11.9497 13.3999 12.8198L7.16406 10.0537C7.21777 9.81201 7.25 9.56494 7.25 9.3125C7.25 9.05469 7.21777 8.80225 7.16406 8.56055L13.3623 5.75684C13.9854 6.65918 15.022 7.25 16.1875 7.25C18.0781 7.25 19.625 5.70312 19.625 3.8125C19.625 1.92188 18.0781 0.375 16.1875 0.375ZM16.1875 1.75C17.3369 1.75 18.25 2.66309 18.25 3.8125C18.25 4.96191 17.3369 5.875 16.1875 5.875C15.0381 5.875 14.125 4.96191 14.125 3.8125C14.125 2.66309 15.0381 1.75 16.1875 1.75ZM3.8125 7.25C4.96191 7.25 5.875 8.16309 5.875 9.3125C5.875 10.4619 4.96191 11.375 3.8125 11.375C2.66309 11.375 1.75 10.4619 1.75 9.3125C1.75 8.16309 2.66309 7.25 3.8125 7.25ZM16.1875 12.75C17.3369 12.75 18.25 13.6631 18.25 14.8125C18.25 15.9619 17.3369 16.875 16.1875 16.875C15.0381 16.875 14.125 15.9619 14.125 14.8125C14.125 13.6631 15.0381 12.75 16.1875 12.75Z" /></svg></span>
+								<span class="text">Share <span class="d-sm-none">your search</span></span>
+								<span :class="{'active': copied}" class="text text-copied">Copied</span>
+							</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="diamond-search-filters">
+				<div class="diamond-search-filter">
+					<div class="diamond-search-shapes">
+						<div class="diamond-search-dialog-opener">
+							<button class="diamond-search-dialog-opener-label evosem-btn d-md-none" @click="showDialogSearch('shape')">Shape</button>
+						</div>
+						<div class="diamond-search-dialog" :class="{'active': visibleDialogSearch === 'shape'}">
+							<div class="diamond-search-dialog-actions">
+								<div class="diamond-search-dialog-reset"><button class="reset-btn" @click="resetSearch">Reset Filter</button></div>
+								<div class="diamond-search-dialog-close"><button class="close-btn" @click="closeDialogSearch">Close</button></div>
+							</div>
+							<div class="diamond-search-dialog-inner">
+								<div class="filter-label">
+									<span class="text uppercase">Shape</span>
+									<div class="info-box">
+										<div class="info-box-title">Shape</div>
+										<div class="info-box-content">Choose a diamond shape that suits both your ring setting and the recipient's personality. Round Cut, Princess Cut, and Cushion Cut are some varieties you may consider.</div>
+									</div>
+								</div>
+								<ul class="shapes-actions unstyled-list">
+									<li v-for="shape in diamondsShapes">
+										<button :class="'shape-'+shape.label+ (searchParams.selectedShape.includes(shape.value) ? ' active' : '') " class="action-btn" @click="updateShape(shape.value)">
+											<span class="shape-icon">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><use :xlink:href="'#__evosem-shape-'+shape.label"></use></svg>
+											</span>
+											<span class="shape-text">$[shape.label]</span>
+										</button>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="diamond-search-filter-columns">
+
+
+						<div class="diamond-search-filter-column mobile-only">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearch('shape')">Shape</button>
+							</div>
+						</div>
+
+
+						<div class="diamond-search-filter-column">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearch('carat')">Carat</button>
+							</div>
+							<div class="diamond-search-dialog" :class="{'active': visibleDialogSearch === 'carat'}">
+								<div class="diamond-search-dialog-actions">
+									<div class="diamond-search-dialog-reset"><button class="reset-btn" @click="resetSearch">Reset Filter</button></div>
+									<div class="diamond-search-dialog-close"><button class="close-btn" @click="closeDialogSearch">Close</button></div>
+								</div>
+								<div class="diamond-search-dialog-inner">
+									<div class="filter-label">
+										<span class="text uppercase">Carat</span>
+										<div class="info-box">
+											<div class="info-box-title">Carat</div>
+											<div class="info-box-content">When it comes to measuring the weight of a diamond, the unit used is carat. One carat is equal to 200 milligrams or 0.2 grams. Although carat weight and diamond size have a relationship, carat doesn't directly determine the size of the diamond.</div>
+										</div>
+									</div>
+									<div class="filter-inner">
+										<div id="carat-slider"></div>
+										<div class="filter-input-fields">
+											<div class="filter-field">
+												<label>
+													<div class="label-text"><span class="__label-text">Min Carat</span></div>
+													<input id="display-carat-slide-from" type="text" name="mincarat" @input="minCaratChange" />
+												</label>
+											</div>
+											<div class="filter-field">
+												<label>
+													<div class="label-text"><span class="__label-text">Max Carat</span></div>
+													<input id="display-carat-slide-to" type="text" name="maxcarat" @input="maxCaratChange" />
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="diamond-search-filter-column">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearch('price')">Price</button>
+							</div>
+							<div class="diamond-search-dialog" :class="{'active': visibleDialogSearch === 'price'}">
+								<div class="diamond-search-dialog-actions">
+									<div class="diamond-search-dialog-reset"><button class="reset-btn" @click="resetSearch">Reset Filter</button></div>
+									<div class="diamond-search-dialog-close"><button class="close-btn" @click="closeDialogSearch">Close</button></div>
+								</div>
+								<div class="diamond-search-dialog-inner">
+									<div class="filter-label">
+										<span class="text uppercase">Price</span>
+									</div>
+									<div class="filter-inner">
+										<div id="price-slider"></div>
+										<div class="filter-input-fields">
+											<div class="filter-field">
+												<label>
+													<div class="label-text"><span class="__label-text">Min Price</span></div>
+													<input id="display-price-slide-from" type="text" name="minprice" @input="minPriceChange" />
+												</label>
+											</div>
+											<div class="filter-field">
+												<label>
+													<div class="label-text"><span class="__label-text">Max Price</span></div>
+													<input id="display-price-slide-to" type="text" name="maxprice" @input="maxPriceChange" />
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="diamond-search-filter-column">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearch('color')">Color</button>
+							</div>
+							<div class="diamond-search-dialog" :class="{'active': visibleDialogSearch === 'color'}">
+								<div class="diamond-search-dialog-actions">
+									<div class="diamond-search-dialog-reset"><button class="reset-btn" @click="resetSearch">Reset Filter</button></div>
+									<div class="diamond-search-dialog-close"><button class="close-btn" @click="closeDialogSearch">Close</button></div>
+								</div>
+								<div class="diamond-search-dialog-inner">
+									<div class="filter-label">
+										<span class="text uppercase">Color</span>
+										<div class="info-box">
+											<div class="info-box-title">Color</div>
+											<div class="info-box-content">The color of a diamond is its natural color, and it remains the same over time. Diamonds with no color let more light pass through them compared to colored diamonds, resulting in more sparkle and fire.</div>
+										</div>
+										<div class="sub-text">
+											<div class="sub-text-left">Near Colorless</div>
+											<div class="sub-text-right">Colorless</div>
+										</div>
+									</div>
+									<div class="filter-inner">
+										<div id="color-slider"></div>
+										<div class="steps-labels"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="diamond-search-filter-column">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearch('clarity')">Clarity</button>
+							</div>
+							<div class="diamond-search-dialog" :class="{'active': visibleDialogSearch === 'clarity'}">
+								<div class="diamond-search-dialog-actions">
+									<div class="diamond-search-dialog-reset"><button class="reset-btn" @click="resetSearch">Reset Filter</button></div>
+									<div class="diamond-search-dialog-close"><button class="close-btn" @click="closeDialogSearch">Close</button></div>
+								</div>
+								<div class="diamond-search-dialog-inner">
+									<div class="filter-label">
+										<span class="text uppercase">Clarity</span>
+										<div class="info-box">
+											<div class="info-box-title">Clarity</div>
+											<div class="info-box-content">Diamond clarity refers to the degree of the presence of inclusions and blemishes in a diamond. Inclusions are internal imperfections while blemishes are external ones.</div>
+										</div>
+										<div class="sub-text">
+											<div class="sub-text-left">Inclusion Visible at 10x Magnification</div>
+											<div class="sub-text-right">Flawless</div>
+										</div>
+									</div>
+									<div class="filter-inner">
+										<div id="clarity-slider"></div>
+										<div class="steps-labels"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="diamond-search-filter-column mobile-only">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearchMore" v-if="!visibleDialogSearchMore">+</button>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+			<div class="diamond-search-head __footer __border-top">
+				<div class="uppercase head-left-side">
+					<ul class="head-actions unstyled-list">
+						<li class="head-action">
+							<button class="action-btn uppercase reset-filter" aria-label="Advanced Filters" @click="toggleAdvancedFilter">
+								<span class="text">Advanced Filters</span>
+								<span class="icon">
+									<svg viewBox="0 0 13 8" xmlns="http://www.w3.org/2000/svg">
+										<path d="M0.726562 0.015625L0.0234375 0.734375L6.5 7.07422L12.9727 0.734375L12.2773 0.015625L6.5 5.67578L0.726562 0.015625Z"></path>
+									</svg>
+								</span>
+							</button>
+						</li>
+					</ul>
+				</div>
+				<div class="uppercase head-right-side">
+					<ul class="head-actions unstyled-list">
+						<li class="head-action">
+							<button class="action-btn uppercase reset-filter" aria-label="Reset filter" @click="resetSearch">
+								<span class="icon"><svg viewBox="0 0 19 19" fill="#000" xmlns="http://www.w3.org/2000/svg"> <path d="M9.3125 0.375C4.38184 0.375 0.375 4.38184 0.375 9.3125C0.375 14.2432 4.38184 18.25 9.3125 18.25C14.2432 18.25 18.25 14.2432 18.25 9.3125V8.625H16.875V9.3125C16.875 13.4966 13.4966 16.875 9.3125 16.875C5.12842 16.875 1.75 13.4966 1.75 9.3125C1.75 5.12842 5.12842 1.75 9.3125 1.75C11.5684 1.75 13.5718 2.74365 14.9575 4.30664L13.3892 5.875H18.25V1.01416L15.9297 3.33447C14.2915 1.52441 11.939 0.375 9.3125 0.375Z"/> </svg></span>
+								<span class="text">Reset <span class="d-sm-none">filter</span></span>
+							</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="diamond-search-filters diamond-search-filters-advanced" :style="{display: advancedOptionsOn ? 'block' : 'none'}">
+				<div class="diamond-search-filter">
+					<div class="diamond-search-filter-columns">
+
+						<div class="diamond-search-filter-column" :class="{'hide-column-mobile': !visibleDialogSearchMore}">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearch('cut')">Cut</button>
+							</div>
+							<div class="diamond-search-dialog" :class="{'active': visibleDialogSearch === 'cut'}">
+								<div class="diamond-search-dialog-actions">
+									<div class="diamond-search-dialog-reset"><button class="reset-btn" @click="resetSearch">Reset Filter</button></div>
+									<div class="diamond-search-dialog-close"><button class="close-btn" @click="closeDialogSearch">Close</button></div>
+								</div>
+								<div class="diamond-search-dialog-inner">
+									<div class="filter-label">
+										<span class="text uppercase">Cut</span>
+										<div class="info-box">
+											<div class="info-box-title">Cut</div>
+											<div class="info-box-content">The cut of a diamond refers to its angles and proportions, and it determines its beauty. The skill of the diamond cutter determines how well it reflects and refracts light.</div>
+										</div>
+									</div>
+									<div class="filter-inner">
+										<div id="cut-slider"></div>
+										<div class="steps-labels"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="diamond-search-filter-column" :class="{'hide-column-mobile': !visibleDialogSearchMore}">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearch('polish')">Polish</button>
+							</div>
+							<div class="diamond-search-dialog" :class="{'active': visibleDialogSearch === 'polish'}">
+								<div class="diamond-search-dialog-actions">
+									<div class="diamond-search-dialog-reset"><button class="reset-btn" @click="resetSearch">Reset Filter</button></div>
+									<div class="diamond-search-dialog-close"><button class="close-btn" @click="closeDialogSearch">Close</button></div>
+								</div>
+								<div class="diamond-search-dialog-inner">
+									<div class="filter-label">
+										<span class="text uppercase">Polish</span>
+										<div class="info-box">
+											<div class="info-box-title">Polish</div>
+											<div class="info-box-content">Polish describes the finish of a diamond's facets and is graded from Ideal to Poor. Good or higher polish grades have little impact on a diamond's brilliance and are ideal for high-quality jewelry. Some gem labs, like Gemscan, include polish when grading a diamond's overall cut.</div>
+										</div>
+									</div>
+									<div class="filter-inner">
+										<div id="polish-slider"></div>
+										<div class="steps-labels"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="diamond-search-filter-column" style="display: none !important;" :class="{'hide-column-mobile': !visibleDialogSearchMore}">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearch('ratio')">Ratio</button>
+							</div>
+							<div class="diamond-search-dialog" :class="{'active': visibleDialogSearch === 'ratio'}">
+								<div class="diamond-search-dialog-actions">
+									<div class="diamond-search-dialog-reset"><button class="reset-btn" @click="resetSearch">Reset Filter</button></div>
+									<div class="diamond-search-dialog-close"><button class="close-btn" @click="closeDialogSearch">Close</button></div>
+								</div>
+								<div class="diamond-search-dialog-inner">
+									<div class="filter-label">
+										<span class="text uppercase">Length to width ratio</span>
+										<div class="info-box">
+											<div class="info-box-title">Length to width ratio</div>
+											<div class="info-box-content">Length-to-Width Ratio: Shows diamond elongation from top. Personal preference varies. Popular ratios listed below for fancy shapes."</div>
+										</div>
+									</div>
+									<div class="filter-inner">
+										<div id="ratio-slider"></div>
+										<div class="filter-input-fields">
+											<div class="filter-field">
+												<label>
+													<div class="label-text"><span class="__label-text">Min</span></div>
+													<input id="display-ratio-slide-from" type="text" name="minratio" />
+												</label>
+											</div>
+											<div class="filter-field">
+												<label>
+													<div class="label-text"><span class="__label-text">Max</span></div>
+													<input id="display-ratio-slide-to" type="text" name="maxratio" />
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="diamond-search-filter-column" :class="{'hide-column-mobile': !visibleDialogSearchMore}">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearch('symmetry')">Symmetry</button>
+							</div>
+							<div class="diamond-search-dialog" :class="{'active': visibleDialogSearch === 'symmetry'}">
+								<div class="diamond-search-dialog-actions">
+									<div class="diamond-search-dialog-reset"><button class="reset-btn" @click="resetSearch">Reset Filter</button></div>
+									<div class="diamond-search-dialog-close"><button class="close-btn" @click="closeDialogSearch">Close</button></div>
+								</div>
+								<div class="diamond-search-dialog-inner">
+									<div class="filter-label">
+										<span class="text uppercase">Symmetry</span>
+										<div class="info-box">
+											<div class="info-box-title">Symmetry</div>
+											<div class="info-box-content">Determines facet alignment. Graded from Ideal to Poor. Good+ grades suit premium jewelry. Some labs include Symmetry in the Cut grade, e.g. Gemscan.</div>
+										</div>
+									</div>
+									<div class="filter-inner">
+										<div id="symmetry-slider"></div>
+										<div class="steps-labels"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="diamond-search-filter-column" :class="{'hide-column-mobile': !visibleDialogSearchMore}">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearch('table')">Table</button>
+							</div>
+							<div class="diamond-search-dialog" :class="{'active': visibleDialogSearch === 'table'}">
+								<div class="diamond-search-dialog-actions">
+									<div class="diamond-search-dialog-reset"><button class="reset-btn" @click="resetSearch">Reset Filter</button></div>
+									<div class="diamond-search-dialog-close"><button class="close-btn" @click="closeDialogSearch">Close</button></div>
+								</div>
+								<div class="diamond-search-dialog-inner">
+									<div class="filter-label">
+										<span class="text uppercase">Table %</span>
+										<div class="info-box">
+											<div class="info-box-title">Table %</div>
+											<div class="info-box-content">The top facet of a gemstone is the table. Its width is expressed as a percentage of the girdle diameter, known as table %.</div>
+										</div>
+									</div>
+									<div class="filter-inner">
+										<div id="table-slider"></div>
+										<div class="filter-input-fields">
+											<div class="filter-field">
+												<label>
+													<div class="label-text"><span class="__label-text">Min</span></div>
+													<input id="display-table-slide-from" type="text" name="mintable" @input="minTableChange" />
+												</label>
+											</div>
+											<div class="filter-field">
+												<label>
+													<div class="label-text"><span class="__label-text">Max</span></div>
+													<input id="display-table-slide-to" type="text" name="maxtable" @input="maxTableChange" />
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="diamond-search-filter-column" :class="{'hide-column-mobile': !visibleDialogSearchMore}">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearch('depth')">Depth</button>
+							</div>
+							<div class="diamond-search-dialog" :class="{'active': visibleDialogSearch === 'depth'}">
+								<div class="diamond-search-dialog-actions">
+									<div class="diamond-search-dialog-reset"><button class="reset-btn" @click="resetSearch">Reset Filter</button></div>
+									<div class="diamond-search-dialog-close"><button class="close-btn" @click="closeDialogSearch">Close</button></div>
+								</div>
+								<div class="diamond-search-dialog-inner">
+									<div class="filter-label">
+										<span class="text uppercase">Depth %</span>
+										<div class="info-box">
+											<div class="info-box-title">Depth %</div>
+											<div class="info-box-content">Diamond height, from culet to table. Depth % is height as % of girdle diameter.</div>
+										</div>
+									</div>
+									<div class="filter-inner">
+										<div id="depth-slider"></div>
+										<div class="filter-input-fields">
+											<div class="filter-field">
+												<label>
+													<div class="label-text"><span class="__label-text">Min</span></div>
+													<input id="display-depth-slide-from" type="text" name="minratio" />
+												</label>
+											</div>
+											<div class="filter-field">
+												<label>
+													<div class="label-text"><span class="__label-text">Max</span></div>
+													<input id="display-depth-slide-to" type="text" name="maxratio" />
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="diamond-search-filter-column stock-search-filter-column" :class="{'hide-column-mobile': !visibleDialogSearchMore}">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearch('SKU')">SKU</button>
+							</div>
+							<div class="diamond-search-dialog" :class="{'active': visibleDialogSearch === 'SKU'}">
+								<div class="diamond-search-dialog-actions">
+									<div class="diamond-search-dialog-reset"><button class="reset-btn" @click="resetSearch">Reset Filter</button></div>
+									<div class="diamond-search-dialog-close"><button class="close-btn" @click="closeDialogSearch">Close</button></div>
+								</div>
+								<div class="diamond-search-dialog-inner">
+									<div class="filter-label">
+										<span class="text uppercase">Stock Number</span>
+										<div class="info-box">
+											<div class="info-box-title">Stock Number</div>
+											<div class="info-box-content">The Diamond Stock Number is the unique identifier assigned to each diamond.</div>
+										</div>
+									</div>
+									<div class="filter-inner">
+										<div class="filter-input-fields">
+											<div class="filter-field filter-search">
+												<label>
+													<div class="label-text"><span class="__label-text">Search</span></div>
+													<input id="sku-search" type="search" name="sku-search" @input="skuSearchInput" v-model="searchParams.skusearch" />
+												</label>
+												<label style="flex: 0 1 30%;">
+													<div class="label-text"><span class="__label-text"></span></div>
+													<button class="filter-find-btn uppercase evosem-text-center evosem-btn" @click="skuSearchInput">Find</button>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="diamond-search-filter-column" :class="{'hide-column-mobile': !visibleDialogSearchMore}">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearch('laboratory')">Laboratory</button>
+							</div>
+							<div class="diamond-search-dialog" :class="{'active': visibleDialogSearch === 'laboratory'}">
+								<div class="diamond-search-dialog-actions">
+									<div class="diamond-search-dialog-reset"><button class="reset-btn" @click="resetSearch">Reset Filter</button></div>
+									<div class="diamond-search-dialog-close"><button class="close-btn" @click="closeDialogSearch">Close</button></div>
+								</div>
+								<div class="diamond-search-dialog-inner">
+									<div class="filter-label">
+										<span class="text uppercase">laboratory report</span>
+										<div class="info-box">
+											<div class="info-box-title">Laboratory Report</div>
+											<div class="info-box-content">Laboratory reports are critical for diamond grading, determining value and authenticity. The GIA or IGI offer grading reports for diamonds, detailing the 4Cs: carat, color, clarity, and cut.</div>
+										</div>
+									</div>
+									<div class="filter-inner checkboxes">
+										<label class="evosem-checkbox"  v-for="lab in diamondsLabs">
+											<input type="checkbox" :value="lab" @click="updateLabCerts(lab)" :checked="searchParams.lab.includes(lab)" /> <span class="evosem-checkbox-indicator"></span> <span>$[lab]</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="diamond-search-filter-column mobile-only">
+							<div class="diamond-search-dialog-opener">
+								<button class="diamond-search-dialog-opener-label evosem-btn" @click="showDialogSearchMore" v-if="visibleDialogSearchMore">-</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="diamond-search-main-results-sides" v-if="firstload">
+			<div class="diamond-search-main-controller diamond-search-main-results" :class="{'grid-view': displayMode === 'grid'}">
+				<div class="diamond-search-head __border-bottom">
+					<div class="uppercase head-left-side">
+						<ul class="head-actions tabs-actions unstyled-list">
+							<li class="head-action">
+								<button class="action-btn active uppercase" aria-label="Results">
+									<span class="text">Results <span class="count">($[query.count])</span></span>
+								</button>
+							</li>
+
+							<li class="head-action d-sm-none" style="display: none;">
+								<button class="action-btn uppercase" aria-label="Compare">
+									<span class="text">Compare <span class="count">(0)</span></span>
+								</button>
+							</li>
+						</ul>
+					</div>
+					<div class="uppercase head-right-side">
+						<ul class="head-actions unstyled-list">
+							<li class="head-action head-action-tab-switch">
+								<span class="uppercase" style="margin-right: 10px; color: var(--main-colour-light);">view</span>
+								<button :class="{ 'active' : displayMode === 'list' }" @click="switchViewMode('list')" class="action-btn uppercase list-view-toggle" aria-label="List View">
+									<span class="icon">
+										<svg viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg">
+											<path d="M2 0.5C1.60218 0.5 1.22064 0.658035 0.93934 0.93934C0.658035 1.22064 0.5 1.60218 0.5 2C0.5 2.39782 0.658035 2.77936 0.93934 3.06066C1.22064 3.34196 1.60218 3.5 2 3.5C2.39782 3.5 2.77936 3.34196 3.06066 3.06066C3.34196 2.77936 3.5 2.39782 3.5 2C3.5 1.60218 3.34196 1.22064 3.06066 0.93934C2.77936 0.658035 2.39782 0.5 2 0.5ZM7 1C6.86749 0.998126 6.73593 1.02261 6.61296 1.07202C6.48999 1.12143 6.37807 1.1948 6.2837 1.28784C6.18933 1.38088 6.11439 1.49176 6.06324 1.61401C6.0121 1.73627 5.98576 1.86747 5.98576 2C5.98576 2.13253 6.0121 2.26373 6.06324 2.38599C6.11439 2.50824 6.18933 2.61912 6.2837 2.71216C6.37807 2.8052 6.48999 2.87857 6.61296 2.92798C6.73593 2.97739 6.86749 3.00187 7 3H20C20.1325 3.00187 20.2641 2.97739 20.387 2.92798C20.51 2.87857 20.6219 2.8052 20.7163 2.71216C20.8107 2.61912 20.8856 2.50824 20.9368 2.38599C20.9879 2.26373 21.0142 2.13253 21.0142 2C21.0142 1.86747 20.9879 1.73627 20.9368 1.61401C20.8856 1.49176 20.8107 1.38088 20.7163 1.28784C20.6219 1.1948 20.51 1.12143 20.387 1.07202C20.2641 1.02261 20.1325 0.998126 20 1H7ZM2 6.5C1.60218 6.5 1.22064 6.65804 0.93934 6.93934C0.658035 7.22064 0.5 7.60218 0.5 8C0.5 8.39782 0.658035 8.77936 0.93934 9.06066C1.22064 9.34196 1.60218 9.5 2 9.5C2.39782 9.5 2.77936 9.34196 3.06066 9.06066C3.34196 8.77936 3.5 8.39782 3.5 8C3.5 7.60218 3.34196 7.22064 3.06066 6.93934C2.77936 6.65804 2.39782 6.5 2 6.5ZM7 7C6.86749 6.99813 6.73593 7.02261 6.61296 7.07202C6.48999 7.12143 6.37807 7.1948 6.2837 7.28784C6.18933 7.38088 6.11439 7.49176 6.06324 7.61401C6.0121 7.73627 5.98576 7.86748 5.98576 8C5.98576 8.13252 6.0121 8.26373 6.06324 8.38599C6.11439 8.50824 6.18933 8.61912 6.2837 8.71216C6.37807 8.8052 6.48999 8.87857 6.61296 8.92798C6.73593 8.97739 6.86749 9.00187 7 9H20C20.1325 9.00187 20.2641 8.97739 20.387 8.92798C20.51 8.87857 20.6219 8.8052 20.7163 8.71216C20.8107 8.61912 20.8856 8.50824 20.9368 8.38599C20.9879 8.26373 21.0142 8.13252 21.0142 8C21.0142 7.86748 20.9879 7.73627 20.9368 7.61401C20.8856 7.49176 20.8107 7.38088 20.7163 7.28784C20.6219 7.1948 20.51 7.12143 20.387 7.07202C20.2641 7.02261 20.1325 6.99813 20 7H7ZM2 12.5C1.60218 12.5 1.22064 12.658 0.93934 12.9393C0.658035 13.2206 0.5 13.6022 0.5 14C0.5 14.3978 0.658035 14.7794 0.93934 15.0607C1.22064 15.342 1.60218 15.5 2 15.5C2.39782 15.5 2.77936 15.342 3.06066 15.0607C3.34196 14.7794 3.5 14.3978 3.5 14C3.5 13.6022 3.34196 13.2206 3.06066 12.9393C2.77936 12.658 2.39782 12.5 2 12.5ZM7 13C6.86749 12.9981 6.73593 13.0226 6.61296 13.072C6.48999 13.1214 6.37807 13.1948 6.2837 13.2878C6.18933 13.3809 6.11439 13.4918 6.06324 13.614C6.0121 13.7363 5.98576 13.8675 5.98576 14C5.98576 14.1325 6.0121 14.2637 6.06324 14.386C6.11439 14.5082 6.18933 14.6191 6.2837 14.7122C6.37807 14.8052 6.48999 14.8786 6.61296 14.928C6.73593 14.9774 6.86749 15.0019 7 15H20C20.1325 15.0019 20.2641 14.9774 20.387 14.928C20.51 14.8786 20.6219 14.8052 20.7163 14.7122C20.8107 14.6191 20.8856 14.5082 20.9368 14.386C20.9879 14.2637 21.0142 14.1325 21.0142 14C21.0142 13.8675 20.9879 13.7363 20.9368 13.614C20.8856 13.4918 20.8107 13.3809 20.7163 13.2878C20.6219 13.1948 20.51 13.1214 20.387 13.072C20.2641 13.0226 20.1325 12.9981 20 13H7Z" />
+										</svg>
+
+									</span>
+								</button>
+								<button :class="{ 'active' : displayMode === 'grid' }" @click="switchViewMode('grid')" class="action-btn uppercase grid-view-toggle" aria-label="Grid View">
+									<span class="icon">
+										<svg viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg">
+											<path d="M1 0C0.448 0 0 0.448 0 1V3C0 3.552 0.448 4 1 4H5C5.552 4 6 3.552 6 3V1C6 0.448 5.552 0 5 0H1ZM9 0C8.448 0 8 0.448 8 1V3C8 3.552 8.448 4 9 4H13C13.552 4 14 3.552 14 3V1C14 0.448 13.552 0 13 0H9ZM17 0C16.448 0 16 0.448 16 1V3C16 3.552 16.448 4 17 4H21C21.552 4 22 3.552 22 3V1C22 0.448 21.552 0 21 0H17ZM1 6C0.448 6 0 6.448 0 7V9C0 9.552 0.448 10 1 10H5C5.552 10 6 9.552 6 9V7C6 6.448 5.552 6 5 6H1ZM9 6C8.448 6 8 6.448 8 7V9C8 9.552 8.448 10 9 10H13C13.552 10 14 9.552 14 9V7C14 6.448 13.552 6 13 6H9ZM17 6C16.448 6 16 6.448 16 7V9C16 9.552 16.448 10 17 10H21C21.552 10 22 9.552 22 9V7C22 6.448 21.552 6 21 6H17ZM1 12C0.448 12 0 12.448 0 13V15C0 15.552 0.448 16 1 16H5C5.552 16 6 15.552 6 15V13C6 12.448 5.552 12 5 12H1ZM9 12C8.448 12 8 12.448 8 13V15C8 15.552 8.448 16 9 16H13C13.552 16 14 15.552 14 15V13C14 12.448 13.552 12 13 12H9ZM17 12C16.448 12 16 12.448 16 13V15C16 15.552 16.448 16 17 16H21C21.552 16 22 15.552 22 15V13C22 12.448 21.552 12 21 12H17Z" />
+										</svg>
+									</span>
+								</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="diamond-search-results">
+
+					<template v-if="displayMode === 'list'">
+						<div class="diamond-search-result-column diamond-search-result-head">
+							<div class="diamond-search-col diamond-search-col-checkbox d-none">
+								<label class="evosem-checkbox"><input type="checkbox" /> <span class="evosem-checkbox-indicator"></span></label>
+							</div>
+							<div class="diamond-search-col diamond-search-col-shape">
+								<button :class="{active: searchParams.orderby === 'shape', _asc: searchParams.order === 'asc'}" @click="switchOrder('shape')">
+									<span class="text">Shape</span>
+									<span class="sorticon"></span>
+								</button>
+							</div>
+							<div class="diamond-search-col diamond-search-col-color">
+								<button :class="{active: searchParams.orderby === 'color', _asc: searchParams.order === 'asc'}" @click="switchOrder('color')">
+									<span class="text">Color</span>
+									<span class="sorticon"></span>
+								</button>
+							</div>
+							<div class="diamond-search-col diamond-search-col-clarity">
+								<button :class="{active: searchParams.orderby === 'clarity', _asc: searchParams.order === 'asc'}" @click="switchOrder('clarity')">
+									<span class="text">Clarity</span>
+									<span class="sorticon"></span>
+								</button>
+							</div>
+							<div class="diamond-search-col diamond-search-col-cut">
+								<button :class="{active: searchParams.orderby === 'cut', _asc: searchParams.order === 'asc'}" @click="switchOrder('cut')">
+									<span class="text">Cut</span>
+									<span class="sorticon"></span>
+								</button>
+							</div>							
+							<div class="diamond-search-col diamond-search-col-laboratory d-sm-none">
+								<button :class="{active: searchParams.orderby === 'laboratory', _asc: searchParams.order === 'asc'}" @click="switchOrder('laboratory')">
+									<span class="text">Report</span>
+									<span class="sorticon"></span>
+								</button>
+							</div>							
+							<div class="diamond-search-col diamond-search-col-sku d-sm-none">
+								<button :class="{active: searchParams.orderby === 'sku', _asc: searchParams.order === 'asc'}" @click="switchOrder('sku')">
+									<span class="text">SKU</span>
+									<span class="sorticon"></span>
+								</button>
+							</div>
+							<div class="diamond-search-col diamond-search-col-carat">
+								<button :class="{active: searchParams.orderby === 'carat', _asc: searchParams.order === 'asc'}" @click="switchOrder('carat')">
+									<span class="text">Carat</span>
+									<span class="sorticon"></span>
+								</button>
+							</div>
+							<div class="diamond-search-col diamond-search-col-price">
+								<button :class="{active: searchParams.orderby === 'price', _asc: searchParams.order === 'asc'}" @click="switchOrder('price')">
+									<span class="text">Price</span>
+									<span class="sorticon"></span>
+								</button>
+							</div>
+						</div>
+						<template v-for="(item, index) in query.diamonds">
+							<div class="diamond-search-result-column" @mouseover="selectDiamond(item)">
+								<div class="diamond-search-col diamond-search-col-checkbox  d-none">
+									<label class="evosem-checkbox"><input type="checkbox" /> <span class="evosem-checkbox-indicator"></span></label>
+								</div>
+								<div @click="openDiamondSingleView(item)" class="diamond-search-col diamond-search-col-shape">
+									<span :class="'icon shape-'+item.shape">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><use :xlink:href="'#__evosem-shape-'+item.shape"></use></svg>
+									</span>
+									<span class="text d-sm-none">$[item.shape]</span>
+								</div>
+								<div @click="openDiamondSingleView(item)" class="diamond-search-col diamond-search-col-color"><span class="text">$[item.color]</span></div>
+								<div @click="openDiamondSingleView(item)" class="diamond-search-col diamond-search-col-clarity"><span class="text">$[item.clarity]</span></div>
+								<div @click="openDiamondSingleView(item)" class="diamond-search-col diamond-search-col-cut"><span class="text">$[item.cut]</span></div>
+								<div @click="openDiamondSingleView(item)" class="diamond-search-col diamond-search-col-laboratory d-sm-none"><span class="text">$[item.laboratory]</span></div>
+								<div @click="openDiamondSingleView(item)" class="diamond-search-col diamond-search-col-sku d-sm-none"><span class="text">$[item.sku]</span></div>
+								<div @click="openDiamondSingleView(item)" class="diamond-search-col diamond-search-col-carat"><span class="text">$[parseFloat(item.carat).toFixed(2)]</span></div>
+								<div @click="openDiamondSingleView(item)" class="diamond-search-col diamond-search-col-price">
+									<span class="text">$[__formatPrice(item.price).replace('.000','')]</span>
+								</div>
+							</div>
+						</template>
+					</template>
+
+					<template v-if="displayMode === 'grid'">
+						<div class="diamond-grid-view">
+							<div class="diamond-grid-view-item" v-for="(item, index) in query.diamonds">
+								<div class="diamond-thumbnail" @click="openDiamondSingleView(item)">
+									<div class="diamond-thumbnail-inner" :style="{backgroundImage: 'url('+item.pictures[0]+')'}">
+										<img :src="item.pictures[0]" loading="lazy" class="d-none" />
+									</div>
+									<div class="filter-label">
+										<div class="info-box">
+											<div class="info-box-title">Some quick information</div>
+											<div class="info-box-content">Lorem ipsum dolor sit amit verdo</div>
+										</div>
+									</div>
+								</div>
+								<div class="diamond-details">
+									<div class="diamond-title evosem-text-center" @click="openDiamondSingleView(item)">
+										<span :class="'icon shape-'+item.shape">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><use :xlink:href="'#__evosem-shape-'+item.shape"></use></svg>
+										</span>
+										<span class="shape-name">$[item.shape],</span>
+										<span class="carat"><strong>$[parseFloat(item.carat).toFixed(2)] Carat</strong></span>
+									</div>
+									<div class="diamond-quick-specification __separation evosem-text-center" @click="openDiamondSingleView(item)">
+										<div class="__specification"><div class="label-text uppercase">Color</div> <div class="label-value uppercase">$[item.color]</div></div>
+										<div class="__specification"><div class="label-text uppercase">Clarity</div> <div class="label-value uppercase">$[item.clarity]</div></div>
+										<div class="__specification"><div class="label-text uppercase">Cut</div> <div class="label-value uppercase">$[item.cut]</div></div>
+									</div>		
+									<div class="diamond-actions evosem-text-center">
+										<div class="diamond-price">$[__formatPrice(item.price).replace('.000','')]</div>
+                                        <button class="diamond-add-to-bag uppercase evosem-text-center" @click="addToRing(item)" :disabled="selectedSingleDiamond.price <= 0">Add to ring</button>
+										<button class="diamond-add-to-bag uppercase evosem-text-center" @click="addToBag(item)">Add to bag</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</template>
+
+				</div>
+
+				<div class="diamond-search-results-load-more evosem-text-center">
+					<button class="load-more-diamonds uppercase" @click="loadMoreDiamonds">Load More</button>
+				</div>
+
+			</div>
+
+			<div class="diamond-search-main-preview" v-if="displayMode === 'list'">
+				<div class="diamond-search-main-preview-inner" v-if="ready && firstload && selectedDiamond">
+					<div class="preview-title uppercase"><strong>Stone Details</strong></div>
+
+					<div class="preview-media">
+						<div 
+							v-if="selectedDiamond.pictures.length > 0 && selectedDiamond.pictures[0]" 
+							class="image-preview" v-if="selectedMediaPreview === 'image'" 
+							:style="{display: selectedMediaPreview === 'image' ? 'block' : 'none'}"
+						>
+							<div class="inner-image-preview" :style="{backgroundImage: 'url('+selectedDiamond.pictures[0]+')'}">
+								<img :src="selectedDiamond.pictures[0]" class="d-none" loading="lazy" />
+							</div>
+						</div>
+						<div 
+							v-if="selectedDiamond.videos.length > 0 && selectedDiamond.videos[0]" 
+							class="video-preview" v-if="selectedMediaPreview === 'video'" 
+							:style="{display: selectedMediaPreview === 'video' ? 'block' : 'none'}"
+						>
+							<iframe class="__diamond-preview-iframe" :src="selectedDiamond.videos[0]"></iframe>
+						</div>
+
+						<div class="preview-actions-btns">
+							<button class="evosem-btn action-image-view uppercase" @click="switchMediaPreview('image')" v-if="selectedDiamond.pictures.length > 0 && selectedDiamond.videos.length > 0">
+								<span class="icon">
+									<svg viewBox="0 0 509.09 404.45" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#evosem-image-icon" /></svg>
+								</span>
+								<span class="text">Image</span>
+							</button>
+							<button class="evosem-btn action-video-view uppercase" @click="switchMediaPreview('video')" v-if="selectedDiamond.pictures.length > 0 && selectedDiamond.videos.length > 0">
+								<span class="icon">
+									<svg viewBox="0 0 24 18" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#evosem-rotate-icon"></use></svg>
+								</span>
+								<span class="text">Rotate</span>
+							</button>
+						</div>
+
+					</div>
+
+					<div class="preview-datasheet uppercase">
+						<div class="datasheet-row datasheet-row-stock">
+							<div class="datasheet-label"><span>Stock No</span></div> <div class="datasheet-value"><span>$[selectedDiamond.sku]</span></div>
+						</div>
+						<div class="datasheet-row datasheet-row-weight">
+							<div class="datasheet-label"><span>Carat</span></div> <div class="datasheet-value"><span>$[parseFloat(selectedDiamond.carat).toFixed(2)]</span></div>
+						</div>
+						<div class="datasheet-row datasheet-row-color">
+							<div class="datasheet-label"><span>Color</span></div> <div class="datasheet-value"><span>$[selectedDiamond.color]</span></div>
+						</div>
+					</div>
+
+					<div class="preview-datasheet">
+						<div class="datasheet-row">
+							<div class="datasheet-label"><span>Shape</span></div> <div class="datasheet-value"><span>$[selectedDiamond.shape]</span></div>
+						</div>
+						<div class="datasheet-row">
+							<div class="datasheet-label"><span>Cut</span></div> <div class="datasheet-value"><span>$[selectedDiamond.cut]</span></div>
+						</div>
+						<div class="datasheet-row">
+							<div class="datasheet-label"><span>Clarity</span></div> <div class="datasheet-value"><span>$[selectedDiamond.clarity]</span></div>
+						</div>
+						<div class="datasheet-row">
+							<div class="datasheet-label"><span>Symmetry</span></div> <div class="datasheet-value"><span>$[selectedDiamond.symmetry]</span></div>
+						</div>
+						<div class="datasheet-row">
+							<div class="datasheet-label"><span>Polish</span></div> <div class="datasheet-value"><span>$[selectedDiamond.polish]</span></div>
+						</div>
+					</div>
+
+					<div class="preview-datasheet">
+						<div class="datasheet-row">
+							<div class="datasheet-label"><span>Table</span></div> <div class="datasheet-value"><span>$[selectedDiamond.tablepercentage]%</span></div>
+						</div>
+						<div class="datasheet-row">
+							<div class="datasheet-label"><span>Depth</span></div> <div class="datasheet-value"><span>$[selectedDiamond.depthpercentage]%</span></div>
+						</div>
+						<div class="datasheet-row">
+							<div class="datasheet-label"><span>Lab</span></div> <div class="datasheet-value"><span>$[selectedDiamond.laboratory]</span></div>
+						</div>
+					</div>
+
+					<div class="preview-actions" v-if="selectedDiamond">
+                        <div><button class="evosem-btn uppercase evosem-text-center full-width fill" @click="addToRing(selectedDiamond)" :disabled="selectedDiamond.price <= 0">Add to ring</button></div>
+						<div><button class="evosem-btn uppercase evosem-text-center full-width" @click="addToBag()" :disabled="selectedDiamond.price <= 0">Add to bag</button></div>
+						<div><button class="evosem-btn uppercase evosem-text-center full-width fill" @click="openDiamondSingleView(selectedDiamond)">See details</button></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="diamond-search-single-view" v-if="singleDiamondView">
+
+		<div class="diamond-search-page-title uppercase">
+			<span class="hidden">Diamond Details</span>
+			<button class="back-to-search uppercase" @click="closeDiamondSingleView">
+				<span class="icon">
+					<svg viewBox="0 0 13 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path d="M11.2353 0.493162C11.0406 0.498839 10.8556 0.580094 10.7197 0.719725L0.969705 10.4697C0.829105 10.6104 0.750122 10.8011 0.750122 11C0.750122 11.1989 0.829105 11.3896 0.969705 11.5303L10.7197 21.2803C10.7888 21.3522 10.8716 21.4097 10.9632 21.4493C11.0548 21.4889 11.1534 21.5098 11.2531 21.5108C11.3529 21.5118 11.4519 21.4929 11.5443 21.4552C11.6367 21.4175 11.7206 21.3617 11.7911 21.2912C11.8617 21.2206 11.9175 21.1367 11.9552 21.0443C11.9929 20.9519 12.0118 20.8529 12.0108 20.7532C12.0098 20.6534 11.9889 20.5548 11.9493 20.4632C11.9097 20.3716 11.8522 20.2888 11.7803 20.2197L2.56052 11L11.7803 1.78027C11.8885 1.67489 11.9623 1.53931 11.9922 1.39125C12.0221 1.2432 12.0065 1.08958 11.9476 0.950496C11.8888 0.811412 11.7893 0.693344 11.6622 0.611744C11.5351 0.530145 11.3863 0.488814 11.2353 0.493162Z" />
+					</svg>
+				</span>
+				<span class="d-sm-none">Return to search</span>
+			</button>
+		</div>
+
+		<div class="diamond-search-single-view-inner">
+			<div class="diamond-single-sides-view">
+				<div class="diamond-single-left-view">
+
+
+					<div class="preview-media">
+						<div 
+							v-if="selectedSingleDiamond.pictures.length > 0 && selectedSingleDiamond.pictures[0]" 
+							class="image-preview" v-if="selectedMediaSinglePreview === 'image'" 
+							:style="{display: selectedMediaSinglePreview === 'image' ? 'block' : 'none'}"
+						>
+							<div class="inner-image-preview" :style="{backgroundImage: 'url('+selectedSingleDiamond.pictures[0]+')'}">
+								<img :src="selectedSingleDiamond.pictures[0]" loading="lazy" />
+							</div>
+						</div>
+						<div 
+							v-if="selectedSingleDiamond.videos.length > 0 && selectedSingleDiamond.videos[0]" 
+							class="video-preview" v-if="selectedMediaSinglePreview === 'video'" 
+							:style="{display: selectedMediaSinglePreview === 'video' ? 'block' : 'none'}"
+						>
+							<iframe class="__diamond-preview-iframe" :src="selectedSingleDiamond.videos[0]"></iframe>
+						</div>
+
+						<div class="preview-actions-btns">
+							<button class="evosem-btn action-image-view uppercase" @click="switchMediaSinglePreview('image')" v-if="selectedSingleDiamond.pictures.length > 0 && selectedSingleDiamond.videos.length > 0">
+								<span class="icon">
+									<svg viewBox="0 0 509.09 404.45" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#evosem-image-icon" /></svg>
+								</span>
+								<span class="text">Image</span>
+							</button>
+							<button class="evosem-btn action-video-view uppercase" @click="switchMediaSinglePreview('video')" v-if="selectedSingleDiamond.pictures.length > 0 && selectedSingleDiamond.videos.length > 0">
+								<span class="icon">
+									<svg viewBox="0 0 24 18" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#evosem-rotate-icon"></use></svg>
+								</span>
+								<span class="text">Rotate</span>
+							</button>
+						</div>
+
+					</div>
+
+				</div>
+				<div class="diamond-single-right-view">
+					<div class="diamond-single-head __separation">
+						<div class="diamond-single-head-sub">
+							<div class="stock-number">
+								<span class="label-text uppercase">Stock Number:</span>
+								<span class="value-text uppercase">$[selectedSingleDiamond.sku]</span>
+							</div>
+							<div class="share-btn">
+								<button aria-label="Share" class="action-btn uppercase share-filter" @click="shareStone">
+									<span class="icon">
+										<svg viewBox="0 0 20 19" fill="#000" xmlns="http://www.w3.org/2000/svg">
+											<path d="M16.1875 0.375C14.2969 0.375 12.75 1.92188 12.75 3.8125C12.75 4.04883 12.7769 4.27441 12.8198 4.5L6.58935 7.30371C5.96094 6.44434 4.95117 5.875 3.8125 5.875C1.92188 5.875 0.375 7.42188 0.375 9.3125C0.375 11.2031 1.92188 12.75 3.8125 12.75C4.95654 12.75 5.97705 12.1753 6.6001 11.3052L12.8359 14.0767C12.7822 14.313 12.75 14.5601 12.75 14.8125C12.75 16.7031 14.2969 18.25 16.1875 18.25C18.0781 18.25 19.625 16.7031 19.625 14.8125C19.625 12.9219 18.0781 11.375 16.1875 11.375C15.0435 11.375 14.0229 11.9497 13.3999 12.8198L7.16406 10.0537C7.21777 9.81201 7.25 9.56494 7.25 9.3125C7.25 9.05469 7.21777 8.80225 7.16406 8.56055L13.3623 5.75684C13.9854 6.65918 15.022 7.25 16.1875 7.25C18.0781 7.25 19.625 5.70312 19.625 3.8125C19.625 1.92188 18.0781 0.375 16.1875 0.375ZM16.1875 1.75C17.3369 1.75 18.25 2.66309 18.25 3.8125C18.25 4.96191 17.3369 5.875 16.1875 5.875C15.0381 5.875 14.125 4.96191 14.125 3.8125C14.125 2.66309 15.0381 1.75 16.1875 1.75ZM3.8125 7.25C4.96191 7.25 5.875 8.16309 5.875 9.3125C5.875 10.4619 4.96191 11.375 3.8125 11.375C2.66309 11.375 1.75 10.4619 1.75 9.3125C1.75 8.16309 2.66309 7.25 3.8125 7.25ZM16.1875 12.75C17.3369 12.75 18.25 13.6631 18.25 14.8125C18.25 15.9619 17.3369 16.875 16.1875 16.875C15.0381 16.875 14.125 15.9619 14.125 14.8125C14.125 13.6631 15.0381 12.75 16.1875 12.75Z" />
+										</svg>
+									</span> 
+									<span :class="{'active': copied}" class="text">Share <span class="d-sm-none">Stone</span></span>
+									<span :class="{'active': copied}" class="text text-copied">Copied</span>
+								</button>
+							</div>
+						</div>
+						<h1 class="diamond-name uppercase">$[parseFloat(selectedSingleDiamond.carat).toFixed(2)] Carat $[selectedSingleDiamond.shape] Diamond</h1>
+						<div class="diamond-description">This $[selectedSingleDiamond.type] $[parseFloat(selectedSingleDiamond.carat).toFixed(2)] Carat, $[selectedSingleDiamond.cut] Cut, $[selectedSingleDiamond.color] Color and $[selectedSingleDiamond.clarity] Clarity, $[selectedSingleDiamond.shape] Cut Diamond</div>
+					</div>
+
+					<div class="diamond-quick-specification __separation">
+						<div class="__specification">
+							<div class="label-text uppercase">Carat</div>
+							<div class="label-value uppercase">$[parseFloat(selectedSingleDiamond.carat).toFixed(2)]</div>
+						</div>
+						<div class="__specification">
+							<div class="label-text uppercase">Color</div>
+							<div class="label-value uppercase">$[selectedSingleDiamond.color]</div>
+						</div>
+						<div class="__specification">
+							<div class="label-text uppercase">Clarity</div>
+							<div class="label-value uppercase">$[selectedSingleDiamond.clarity]</div>
+						</div>
+					</div>
+
+					<div class="diamond-single-actions __separation">
+						<div class="diamond-single-action">
+							<div class="label-text uppercase">Price</div>
+							<div class="label-value uppercase">$[__formatPrice(selectedSingleDiamond.price).replace('.000','')]</div>
+						</div>
+						<div class="diamond-single-action">
+                            <button class="evosem-btn uppercase evosem-text-center full-width fill _evosem-add-to-bag" @click="addToRing(selectedSingleDiamond)" :disabled="selectedSingleDiamond.price <= 0">Add to ring</button>
+							<button class="evosem-btn uppercase evosem-text-center full-width _evosem-add-to-bag" @click="addToBag(selectedSingleDiamond)" :style="{marginTop: '15px'}" :disabled="selectedSingleDiamond.price <= 0">Add to bag</button>
+						</div>
+					</div>
+
+					<div class="diamond-single-interactions">
+						<div class="diamond-single-action">
+							<div class="diamond-single-action-btn">
+								<button @click="openDropBox('drophint')">
+									<span class="icon">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.25 2.5C3.46 2.5 2 3.96 2 5.75V15.25C2 17.04 3.46 18.5 5.25 18.5H11.0752C11.0252 18.175 11 17.84 11 17.5C11 17.33 11.0054 17.165 11.0254 17H5.25C4.285 17 3.5 16.215 3.5 15.25V8.00781L11.6436 12.4102C11.7531 12.4693 11.8755 12.5003 12 12.5003C12.1245 12.5003 12.2469 12.4693 12.3564 12.4102L20.5 8.00781V11.7354C21.05 12.0204 21.555 12.3854 22 12.8154V5.75C22 3.96 20.54 2.5 18.75 2.5H5.25ZM5.25 4H18.75C19.715 4 20.5 4.785 20.5 5.75V6.30273L12 10.8975L3.5 6.30273V5.75C3.5 4.785 4.285 4 5.25 4ZM17.5 12C14.4625 12 12 14.4625 12 17.5C12 20.5375 14.4625 23 17.5 23C20.5375 23 23 20.5375 23 17.5C23 14.4625 20.5375 12 17.5 12ZM16 15C16.64 15 17.1945 15.3488 17.5 15.8633C17.8055 15.3488 18.36 15 19 15C19.965 15 20.75 15.785 20.75 16.75C20.75 17.187 20.5861 17.6057 20.2891 17.9297C20.2796 17.9397 20.264 17.958 17.8525 20.3555C17.757 20.45 17.6295 20.5 17.5 20.5C17.3705 20.5 17.243 20.4495 17.1475 20.3545C14.736 17.9575 14.7205 17.9393 14.709 17.9268C14.414 17.6053 14.25 17.187 14.25 16.75C14.25 15.785 15.035 15 16 15Z"/></svg>
+									</span>
+									<span class="text uppercase">Drop a hint</span>
+								</button>
+							</div>
+							<div class="diamond-single-action-btn">
+								<button @click="openDropBox('moreinfo')">
+									<span class="icon">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 19"><path d="M15.25 0H2.75C1.2335 0 0 1.234 0 2.75V13.75C0 15.266 1.2335 16.5 2.75 16.5H5.989L8.4925 18.802C8.6355 18.934 8.818 19 9 19C9.1805 19 9.3615 18.935 9.5045 18.805L12.04 16.5H15.25C16.7665 16.5 18 15.266 18 13.75V2.75C18 1.234 16.7665 0 15.25 0ZM9.75 12.75C9.75 13.164 9.4145 13.5 9 13.5C8.5855 13.5 8.25 13.164 8.25 12.75V7.75C8.25 7.336 8.5855 7 9 7C9.4145 7 9.75 7.336 9.75 7.75V12.75ZM9 5.5C8.4475 5.5 8 5.0525 8 4.5C8 3.9475 8.4475 3.5 9 3.5C9.5525 3.5 10 3.9475 10 4.5C10 5.0525 9.5525 5.5 9 5.5Z"/></svg>
+									</span>
+									<span class="text uppercase">Request more info</span>
+								</button>
+							</div>
+							<div class="diamond-single-action-btn"  style="display: none;">
+								<button @click="openDropBox('emailfriend')">
+									<span class="icon">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 16"><path d="M3 0C1.43 0 0.139766 1.21 0.00976562 2.75L10 8.14453L19.9902 2.75C19.8602 1.21 18.57 0 17 0H3ZM0 4.44531V13C0 14.655 1.345 16 3 16H17C18.655 16 20 14.655 20 13V4.44531L10.3555 9.66016C10.2455 9.72016 10.125 9.75 10 9.75C9.875 9.75 9.75453 9.72016 9.64453 9.66016L0 4.44531Z"/></svg>
+									</span>
+									<span class="text uppercase">Email a friend</span>
+								</button>
+							</div>
+							<div class="diamond-single-action-btn" @click="printDiamond">
+								<button>
+									<span class="icon">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M6.25 0.5C5.01625 0.5 4 1.51625 4 2.75V3.5H3.25C1.458 3.5 0 4.958 0 6.75V13.75C0 14.9905 1.0095 16 2.25 16H4V17.25C4 18.4838 5.01625 19.5 6.25 19.5H13.75C14.9838 19.5 16 18.4838 16 17.25V16H17.75C18.9905 16 20 14.9905 20 13.75V6.75C20 4.958 18.542 3.5 16.75 3.5H16V2.75C16 1.51625 14.9838 0.5 13.75 0.5H6.25ZM6.25 2H13.75C14.1732 2 14.5 2.32675 14.5 2.75V3.5H5.5V2.75C5.5 2.32675 5.82675 2 6.25 2ZM6.25 12H13.75C14.1732 12 14.5 12.3268 14.5 12.75V17.25C14.5 17.6733 14.1732 18 13.75 18H6.25C5.82675 18 5.5 17.6733 5.5 17.25V12.75C5.5 12.3268 5.82675 12 6.25 12Z"/></svg>
+									</span>
+									<span class="text uppercase">Print details</span>
+								</button>
+							</div>
+							<div class="diamond-single-action-btn" style="display: none;">
+								<button @click="openDropBox('scheduleview')">
+									<span class="icon">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18"><path d="M18 4V3.25C18 1.458 16.542 0 14.75 0H3.25C1.458 0 0 1.458 0 3.25V4H18ZM0 5.5V14.75C0 16.542 1.458 18 3.25 18H14.75C16.542 18 18 16.542 18 14.75V5.5H0ZM4.75 15C4.0595 15 3.5 14.4405 3.5 13.75C3.5 13.0595 4.0595 12.5 4.75 12.5C5.4405 12.5 6 13.0595 6 13.75C6 14.4405 5.4405 15 4.75 15ZM4.75 10.5C4.0595 10.5 3.5 9.9405 3.5 9.25C3.5 8.5595 4.0595 8 4.75 8C5.4405 8 6 8.5595 6 9.25C6 9.9405 5.4405 10.5 4.75 10.5ZM9 15C8.3095 15 7.75 14.4405 7.75 13.75C7.75 13.0595 8.3095 12.5 9 12.5C9.6905 12.5 10.25 13.0595 10.25 13.75C10.25 14.4405 9.6905 15 9 15ZM9 10.5C8.3095 10.5 7.75 9.9405 7.75 9.25C7.75 8.5595 8.3095 8 9 8C9.6905 8 10.25 8.5595 10.25 9.25C10.25 9.9405 9.6905 10.5 9 10.5ZM13.25 10.5C12.5595 10.5 12 9.9405 12 9.25C12 8.5595 12.5595 8 13.25 8C13.9405 8 14.5 8.5595 14.5 9.25C14.5 9.9405 13.9405 10.5 13.25 10.5Z"/></svg>
+									</span>
+									<span class="text uppercase">Schedule viewing</span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="diamond-single-specifications">
+				<div class="__specifications-title evosem-text-center uppercase"><strong>Diamond Specifications</strong></div>
+				<div class="__specifications-sides">
+					<div class="__left-spec">
+						<div class="__specification-list">
+							<div class="item"><span class="label-text">Type</span><span class="label-value">$[selectedSingleDiamond.type]</span></div>
+							<div class="item"><span class="label-text">Shape</span><span class="label-value">$[selectedSingleDiamond.shape]</span></div>
+							<div class="item"><span class="label-text">Clarity</span><span class="label-value">$[selectedSingleDiamond.clarity]</span></div>
+							<div class="item"><span class="label-text">Carat</span><span class="label-value">$[parseFloat(selectedSingleDiamond.carat).toFixed(2)]</span></div>
+							<div class="item"><span class="label-text">Color</span><span class="label-value">$[selectedSingleDiamond.color]</span></div>
+							<div class="item"><span class="label-text">Cut</span><span class="label-value">$[getCutName(selectedSingleDiamond.cut)]</span></div>
+							<div class="item"><span class="label-text">Laboratory</span><span class="label-value">$[selectedSingleDiamond.laboratory]</span></div>
+						</div>
+					</div>
+					<div class="__right-spec">
+						<div class="__specification-list">
+							<div class="item"><span class="label-text">Depth</span> <span class="label-value" v-if="!selectedSingleDiamond.depthpercentage">N/A</span> <span v-if="selectedSingleDiamond.depthpercentage" class="label-value">$[selectedSingleDiamond.depthpercentage]%</span></div>
+							<div class="item"><span class="label-text">Table</span> <span class="label-value" v-if="!selectedSingleDiamond.tablepercentage">N/A</span> <span v-if="selectedSingleDiamond.tablepercentage" class="label-value">$[selectedSingleDiamond.tablepercentage]%</span></div>							
+							<div class="item"><span class="label-text">Polish</span> <span class="label-value" v-if="!selectedSingleDiamond.polish">N/A</span> <span v-if="selectedSingleDiamond.polish" class="label-value">$[getPolishName(selectedSingleDiamond.polish)]</span></div>
+							<div class="item"><span class="label-text">Symmetry</span> <span class="label-value" v-if="!selectedSingleDiamond.symmetry">N/A</span> <span v-if="selectedSingleDiamond.symmetry" class="label-value">$[getSymmetryName(selectedSingleDiamond.symmetry)]</span></div>
+							<div class="item"><span class="label-text">Measurements</span> <span class="label-value" v-if="!selectedSingleDiamond.measurements">N/A</span> <span v-if="selectedSingleDiamond.measurements" class="label-value">$[selectedSingleDiamond.measurements]</span></div>
+							<div v-if="selectedSingleDiamond.certificate_link && selectedSingleDiamond.certificate" class="item"><span class="label-text">Report link</span><span class="label-value"><a target="_blank" :href="selectedSingleDiamond.certificate_link">$[selectedSingleDiamond.certificate]</a></span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="diamond-single-view-similar" v-if="similarDiamonds">
+			<div class="diamond-search-page-title uppercase evosem-text-center"><span>Similar Diamonds</span></div>
+			<div class="diamond-grid-view">
+				<div class="diamond-grid-view-item" v-for="diamond in similarDiamonds" @click="openDiamondSingleView(diamond)">
+					<div class="diamond-thumbnail">
+						<div class="diamond-thumbnail-inner" :style="{backgroundImage: 'url('+diamond.pictures[0]+')'}">
+							<img :src="diamond.pictures[0]" class="d-none" loading="lazy" />
+						</div>
+						<div class="filter-label">
+							<div class="info-box">
+								<div class="info-box-title">Some quick information</div>
+								<div class="info-box-content">Lorem ipsum dolor sit amit verdo</div>
+							</div>
+						</div>
+					</div>
+					<div class="diamond-details">
+						<div class="diamond-title evosem-text-center">
+							<span :class="'icon shape-'+diamond.shape">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><use :xlink:href="'#__evosem-shape-'+diamond.shape"></use></svg>
+							</span>
+							<span class="shape-name">$[diamond.shape],</span>
+							<span class="carat"><strong>$[parseFloat(diamond.carat).toFixed(2)] Carat</strong></span>
+						</div>
+						<div class="diamond-quick-specification __separation evosem-text-center">
+							<div class="__specification"><div class="label-text uppercase">Color</div> <div class="label-value uppercase">$[diamond.color]</div></div>
+							<div class="__specification"><div class="label-text uppercase">Clarity</div> <div class="label-value uppercase">$[diamond.clarity]</div></div>
+							<div class="__specification"><div class="label-text uppercase">Cut</div> <div class="label-value uppercase">$[diamond.cut]</div></div>
+						</div>		
+						<div class="diamond-actions evosem-text-center">
+							<div class="diamond-price">$[__formatPrice(diamond.price).replace('.000','')]</div>
+                            <button class="diamond-add-to-bag uppercase evosem-text-center" @click="addToRing(diamond)" :disabled="diamond.price <= 0">Add to ring</button>
+							<button class="diamond-add-to-bag uppercase evosem-text-center" @click="addToBag(diamond)">Add to bag</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div id="_evosem-print-version" class="_evosem-print-version">
+		    <div style="color: black; font-family: arial; max-width: 800px; margin: auto; overflow: hidden;">
+		        <div style="max-width: 30%; float: left;">
+		            <div>
+		                <div style="display: block;" v-if="selectedSingleDiamond.pictures.length > 0 && selectedSingleDiamond.pictures[0]">
+		                    <div><img :src="selectedSingleDiamond.pictures[0]" style="width: 100%;" loading="lazy" /></div>
+		                </div>
+		            </div>
+		        </div>
+		        <div style="float: right; max-width: 65%; padding-left: 30px; box-sizing: border-box;">
+		            <div style="border-bottom: 1px solid lightgrey; margin-bottom: 30px;">
+		                <div style="margin-bottom: 10px;"><div><span>Stock Number:</span> <span style="color: grey;">$[selectedSingleDiamond.sku]</span></div></div>
+		                <div style="font-size: 32px; font-weight: bold; margin-bottom: 10px;">$[parseFloat(selectedSingleDiamond.carat).toFixed(2)] Carat $[selectedSingleDiamond.shape] Diamond</div>
+		                <div style="font-size: 15px; margin-bottom: 30px; color: grey;">This $[selectedSingleDiamond.type] $[parseFloat(selectedSingleDiamond.carat).toFixed(2)] Carat, $[selectedSingleDiamond.cut] Cut, $[selectedSingleDiamond.color] Color and $[selectedSingleDiamond.clarity] Clarity, $[selectedSingleDiamond.shape] Cut Diamond</div>
+		            </div>
+		            <div style="display: flex; justify-content: space-between; font-size: 22px;">
+		                <div><div style="font-size: var(--main-evosem-font-size); margin-bottom: 5px; color: grey;">Carat</div><div style="font-size: 22px; font-weight: bold;">$[parseFloat(selectedSingleDiamond.carat).toFixed(2)]</div></div>
+		                <div><div style="font-size: var(--main-evosem-font-size); margin-bottom: 5px; color: grey;">Color</div><div style="font-size: 22px; font-weight: bold;">$[selectedSingleDiamond.color]</div></div>
+		                <div><div style="font-size: var(--main-evosem-font-size); margin-bottom: 5px; color: grey;">Clarity</div><div style="font-size: 22px; font-weight: bold;">$[selectedSingleDiamond.clarity]</div></div>
+		            </div>
+		            <div style="margin: 20px 0; font-size: 26px;">
+		                <div style="">
+		                    <div style="display: inline-block; font-weight: bold; color: grey;">Price:</div>
+		                    <div class="label-value uppercase" style="display: inline-block; font-weight: bold;">$[__formatPrice(selectedSingleDiamond.price).replace('.000','')]</div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		    <div style="color: black; font-family: arial; max-width: 800px; margin: 30px auto 0; overflow: hidden;">
+		        <div style="font-size: 32px; font-weight: bold;">Diamond Specifications</div>
+		        <div style="margin-top: 20px; overflow: hidden;">
+		            <table border="0" style="width: 48%; float: left; border-right: 1px solid #e9e9e9; line-height: 1.6;">
+		                <tbody>
+		                    <tr><td>Type</td><td style="color: grey;">$[selectedSingleDiamond.type]</td></tr>
+		                    <tr><td>Shape</td><td style="color: grey;">$[selectedSingleDiamond.shape]</td></tr>
+		                    <tr><td>Clarity</td><td style="color: grey;">$[selectedSingleDiamond.clarity]</td></tr>
+		                    <tr><td>Carat</td><td style="color: grey;">$[parseFloat(selectedSingleDiamond.carat).toFixed(2)]</td></tr>
+		                    <tr><td>Color</td><td style="color: grey;">$[selectedSingleDiamond.color]</td></tr>
+		                    <tr><td>Cut</td><td style="color: grey;">$[getCutName(selectedSingleDiamond.cut)]</td></tr>
+		                    <tr><td>Laboratory</td><td style="color: grey;">$[selectedSingleDiamond.laboratory]</td></tr>
+		                </tbody>
+		            </table>
+		            <table border="0" style="width: 47%; float: right; line-height: 1.6;">
+		                <tbody>
+		                    <tr><td>Measurements</td><td style="color: grey;">$[selectedSingleDiamond.length]x$[selectedSingleDiamond.width]x$[selectedSingleDiamond.depth]</td></tr>
+		                    <tr><td>Depth</td><td style="color: grey;">$[selectedSingleDiamond.depthpercentage]%</td></tr>
+		                    <tr><td>Table</td><td style="color: grey;">$[selectedSingleDiamond.tablepercentage]%</td></tr>
+		                    <tr><td>Polish</td><td style="color: grey;">$[getPolishName(selectedSingleDiamond.polish)]</td></tr>
+		                    <tr><td>Symmetry</td><td style="color: grey;">$[getSymmetryName(selectedSingleDiamond.symmetry)]</td></tr>
+		                    <tr><td>Width</td><td style="color: grey;">$[selectedSingleDiamond.width]</td></tr>
+		                    <tr><td>Length</td><td style="color: grey;">$[selectedSingleDiamond.length]</td></tr>
+		                </tbody>
+		            </table>
+		        </div>
+		    </div>
+		</div>
+
+
+	</div>
+
+	<div class="_evosem-loading-view" v-if="!ready">
+		<div class="inner-loader-view">
+			<svg width="60" viewBox="25 25 50 50" class="loading-circular"><circle cx="50" cy="50" r="20"></circle></svg>
+		</div>
+	</div>
+
+	<div class="_evosem-loading-view" v-if="addtobagloading">
+		<div class="inner-loader-view">
+			<svg width="60" viewBox="25 25 50 50" class="loading-circular"><circle cx="50" cy="50" r="20"></circle></svg>
+		</div>
+	</div>
+
+	<div class="__evosem-popup-box" v-if="popboxes.emailfriend && selectedSingleDiamond" style="display: none;" :style="{display: popboxes.emailfriend && selectedSingleDiamond ? 'block' : 'none'}">
+		<div class="__evosem-popup-box-wrapper">
+			<div class="__evosem-popup-box-container">
+				<div class="__evosem-popup-box-title">Email a friend</div>
+				<p>Share this diamond with your friend.</p>
+				<button class="__evosem-popup-box-close" @click="closeDropBox('emailfriend')">Close</button>
+				<div class="__evosem-popup-box-inner">
+					<form @submit="submitEmailFriend" class="__evosem-form" action="#" method="POST">
+						<div class="__evosem-popup-box-cols">
+							<div class="__evosem-popup-box-col flex-50 __evosem_mt-1 d-md-none">
+								<div class="uppercase"><strong>$[parseFloat(selectedSingleDiamond.carat).toFixed(2)] Carat $[selectedSingleDiamond.shape] Diamond</strong></div>
+								<div class="__evosem_mt-1" v-if="selectedSingleDiamond.pictures.length > 0 && selectedSingleDiamond.pictures[0]">
+									<div class="__evosem-popup-box-cols">
+										<div class="__evosem-popup-box-col flex-50">
+											<div><span style=" margin:0 5px 0 0;"><strong>Type: </strong></span><span>$[selectedSingleDiamond.type]</span></div>
+											<div><span style=" margin:0 5px 0 0;"><strong>Price: </strong></span><span>$[__formatPrice(selectedSingleDiamond.price).replace('.000','')]</span></div>
+											<div><span style=" margin:0 5px 0 0;"><strong>Shape: </strong></span><span>$[selectedSingleDiamond.shape]</span></div>
+											<div><span style=" margin:0 5px 0 0;"><strong>Clarity: </strong></span><span>$[selectedSingleDiamond.clarity]</span></div>
+											<div><span style=" margin:0 5px 0 0;"><strong>Carat: </strong></span><span>$[parseFloat(selectedSingleDiamond.carat).toFixed(2)]</span></div>
+											<div><span style=" margin:0 5px 0 0;"><strong>Color: </strong></span><span>$[selectedSingleDiamond.color]</span></div>
+											<div><span style=" margin:0 5px 0 0;"><strong>Cut: </strong></span><span>$[getCutName(selectedSingleDiamond.cut)]</span></div>
+											<div><span style=" margin:0 5px 0 0;"><strong>Laboratory: </strong></span><span>$[selectedSingleDiamond.laboratory]</span></div>
+										</div>
+										<div class="__evosem-popup-box-col flex-50">
+											<div>
+												<span style="margin:0 5px 0 0;"><strong>Measurements</strong></span>
+												<span>$[selectedSingleDiamond.length]x$[selectedSingleDiamond.width]x$[selectedSingleDiamond.depth]</span>
+											</div>
+											<div><span style="margin:0 5px 0 0;"><strong>Depth</strong></span><span>$[selectedSingleDiamond.depthpercentage]%</span></div>
+											<div><span style="margin:0 5px 0 0;"><strong>Table</strong></span><span>$[selectedSingleDiamond.tablepercentage]%</span></div>							
+											<div><span style="margin:0 5px 0 0;"><strong>Polish</strong></span><span>$[getPolishName(selectedSingleDiamond.polish)]</span></div>
+											<div><span style="margin:0 5px 0 0;"><strong>Symmetry</strong></span><span>$[getSymmetryName(selectedSingleDiamond.symmetry)]</span></div>
+											<div><span style="margin:0 5px 0 0;"><strong>Width</strong></span><span>$[selectedSingleDiamond.width]</span></div>
+											<div><span style="margin:0 5px 0 0;"><strong>Length</strong></span><span>$[selectedSingleDiamond.length]</span></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="__evosem-popup-box-col flex-50">
+								<div class="__evosem-popup-box-cols">
+									<div class="__evosem-popup-box-col flex-100">
+										<div class="filter-input-fields">
+											<div class="filter-field filter-full">
+												<label>
+													<div class="label-text">
+														<span class="__label-text">Your Name</span>
+													</div>
+													<input type="text" name="friendEmailYourName" ref="friendEmailYourName" required />
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="__evosem-popup-box-col flex-100">
+										<div class="filter-input-fields">
+											<div class="filter-field filter-full">
+												<label>
+													<div class="label-text">
+														<span class="__label-text">Your Email</span>
+													</div>
+													<input type="email" name="friendEmail2" ref="friendEmail1" required />
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="__evosem-popup-box-col flex-100">
+										<div class="filter-input-fields">
+											<div class="filter-field filter-full">
+												<label>
+													<div class="label-text">
+														<span class="__label-text">Your Friend's Email</span>
+													</div>
+													<input type="email" name="friendEmail2" ref="friendEmail2" required />
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="__evosem-popup-box-col flex-100">
+										<div class="filter-input-fields">
+											<div class="filter-field filter-full">
+												<label>
+													<div class="label-text">
+														<span class="__label-text">Your message</span>
+													</div>
+													<textarea name="friendEmailMessage" ref="friendEmailMessage" v-model="friendEmailMessageText" maxlength="250"></textarea>
+													<div><small>($[250 - this.friendEmailMessageText.length] Characters maximum)</small></div>
+												</label>
+											</div>
+										</div>
+										<div class="__evosem_mt-1">
+											<button class="evosem-btn small uppercase fill full-width">
+												<span>Send</span>
+												<span class="loading-icon" v-if="sendingFriendEmail">
+													<svg width="15" viewBox="25 25 50 50" class="loading-circular" stroke="currentColor"><circle cx="50" cy="50" r="20"></circle></svg>
+												</span>
+											</button>
+										</div>
+										<div>
+											<p><small>Your email address will only be used to inform your friend who sent this email.</small></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="__evosem-popup-box" v-if="popboxes.drophint" style="display: none;" :style="{display: popboxes.drophint ? 'block' : 'none'}">
+		<div class="__evosem-popup-box-wrapper">
+			<div class="__evosem-popup-box-container">
+				<div class="__evosem-popup-box-title">Drop a Hint</div>
+				<p>To send your friend information about your selection, complete the information below and click the Send button.</p>
+				<button class="__evosem-popup-box-close" @click="closeDropBox('drophint')">Close</button>
+				<div class="__evosem-popup-box-inner">
+					<form @submit="submitDropHint" class="__evosem-form" action="#" method="POST">
+						<div class="__evosem-popup-box-cols">
+							<div class="__evosem-popup-box-col flex-50">
+								<div class="filter-input-fields">
+									<div class="filter-field filter-full">
+										<label>
+											<div class="label-text">
+												<span class="__label-text">Friend's Email Address</span>
+											</div>
+											<input type="email" name="dropHintEmail1" ref="dropHintEmail1" required />
+										</label>
+									</div>
+								</div>
+								<div class="filter-input-fields">
+									<div class="filter-field filter-full">
+										<label>
+											<div class="label-text">
+												<span class="__label-text">Second Friend's Email Address (optional)</span>
+											</div>
+											<input type="email" name="dropHintEmail2" ref="dropHintEmail2" />
+										</label>
+									</div>
+								</div>
+								<div class="filter-input-fields">
+									<div class="filter-field filter-full">
+										<label>
+											<div class="label-text">
+												<span class="__label-text">Your message</span>
+											</div>
+											<textarea name="dropHintMessage" ref="dropHintMessage" v-model="dropHintMessageText" maxlength="250"></textarea>
+											<div><small>($[250 - this.dropHintMessageText.length] Characters maximum)</small></div>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="__evosem-popup-box-col flex-50">
+								<div class="filter-input-fields">
+									<div class="filter-field filter-full">
+										<label>
+											<div class="label-text">
+												<span class="__label-text">Your Full Name</span>
+											</div>
+											<input type="text" name="dropHintFullName" ref="dropHintFullName" required />
+										</label>
+									</div>
+								</div>
+								<div class="filter-input-fields">
+									<div class="filter-field filter-full">
+										<label>
+											<div class="label-text">
+												<span class="__label-text">Your Email Address</span>
+											</div>
+											<input type="email" name="dropHintEmail3" ref="dropHintEmail3" required />
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="__evosem_mt-1">
+							<button class="evosem-btn small uppercase full-width fill">
+								<span>Send</span>
+								<span class="loading-icon" v-if="sendingDropHint">
+									<svg width="15" viewBox="25 25 50 50" class="loading-circular" stroke="currentColor"><circle cx="50" cy="50" r="20"></circle></svg>
+								</span>
+							</button>
+						</div>
+					</form>
+				</div>
+				<p><small>Your email address will only be used to inform your friend who sent this email.</small></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="__evosem-popup-box" v-if="popboxes.moreinfo" style="display: none;" :style="{display: popboxes.moreinfo ? 'block' : 'none'}">
+		<div class="__evosem-popup-box-wrapper">
+			<div class="__evosem-popup-box-container">
+				<div class="__evosem-popup-box-title">Request more info</div>
+				<button class="__evosem-popup-box-close" @click="closeDropBox('moreinfo')">Close</button>
+				<div class="__evosem-popup-box-inner">
+					<form @submit="submitRequestMoreInfo" class="__evosem-form" action="#" method="POST">
+						<div class="__evosem-popup-box-cols">
+							<div class="__evosem-popup-box-col flex-100">
+								<div class="filter-input-fields">
+									<div class="filter-field filter-full">
+										<label>
+											<div class="label-text">
+												<span class="__label-text">Your Email Address</span>
+											</div>
+											<input type="email" name="requestEmail" ref="requestEmail" required />
+										</label>
+									</div>
+								</div>
+								<div class="filter-input-fields">
+									<div class="filter-field filter-full">
+										<label>
+											<div class="label-text">
+												<span class="__label-text">Your Phone Number</span>
+											</div>
+											<input type="tel" name="requestPhoneNumber" ref="requestPhoneNumber" required />
+										</label>
+									</div>
+								</div>
+								<div class="filter-input-fields">
+									<div class="filter-field filter-full">
+										<label>
+											<div class="label-text">
+												<span class="__label-text">Your message</span>
+											</div>
+											<textarea name="requestMessage" ref="requestMessage" v-model="requerstMessageText" maxlength="250"></textarea>
+											<div><small>($[250 - this.requerstMessageText.length] Characters maximum)</small></div>
+										</label>
+									</div>
+								</div>
+
+								<div class="__evosem_mt-1">
+									<button class="evosem-btn small uppercase full-width fill">Send</button>
+								</div>
+								<div>
+									<p><small>Your email address & phone will only be used to communicate with you.</small></p>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="__evosem-popup-box" v-if="popboxes.scheduleview" style="display: none;" :style="{display: popboxes.scheduleview ? 'block' : 'none'}">
+		<div class="__evosem-popup-box-wrapper">
+			<div class="__evosem-popup-box-container">
+				<div class="__evosem-popup-box-title">Schedule Viewing</div>
+				<button class="__evosem-popup-box-close" @click="closeDropBox('scheduleview')">Close</button>
+				<div class="__evosem-popup-box-inner">
+					<form @submit="submitScheduleView" class="__evosem-form" action="#" method="POST">
+						<div class="__evosem-popup-box-cols">
+							<div class="__evosem-popup-box-col flex-100">
+								<div class="filter-input-fields">
+									<div class="filter-field filter-full">
+										<label>
+											<div class="label-text">
+												<span class="__label-text">Your Email Address</span>
+											</div>
+											<input type="email" name="viewingEmail" ref="viewingEmail" required />
+										</label>
+									</div>
+								</div>
+								<div class="filter-input-fields">
+									<div class="filter-field filter-full">
+										<label>
+											<div class="label-text">
+												<span class="__label-text">Your Phone Number</span>
+											</div>
+											<input type="tel" name="viewingPhoneNumber" ref="viewingPhoneNumber" required />
+										</label>
+									</div>
+								</div>
+								<div class="__evosem-popup-box-cols">
+									<div class="__evosem-popup-box-col flex-66">
+										<div class="filter-input-fields">
+											<div class="filter-field filter-full">
+												<label>
+													<div class="label-text">
+														<span class="__label-text">Date</span>
+													</div>
+													<div class="__evosem-popup-box-cols" style="display: flex;">
+														<div class="__evosem-popup-box-col flex-25" style="width: 33.333%">
+															<select name="viewingMM" ref="viewingMM" required>
+																<option selected disabled>MM</option>
+																<option v-for="index in 11" :value="(index+1)">$[_.head(_.filter(__evosemMonths, (d,i) => i === index))]</option>
+															</select>
+														</div>
+														<div class="__evosem-popup-box-col flex-25" style="width: 33.333%">
+															<select name="viewingDD" ref="viewingDD" required>
+																<option selected disabled>DD</option>
+																<option v-for="index in 30" :value="(index+1)">$[(index+1)]</option>
+															</select>
+														</div>
+														<div class="__evosem-popup-box-col flex-25" style="width: 33.333%">
+															<input type="text" readonly :value="new Date().getFullYear()" ref="viewingYear" ref="viewingYear" />
+														</div>
+													</div>
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="__evosem-popup-box-col flex-33">
+										<div class="filter-input-fields">
+											<div class="filter-field filter-full">
+												<label>
+													<div class="label-text">
+														<span class="__label-text">Time</span>
+													</div>
+													<select name="viewingTime" ref="viewingTime" required>
+														<option disabled selected>Time</option>
+															<option value="8:00AM">8:00AM</option> <option value="8:30AM">8:30AM</option> <option value="9:00AM">9:00AM</option> <option value="9:30AM">9:30AM</option> <option value="10:00AM">10:00AM</option> <option value="10:30AM">10:30AM</option> <option value="11:00AM">11:00AM</option> <option value="11:30AM">11:30AM</option> <option value="12:00PM">12:00PM</option> <option value="12:30PM">12:30PM</option> <option value="13:00PM">13:00PM</option> <option value="13:30PM">13:30PM</option> <option value="14:00PM">14:00PM</option> <option value="14:30PM">14:30PM</option> <option value="15:00PM">15:00PM</option> <option value="15:30PM">15:30PM</option> <option value="16:00PM">16:00PM</option> <option value="16:30PM">16:30PM</option> <option value="17:00PM">17:00PM</option> <option value="17:30PM">17:30PM</option> <option value="18:00PM">18:00PM</option> <option value="18:30PM">18:30PM</option>
+													</select>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="filter-input-fields">
+									<div class="filter-field filter-full">
+										<label>
+											<div class="label-text">
+												<span class="__label-text">Your message</span>
+											</div>
+											<textarea name="viewingMessage" ref="viewingMessage" v-model="viewingMessageText" required></textarea>
+											<div><small>($[250 - this.viewingMessageText.length] Characters maximum)</small></div>
+										</label>
+									</div>
+								</div>
+
+								<div class="__evosem_mt-1">
+									<button class="evosem-btn small uppercase full-width fill">
+										<span>Send</span>
+										<span class="loading-icon" v-if="sendingScheduleRequest">
+											<svg width="15" viewBox="25 25 50 50" class="loading-circular" stroke="currentColor"><circle cx="50" cy="50" r="20"></circle></svg>
+										</span>
+									</button>
+								</div>
+								<div>
+									<p><small>Your email address & phone will only be used to communicate with you.</small></p>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</div>
+
+<svg style="display: none;" viewBox="0 0 48 48"><defs><g id="__evosem-shape-round" stroke="var(--main-colour)" fill="var(--main-colour)"><path d="M24.2418 1.13343L24.6223 1.1367L24.2418 1.13343ZM24.6223 1.1367C37.3558 1.37517 47.4841 11.8889 47.2473 24.624C47.0104 37.3542 36.495 47.4842 23.7632 47.2457C11.0297 47.0105 0.899805 36.4951 1.13664 23.7633C1.3751 11.0298 11.8905 0.899866 24.624 1.1367H24.6223ZM17.5843 40.2322L8.5291 40.5572C12.6355 44.4982 18.079 46.7425 23.7697 46.8406H23.7877L17.5843 40.2322ZM30.8633 40.2044L24.6893 46.839C30.385 46.721 35.8255 44.4543 39.9201 40.4935L30.8633 40.2044ZM24.1879 37.4049L17.9355 40.0117L24.2369 46.7263L30.4958 40.0035L24.1879 37.4065V37.4049ZM8.58137 30.9777L8.289 40.157L17.4275 39.8304L14.806 33.542L8.58137 30.9777ZM39.8287 30.8895L33.5567 33.5028L30.9629 39.801L40.1586 40.095L39.8287 30.8895ZM1.54497 24.6877C1.66257 30.3839 3.92925 35.8251 7.89047 39.9202L8.17794 30.8617L1.5466 24.6877H1.54497ZM46.8406 24.5979L40.2321 30.798L40.5588 39.8532C44.4991 35.7472 46.7428 30.3042 46.8406 24.6142V24.5979ZM15.3385 33.7609L17.7852 39.6327L23.657 37.186L15.3385 33.7609ZM33.0258 33.7233L24.7203 37.1844L30.6036 39.6066L33.0258 33.7233ZM24.1356 11.3303L15.0804 15.1033L11.345 24.1749L15.118 33.2284L24.1895 36.9655L33.2431 33.1925L36.9801 24.1193L33.2071 15.0658L24.1356 11.3303ZM11.1261 24.7057L8.70387 30.589L14.5855 33.0112L11.1261 24.7057ZM37.2006 24.6518L33.7755 32.972L39.649 30.5236L37.2006 24.6518ZM8.3233 17.9813L1.65767 24.2369L8.3233 30.4436L10.904 24.1732L8.3233 17.9813ZM39.9936 17.8767L37.4195 24.121L40.0443 30.4175L46.7262 24.1455L39.992 17.8767H39.9936ZM7.82514 8.53243C3.88453 12.6384 1.64028 18.0813 1.5417 23.7714V23.7878L8.15017 17.5876L7.8235 8.53243H7.82514ZM40.4918 8.4671L40.2043 17.5239L46.8373 23.6979C46.7197 18.0017 44.453 12.5605 40.4918 8.46546V8.4671ZM14.5479 15.3271L8.6761 17.7722L11.1228 23.644L14.5479 15.3255V15.3271ZM33.738 15.2863L37.1974 23.5901L39.6196 17.7101L33.738 15.2863ZM8.22694 8.28906L8.55197 17.3818L14.7684 14.793L17.3279 8.57816L8.2253 8.28906H8.22694ZM40.0933 8.22536L30.9352 8.55203L33.5175 14.7538L39.8058 17.3443L40.0949 8.22536H40.0933ZM17.7215 8.68923L15.2993 14.5709L23.6048 11.1115L17.7231 8.68923H17.7215ZM30.5399 8.6631L24.6697 11.1098L32.9883 14.5349L30.5415 8.6631H30.5399ZM24.147 1.6561L17.9322 8.33643L24.1389 10.891L30.3749 8.29233L24.147 1.65773V1.6561ZM23.6962 1.54503C18.0006 1.66304 12.56 3.92969 8.4654 7.89053L17.5222 8.178L23.6962 1.54667V1.54503ZM24.6158 1.54503H24.5995L30.7996 8.15186L39.8564 7.8252C35.7504 3.88491 30.3074 1.64121 24.6174 1.5434L24.6158 1.54503Z" stroke-width="0.5"/></g></defs></svg>
+
+
+<svg style="display: none;" viewBox="0 0 48 48"><defs><g id="__evosem-shape-oval" stroke="var(--main-colour)" fill="var(--main-colour)"><path d="M24.29,.54c8.65,.24,15.5,10.95,15.34,23.89-.16,12.94-7.28,23.26-15.93,23.02-8.65-.24-15.5-10.95-15.34-23.89C8.52,10.62,15.64,.3,24.29,.54Zm10.14,40.25h-5.92l-4.12,6.24c3.87-.15,7.39-2.49,10.04-6.24h0Zm-14.95,0h-5.92c2.66,3.78,6.22,6.13,10.15,6.24h-.11l-4.12-6.24h0Zm4.52-2.78l-4.14,2.63,4.14,6.27,4.14-6.27-4.14-2.63Zm10.59-6.72l-4.2,2.67-1.73,6.42h5.93v-9.09Zm-21.19,0v9.09h5.93l-1.73-6.42-4.2-2.67Zm4.69,2.97l1.61,5.99,3.91-2.48-5.52-3.5h0Zm11.81,0l-5.52,3.5,3.91,2.48,1.61-5.99h0ZM8.75,24.56c.09,5.97,1.7,11.4,4.26,15.42v-8.97l-4.27-6.45h0Zm30.49,0l-4.26,6.45v8.97c2.57-4.04,4.19-9.5,4.26-15.55v.13Zm-15.25-14.15l-6.08,3.8-2.6,9.7,2.63,9.78,6.06,3.85,6.06-3.85,2.63-9.77-2.6-9.7-6.09-3.8h0Zm-8.89,14.25l-1.66,6.17,4,2.54-2.34-8.71h0Zm17.78,0l-2.34,8.71,4-2.53-1.66-6.17h0Zm-19.75-7.31l-4.36,6.53,4.36,6.59,1.76-6.57-1.76-6.56Zm21.71,0l-1.76,6.56,1.76,6.57,4.36-6.59-4.35-6.53Zm.13-9.34v8.82l4.26,6.39c-.13-5.89-1.73-11.23-4.26-15.2h0Zm-21.97,0c-2.57,4.04-4.19,9.5-4.26,15.55v-.35l4.26-6.39V8.02h0Zm4.41,6.5l-3.97,2.48,1.65,6.16,2.32-8.64Zm13.15,0l2.32,8.64,1.66-6.16-3.97-2.48h0Zm-11.29-6.91h-5.87v8.94l4.18-2.61,1.7-6.33Zm15.31,0h-5.87l1.7,6.33,4.18,2.61V7.61Zm-14.93,.09l-1.59,5.93,5.55-3.46-3.95-2.47Zm8.68,0l-3.96,2.47,5.55,3.46-1.59-5.93h0ZM24,1.08l-4.17,6.25,4.17,2.6,4.17-2.6L24,1.08Zm.4-.12l4.16,6.24h5.87c-2.66-3.78-6.22-6.13-10.15-6.24h.12Zm-.8,0c-3.87,.15-7.39,2.49-10.04,6.24h5.87L23.6,.96h0Z" stroke-width="0.5"></path></g></defs></svg>
+
+<svg style="display: none;" viewBox="0 0 48 48"><defs><g id="__evosem-shape-cushion" stroke="var(--main-colour)" fill="var(--main-colour)"><path xmlns="http://www.w3.org/2000/svg" d="M24.58,.54c2.79,0,5.09,.2,8.51,.84,9.44,1.76,14.36,7.07,14.36,17.17v10.9c0,10.09-4.93,15.4-14.36,17.17-3.18,.59-6.3,.84-9.1,.84h-.57c-2.78,0-5.09-.2-8.51-.84C5.47,44.85,.54,39.54,.54,29.45v-10.9C.54,8.46,5.47,3.15,14.91,1.38c3-.56,6.05-.84,9.1-.84h.57Zm-7.23,39.81l-11.79,1.59c2.03,1.88,4.74,3.17,8.1,3.96l.66,.15c.22,.05,.45,.09,.68,.13,3.39,.63,5.68,.82,8.44,.83h.14l-6.22-6.67h0Zm13.37-.03l-6.21,6.69h.09c2.6-.03,5.19-.27,7.75-.71l.68-.12c.23-.04,.45-.09,.68-.13l.66-.15c3.43-.81,6.17-2.14,8.22-4.08l-11.85-1.5Zm-6.69-6.61l-6.25,6.47,6.25,6.7,6.25-6.73-6.25-6.44h0Zm-15.82-2.71l-2.71,10.5,11.6-1.56-2.61-6.5-6.28-2.44ZM.98,24.29v5.16c0,5.31,1.38,9.25,4.08,12.02l2.73-10.62-.18-.07-.06-.29L.98,24.29Zm46.04-.09l-6.55,6.23-.06,.3-.18,.07,2.74,10.65c2.62-2.71,3.99-6.52,4.05-11.62v-5.63Zm-7.2,6.76l-6.31,2.5-2.55,6.47,11.54,1.46-2.68-10.43h0Zm-16.16,2.52H14.97l2.56,6.36,6.14-6.36Zm9.37,0h-8.63l6.14,6.33,2.49-6.33Zm.08-18.53H14.89v18.1h18.22V14.95ZM14.45,24.41l-6.31,6.04,.07,.07v.04l6.23,2.42v-8.57Zm19.09-.06v8.63l6.25-2.48v-.04l.08-.07-6.33-6.04ZM7.75,17.87L1.31,24l6.53,6.16,6.39-6.12-6.47-6.17Zm32.48-.07l-6.45,6.17,6.41,6.11,6.5-6.18-6.47-6.1ZM5.03,6.57C2.34,9.34,.98,13.27,.98,18.55v5.16l6.58-6.26,.03-.16,.21-.08L5.03,6.56h0ZM14.45,15.04l-6.39,2.53h0l6.39,6.1V15.04ZM42.69,6.28l-2.52,10.87,.21,.08,.03,.15,6.61,6.23v-5.07c0-5.47-1.46-9.48-4.33-12.27h0Zm-9.14,8.76v8.56l6.36-6.09-6.36-2.48h0ZM5.5,6.66l2.71,10.39,6.28-2.49,2.59-6.57-11.58-1.33Zm36.74-.38l-11.38,1.68,2.66,6.6,6.25,2.43,2.48-10.71Zm-24.78,1.93l-2.49,6.31h8.61l-6.12-6.31h0Zm13.02-.03l-6.12,6.34h8.68l-2.55-6.34h0ZM23.98,1.11l-6.32,6.69,6.3,6.5,6.3-6.52L23.98,1.11h0Zm-.48-.13c-2.86,.03-5.71,.31-8.52,.83-4.08,.76-7.29,2.19-9.6,4.4l11.89,1.37L23.51,.98h0Zm1.07,0h-.12l6.2,6.57,11.56-1.71c-2.28-2-5.35-3.31-9.2-4.03-3.39-.63-5.67-.82-8.44-.83Z" stroke-width="0.5"/></g></defs></svg>
+
+<svg style="display: none;" viewBox="0 0 48 48"><defs><g id="__evosem-shape-princess" stroke="var(--main-colour)" fill="var(--main-colour)"><path xmlns="http://www.w3.org/2000/svg" d="M47.24,.53c.12,0,.23,.1,.23,.23V47.24c0,.12-.1,.23-.23,.23H.76c-.06,0-.12-.02-.16-.07-.04-.04-.07-.1-.07-.16V.76c0-.12,.1-.23,.23-.23H47.24Zm-6.62,40.41H7.38l-6.08,6.07H46.7l-6.07-6.07h0ZM.98,1.3V46.7l6.08-6.08V7.38L.98,1.3Zm46.04,0l-6.07,6.07V40.62l6.07,6.07V1.3Zm-13.44,32.59H14.42l-6.59,6.59H40.17l-6.59-6.59h0ZM7.51,7.83V40.17l6.59-6.59V14.42L7.51,7.83h0Zm32.98,0l-6.59,6.6v19.15l6.59,6.6V7.83h0Zm-7.05,6.72H14.55v18.89h18.89V14.56h0Zm6.73-7.05H7.83l6.59,6.59h19.15l6.59-6.59ZM46.7,.98H1.3L7.38,7.06H40.62L46.7,.98h0Z" stroke-width="0.5"/></g></defs></svg>
+
+<svg style="display: none;" viewBox="0 0 48 48"><defs><g id="__evosem-shape-emerald" stroke="var(--main-colour)" fill="var(--main-colour)"><path xmlns="http://www.w3.org/2000/svg" d="M35.81,.6l.15,.07,5.52,5.72,.06,.16V41.22l-.06,.16-5.75,5.96-.16,.07H12.19l-.15-.07-5.52-5.72-.06-.16V6.78l.06-.16L12.27,.67l.16-.07h23.39Zm-4.57,40.67h-14.61l-4,5.67h22.54l-3.92-5.67Zm-18.26-3.57l-5.96,3.79,5.15,5.33,4.06-5.75-3.25-3.37Zm22.05-.15l-3.39,3.52,3.98,5.75,5.37-5.56-5.95-3.7ZM6.89,7.18V41.05l5.9-3.75V10.82l-5.9-3.64Zm22.3,28.81h-10.38l-3.75,3.24,1.54,1.6h14.65l1.61-1.67-3.67-3.17ZM41.11,6.95l-5.9,3.75v26.44l5.9,3.67V6.95Zm-26.25,2.18l-1.63,1.69v26.51l1.52,1.58,3.84-3.31V12.34l-3.73-3.22Zm18.36-.07l-3.8,3.28v23.26l3.76,3.24,1.6-1.66V10.67l-1.56-1.61Zm-4.24,3.41h-9.95v23.07h9.95V12.46Zm2.42-5.29h-14.65l-1.58,1.63,3.71,3.21h10.23l3.8-3.28-1.51-1.56ZM12.37,1.2L7.02,6.74l5.97,3.68,3.4-3.53L12.37,1.2Zm23.46-.02l-4.06,5.75,3.25,3.37,5.96-3.79-5.15-5.33h0Zm-.45-.12H12.81l4,5.67h14.57l4-5.67Z" stroke-width="0.5"/></g></defs></svg>
+
+
+<svg style="display: none;" viewBox="0 0 48 48"><defs><g id="__evosem-shape-pear" stroke="var(--main-colour)" fill="var(--main-colour)"><path xmlns="http://www.w3.org/2000/svg" d="M24.23,.6c.08,.02,.14,.05,.24,.12l.12,.09,.16,.13,.54,.49,.52,.48,.27,.26,.56,.54c2.18,2.15,4.19,4.44,6.01,6.84l.5,.67,.06,.09v-.03c2.26,3.1,4.11,6.24,5.49,9.36l.31,.71,.21,.52c1.51,3.75,2.32,7.45,2.42,11.03v1.19c-.01,.65-.09,1.29-.21,1.93l-.11,.5-.07,.28c-1.75,6.7-8.91,11.58-17.25,11.58s-15.5-4.88-17.25-11.6l-.07-.29h0l-.08-.39-.05-.27s-.02-.05-.01-.08l.07,.35c-.13-.67-.21-1.34-.24-2.01v-1.19c.11-3.39,.84-6.89,2.2-10.43l.44-1.12,.04-.09c1.31-3.12,3.1-6.26,5.35-9.39l.45-.63-.02,.02,.1-.13,.2-.27c1.97-2.63,4.16-5.12,6.56-7.45l.53-.51,.51-.47,.74-.67c.09-.07,.19-.12,.3-.15h.47Zm-.47,39.31l-11.4,3.28c3.03,2.32,7.04,3.73,11.4,3.78v-7.06Zm.47,0v7.06h.11c4.32-.07,8.29-1.48,11.29-3.78l-11.4-3.28h0Zm16.72-4.88l-11.14,2.27,6.29,5.53c2.31-1.9,3.98-4.35,4.7-7.11l.08-.32,.08-.36Zm-33.9,.03l.08,.38c.68,2.87,2.38,5.42,4.76,7.38l6.28-5.52-11.14-2.27v.03Zm11.66,2.37l-5.91,5.2,10.6-3.04-4.69-2.15h0Zm10.58,0l-4.69,2.15,10.6,3.04-5.91-5.19Zm-5.52-22.24l-4.71,4.94-2.88,11.03,2.67,5.87,4.91,2.25V15.2h0Zm.46,0v24.08l4.91-2.25,2.68-5.87-2.88-11.03-4.71-4.94ZM15.81,31.46l-8.31,3.25,10.79,2.19-2.48-5.44h0Zm16.39,0l-2.48,5.44,10.78-2.19-8.3-3.25h0Zm6.75-10.01l-6.52,9.64,8.63,3.38c.07-.44,.11-.87,.12-1.31v-.67c-.02-3.52-.75-7.17-2.17-10.88l-.06-.15h0Zm-29.88,0l.17-.43c-1.49,3.7-2.29,7.36-2.39,10.9v.56l-.02,.11v.11c0,.59,.04,1.18,.13,1.77l8.63-3.38-6.52-9.63Zm9.49-1.18l-9.15,.88,6.43,9.51,2.71-10.38h0Zm10.91,0l2.71,10.38,6.43-9.5-9.14-.88Zm3.14-10.05l-3.13,9.63,9.19,.88v-.04l-.13-.28c-1.3-3.07-3.06-6.18-5.24-9.24l-.59-.82-.11-.14Zm-17.19,0l-.21,.29-.44,.61c-2.05,2.88-3.74,5.79-5.01,8.67l-.26,.62-.13,.32,9.19-.88-3.13-9.62h0Zm.52,.1l3.02,9.28,4.71-4.95-7.73-4.34Zm16.15,0l-7.72,4.34,4.71,4.94,3.01-9.28ZM23.77,1.08l-.71,.64-.5,.47c-.09,.08-.17,.16-.26,.25l-.54,.53c-.19,.18-.38,.37-.57,.57-1.86,1.88-3.59,3.85-5.18,5.91l-.24,.31,8,4.49V1.08h0Zm.46,0V14.24l8-4.49c-1.64-2.16-3.43-4.22-5.36-6.18l-.58-.58c-.19-.19-.38-.37-.56-.54l-.53-.5-.65-.59-.29-.25-.04-.03h0Z" stroke-width="0.5"/></g></defs></svg>
+
+<svg style="display: none;" viewBox="0 0 48 48"><defs><g id="__evosem-shape-marquise" stroke="var(--main-colour)" fill="var(--main-colour)"><path xmlns="http://www.w3.org/2000/svg" d="M24.7,.63l.22,.18,.3,.25,.17,.14c2.2,1.88,4.21,3.96,6.02,6.22,4.21,5.26,6.74,10.86,6.74,16.57,0,3.9-1.19,7.86-3.29,11.51l-.2,.35v.03c-.01,.13-.07,.25-.16,.34l-.06,.06c-1.72,2.86-3.85,5.5-6.15,7.85l-.33,.33-.33,.32-.32,.31-.48,.45-.45,.42-.42,.38-.38,.33-.34,.28-.28,.22-.15,.11-.12,.08c-.42,.32-.87,.34-1.3,.07l-.1-.07,.11-.15-.12,.14-.74-.62c-2.17-1.86-4.17-3.91-5.97-6.14-1.36-1.67-2.57-3.46-3.62-5.35l-.03-.03h0c-1.99-3.64-3.11-7.4-3.11-11.22C9.84,15.86,15.6,6.57,23.3,.62c.42-.31,.98-.28,1.41,0Zm5.04,29.91l-5.71,16.67c.13-.01,.25-.06,.35-.13l.2-.14,.14-.11,.08-.06,.19-.15,.33-.27,.25-.21,.41-.36,.44-.4,.46-.43,.32-.31,.48-.47,.32-.33c2.28-2.32,4.39-4.95,6.12-7.81,.09-.09,.13-.14,.13-.2v-.04l.03-.1,.15-.26-4.71-4.87Zm-11.65-.11l-4.67,4.83c1.01,1.78,2.17,3.48,3.46,5.07,1.7,2.11,3.58,4.06,5.62,5.83l.56,.48,.39,.33-5.37-16.54h0Zm.36-.18l5.34,16.45,5.47-15.98-4.83,3.44h-.22l-5.76-3.91Zm19.3-5.57l-7.77,5.53,4.68,4.84c1.86-3.31,2.96-6.86,3.09-10.38h0Zm-24.52,10.22l4.73-4.89-.04-.12-7.68-5.22c.12,3.48,1.18,6.9,2.99,10.23h0ZM24.19,14.25l-5.79,4.19-1.88,5.83,1.74,5.36,6.07,4.13,5.16-3.68,1.99-5.81-2-6.08-5.29-3.94Zm5.84,4.35l1.84,5.61v.13l-1.83,5.35,7.6-5.42-7.61-5.67Zm-12.17,.24l-7.5,5.43,7.36,5-1.6-4.93v-.12l1.74-5.38h0Zm-7.63,5.04l7.69-5.57-4.81-4.97c-1.8,3.5-2.86,7.13-2.88,10.55h0Zm24.56-10.72l-4.77,4.94,7.74,5.77v-.27c-.07-3.54-1.13-7.04-2.97-10.44ZM23.54,.94c-4.21,3.25-7.83,7.51-10.23,12.02l4.84,5L23.67,.86s-.09,.05-.13,.08h0Zm.4,.38l-5.33,16.49,5.47-3.96h.23l4.96,3.69L23.94,1.32h0Zm.25-.49l5.57,16.97,4.76-4.92,.24,.23c-1.05-1.92-2.27-3.74-3.65-5.44-1.79-2.23-3.79-4.3-5.97-6.16l-.32-.27-.35-.29c-.09-.06-.18-.1-.28-.13Z" stroke-width="0.5"/></g></defs></svg>
+
+
+<svg style="display: none;" viewBox="0 0 48 48"><defs><g id="__evosem-shape-asscher" stroke="var(--main-colour)" fill="var(--main-colour)"><path xmlns="http://www.w3.org/2000/svg" d="M41.5,.52l.16,.07,5.74,5.74,.07,.16V41.27l-.07,.16-5.98,5.97-.16,.07H6.5l-.16-.07L.59,41.67l-.07-.16V6.73l.07-.16L6.57,.59l.16-.07H41.5Zm-4.24,41.65H10.56l-3.6,4.85H40.82l-3.55-4.85h0Zm-30.96-4.22l-5.2,3.59,5.36,5.36,3.64-4.89-3.73-3.73-.07-.16v-.17h0Zm35.39-.18v.19l-.07,.16-3.9,3.9,3.57,4.87,5.6-5.59-5.19-3.53h0Zm-8.34-.95H14.54l-3.64,4.89h26.03l-3.58-4.89h0Zm2.94-2.72l-2.52,2.52,3.68,5.03,3.79-3.78v-.41l-4.95-3.37h0Zm-24.57,.11l-4.95,3.43v.39l3.62,3.61,3.74-5.03-2.41-2.41ZM.98,7.16V41.07l5.33-3.68V10.78L.98,7.16H.98Zm46.04-.23l-5.32,3.68v26.61l5.32,3.62V6.93ZM6.76,11.09v25.98l4.75-3.28V14.32l-4.75-3.23Zm34.48-.17l-4.75,3.28v19.47l4.75,3.23V10.93Zm-7.76,.71H14.63l-2.66,2.66v19.53l2.55,2.55h18.85l2.66-2.66V14.18l-2.55-2.55ZM10.55,6.35l-3.79,3.78v.41l4.95,3.36,2.52-2.52-3.68-5.04h0Zm27.07,.01l-3.74,5.03,2.41,2.41,4.95-3.42v-.39l-3.62-3.62Zm-.52-.07H11.07l3.58,4.89h18.81l3.64-4.89ZM6.71,1.1L1.11,6.69l5.2,3.53v-.19l.07-.16,3.9-3.9L6.71,1.1h0Zm34.82,0l-3.63,4.88,3.73,3.73,.07,.16v.17l5.2-3.59-5.36-5.36h0Zm-.48-.12H7.18l3.55,4.85h26.7l3.61-4.85h0Z" stroke-width="0.5"/></g></defs></svg>
+
+<svg style="display: none;" viewBox="0 0 48 48"><defs><g id="__evosem-shape-radiant" stroke="var(--main-colour)" fill="var(--main-colour)"><path xmlns="http://www.w3.org/2000/svg" d="M36.68,.43l.17,.07,5.93,5.76,.07,.16V41.34l-.07,.16-6.18,6-.17,.07H11.32l-.17-.07-5.93-5.76-.07-.16V6.66l.07-.16L11.39,.5l.17-.07h25.12Zm-4,42.28H15.14l-3.36,4.39h24.18l-3.29-4.39Zm-21.89-4.02l-5.02,2.92,5.52,5.37,3.42-4.48-3.92-3.81Zm26.42-.17l-4.1,3.98,3.35,4.47,5.76-5.6-5.02-2.85Zm-13.21-.11l-7.97,3.83h15.77l-7.81-3.83h0Zm7.25-1.03l-6.49,.89,7.68,3.77-1.2-4.66Zm-14.51,0l-1.35,4.66,7.82-3.76-6.47-.89Zm-.51,.06l-4.94,1.09,3.61,3.5,1.33-4.59Zm15.51-.01l1.18,4.6,3.76-3.65-4.94-.95ZM5.62,7.06V41.17l4.97-2.89V9.89l-4.97-2.82h0Zm36.76-.23l-4.97,2.89v28.39l4.97,2.82V6.83h0ZM15.09,25.18l-3.92,12.92,5.15-1.14-1.23-11.78Zm17.83,0l-1.23,11.78,5.15,.99-3.92-12.76h0Zm-8.72-15.12l-7.89,.63-.88,13.28,1.35,12.96,7.18,1,7.25-1,1.35-12.93-.68-13.31-7.69-.63Zm-13.14,1.27v25.48l3.89-12.82-3.89-12.67h0Zm25.87-.15l-3.89,12.82,3.89,12.67V11.18h0Zm-25.78-1.15l3.89,12.67,.79-12.02-4.68-.65h0Zm25.68-.15l-4.48,.79,.61,11.96,3.87-12.76ZM15.51,5.92l.78,4.32,7.05-.57-7.82-3.75Zm17.18,0l-7.64,3.75,6.87,.57,.77-4.31h0Zm-17.65,.06l-3.71,3.61,4.47,.62-.76-4.23Zm18.11,.02l-.75,4.19,4.28-.76-3.53-3.43Zm-1.14-.27h-15.8l7.99,3.83,7.81-3.83ZM11.53,1.02L5.77,6.61l5.02,2.85,4.1-3.98L11.53,1.02h0Zm25.18,0l-3.42,4.47,3.92,3.81,5.02-2.92-5.53-5.37h0Zm-.5-.12H12.03l3.29,4.39h17.54l3.36-4.39h0Z" stroke-width="0.5"/></g></defs></svg>
+
+
+<svg style="display: none;" viewBox="0 0 48 48"><defs><g id="__evosem-shape-heart" stroke="var(--main-colour)" fill="var(--main-colour)"><path xmlns="http://www.w3.org/2000/svg" d="M31.28,2.48c2.76-.77,5.09-.74,7.87-.02,3.31,.85,5.94,2.94,7.51,6.77,1.4,3.42,1.3,8.11,0,12.67-1.31,4.65-3.38,8.48-6.36,11.91-1.36,1.56-2.82,3.03-4.38,4.4l-.02,.26-.23,.19-.25-.03c-1.72,1.47-3.52,2.84-5.4,4.09-1.45,.96-2.94,1.85-4.48,2.65l-.52,.27-.47,.23-.47,.22h-.17l-.47-.22-.47-.23-.52-.27-.28-.15c-1.34-.71-2.76-1.55-4.21-2.51-1.88-1.25-3.69-2.62-5.41-4.09l-.25,.03-.22-.19-.02-.26c-1.55-1.37-3.02-2.84-4.38-4.4-2.98-3.43-5.05-7.25-6.36-11.91C.05,17.33-.06,12.65,1.35,9.23c1.57-3.83,4.2-5.92,7.51-6.77,2.78-.72,5.1-.75,7.87,.02,.71,.2,1.55,.5,2.48,.9,.45,.19,.92,.41,1.41,.63,.9,.42,1.78,.87,2.65,1.33l.73,.39,.35-.19,.58-.31c.81-.43,1.63-.83,2.45-1.22,.48-.23,.96-.44,1.41-.63,.81-.35,1.64-.66,2.48-.9h0Zm-3.18,35.41l-3.66,7.58,.4-.2,.51-.26,.27-.14c1.43-.76,2.82-1.59,4.17-2.49,1.76-1.17,3.45-2.44,5.07-3.8l-6.76-.69h0Zm-8.2,0l-6.76,.69c1.61,1.36,3.31,2.63,5.07,3.8,1.43,.96,2.92,1.83,4.44,2.63l.51,.26,.4,.2-3.66-7.58h0Zm4.17-2.76l-3.78,2.61,3.71,7.69,3.72-7.69-3.65-2.6Zm-12.09-5.6l.5,8.47,.23,.2,7.07-.72-1.33-6.55-6.47-1.4h0Zm24.05,0l-6.24,1.33-1.55,6.62,7.06,.72,.23-.2,.5-8.47Zm8.11-2.16l-7.69,2.06-.49,8.19c1.43-1.28,2.78-2.65,4.04-4.09,1.64-1.87,3.03-3.94,4.14-6.16h0Zm-40.26,0c1.11,2.22,2.5,4.29,4.14,6.16,1.26,1.44,2.61,2.81,4.03,4.09l-.49-8.18-7.68-2.07h0Zm25.41,3.83l-4.87,3.68,3.43,2.45,1.44-6.13h0Zm-10.36,.05l1.24,6.08,3.6-2.48-4.84-3.59Zm.22-17.9l-7.08,2.65,1.37,8.17,5.31,6.43,5.38,3.99,5.34-4.03,5.19-6.7,1.29-7.85-7.31-2.43-4.41,2.54h-.21l-4.87-2.78Zm-5.82,11.34l-1.31,4.44,6.06,1.32-4.75-5.75Zm21.41-.26l-4.62,5.95,5.87-1.25-1.26-4.7ZM7.91,20.25l-3.73,6.77,7.43,2,1.39-4.69-5.08-4.08h0Zm32.21,.08l-4.99,4,1.26,4.69,7.43-2-3.69-6.69Zm7.06-7.02l-6.76,6.65v.04l3.88,7.03c.72-1.48,1.32-3.06,1.83-4.74l.15-.5c.82-2.91,1.15-5.86,.92-8.48ZM.82,13.31c-.24,2.62,.09,5.57,.92,8.48,.53,1.88,1.18,3.62,1.97,5.25l3.89-7.06L.82,13.31Zm35.49,2.98l-1.24,7.57,4.91-3.93-3.67-3.64h0Zm-24.6,.07l-3.54,3.56,4.78,3.83-1.24-7.4h0Zm-.08-7.11L1.13,13.03l6.72,6.61,3.77-3.79v-6.6h0Zm24.88,.05l-.13,6.48,3.84,3.81,6.65-6.54-10.36-3.74h0Zm-12.39,2.55l-4.42,1.33,4.43,2.53,4.01-2.31-4.02-1.54Zm11.98-2.53l-6.98,3.98,6.86,2.28,.12-6.26Zm-24.06,0v6.25l6.64-2.49-6.64-3.76ZM31.33,3.01l-6.84,8.53,4.1,1.58,7.32-4.17-4.57-5.93Zm-14.65,0l-4.54,5.88,7.05,4,4.57-1.37L16.68,3.01Zm-10.48,.97c-1.9,1.11-3.42,2.86-4.47,5.41-.42,1.06-.7,2.17-.84,3.3l10.64-3.84L6.2,3.97Zm35.67,.04l-5.31,4.86,10.56,3.81c-.12-1.02-.37-2.03-.72-2.99l-.12-.3c-1.04-2.52-2.54-4.26-4.4-5.37Zm-11.12-.95c-.54,.18-1.15,.41-1.8,.69-.45,.19-.92,.4-1.4,.63-.82,.39-1.65,.8-2.43,1.21l-.58,.31-.45,.24h-.2l-.27-.15-.75-.4c-.8-.42-1.61-.83-2.43-1.22-.46-.22-.93-.43-1.4-.62-.65-.27-1.24-.5-1.78-.68l6.86,8.24L30.75,3.07Zm7.92-.3c-2.55-.61-4.72-.61-7.29,.11l.3-.08,4.51,5.85,5.3-4.85c-.69-.37-1.42-.66-2.18-.87l-.27-.07-.37-.09h0Zm-22.36,.03c-2.56-.67-4.74-.61-7.36,.06-.83,.21-1.62,.51-2.38,.91l5.27,4.82,4.47-5.79h0Z" stroke-width="0.5"/></g></defs></svg>
+
+
+  </div>

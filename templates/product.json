@@ -1,0 +1,194 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "breadcrumb_XcChKF": {
+      "type": "breadcrumb",
+      "disabled": true,
+      "settings": {
+        "show_breadcrumb_nav": true,
+        "breadcrumb_delimeter": "angle_right",
+        "breadcrumb_text_color": "#1d54a6"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "none"
+          }
+        },
+        "custom_liquid_tBUNNm": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- if product.vendor != 'Forge' -%}\n{%- if product.metafields.custom.ring_size -%}\n  <div class=\"list-of-ring-size\">\n    <label class=\"block text-[#333] text-[14px] not-italic font-semibold leading-[24px] tracking-[1.4px]\">RING SIZE: <span class=\"ring-size text-[12px]\">3<\/span> <\/label>\n    <select id=\"ring-size-selector\" name=\"ring-options\"  class=\"ring-size-selector ring-size bg-transparent text-[#333] border-[1px] border-[#4F4F4F] px-[12px] py-[6px] mt-[18px] max-w-[114px] w-full\" onchange=\"changeVariants('ring-size', event)\"> \n        <option value=\"3\" >3<\/option>\n        <option value=\"3.25\" >3.25<\/option>\n        <option value=\"3.5\" >3.5<\/option>\n        <option value=\"3.75\" >3.75<\/option>\n        <option value=\"4\" >4<\/option>\n        <option value=\"4.25\" >4.25<\/option>\n        <option value=\"4.5\" >4.5<\/option>\n        <option value=\"4.75\" >4.75<\/option>\n        <option value=\"5\" >5<\/option>\n        <option value=\"5.25\" >5.25<\/option>\n        <option value=\"5.5\" >5.5<\/option>\n        <option value=\"5.75\" >5.75<\/option>\n        <option value=\"6\" >6<\/option>\n        <option value=\"6.25\" >6.25<\/option>\n        <option value=\"6.5\" >6.5<\/option>\n        <option value=\"6.75\" >6.75<\/option>\n        <option value=\"7\" >7<\/option>\n        <option value=\"7.25\" >7.25<\/option>\n        <option value=\"7.5\" >7.5<\/option>\n        <option value=\"7.75\" >7.75<\/option>                    \n        <option value=\"8\" >8<\/option>\n        <option value=\"8.25\" >8.25<\/option>\n        <option value=\"8.5\" >8.5<\/option>\n        <option value=\"8.75\" >8.75<\/option>\n        <option value=\"9\" >9<\/option>\n        <option value=\"9.25\" >9.25<\/option>\n        <option value=\"9.5\" >9.5<\/option>\n        <option value=\"9.75\" >9.75<\/option>\n        <option value=\"10\" >10<\/option>\n    <\/select>\n  <\/div>\n{% endif %}\n{%- if product.metafields.custom.ring_size_ladies or product.type == 'Engagement Ring' or product.type == 'Wedding Band' -%}\n  <div class=\"list-of-ring-size\">\n    <label class=\"block text-[#333] text-[14px] not-italic font-semibold leading-[24px] tracking-[1.4px]\">RING SIZE: <span class=\"ring-size text-[12px]\">3<\/span> <\/label>\n    <select id=\"ring-size-selector\" name=\"ring-options\"  class=\"ring-size-selector ring-size bg-transparent text-[#333] border-[1px] border-[#4F4F4F] px-[12px] py-[6px] mt-[18px] max-w-[114px] w-full\" onchange=\"changeVariants('ring-size', event)\">\n      <option value=\"3\" >3<\/option>\n      <option value=\"3.25\" >3.25<\/option>\n      <option value=\"3.5\" >3.5<\/option>\n      <option value=\"3.75\" >3.75<\/option>\n      <option value=\"4\" >4<\/option>\n      <option value=\"4.25\" >4.25<\/option>\n      <option value=\"4.5\" >4.5<\/option>\n      <option value=\"4.75\" >4.75<\/option>\n      <option value=\"5\" >5<\/option>\n      <option value=\"5.25\" >5.25<\/option>\n      <option value=\"5.5\" >5.5<\/option>\n      <option value=\"5.75\" >5.75<\/option>\n      <option value=\"6\" >6<\/option>\n      <option value=\"6.25\" >6.25<\/option>\n      <option value=\"6.5\" >6.5<\/option>\n      <option value=\"6.75\" >6.75<\/option>\n      <option value=\"7\" >7<\/option>\n      <option value=\"7.25\" >7.25<\/option>\n      <option value=\"7.5\" >7.5<\/option>\n      <option value=\"7.75\" >7.75<\/option>\n      <option value=\"8\" >8<\/option>                    \n    <\/select>\n  <\/div>\n{% endif %}\n{% endif %}"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "custom_liquid_8kjmU4": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div id=\"MainRingBuilderBtn\" style=\"display: none;\" v-show=\"is_product_page\" v-if=\"is_product_page\">\n    <div class=\"product-form__buttons\">\n        <button type=\"button\" class=\"button button--full-width shopify-payment-button__button shopify-payment-button__button--select-ring shopify-payment-button__button--unbranded uppercase\" @click=\"addRingToBuilder\">Select This Ring<\/button>\n        <p style=\" padding: 0; margin: 0; margin-bottom: 30px; text-align: center; font-size: 1.2rem; \">Setting Only, Does Not Include Center Diamond<\/p>\n    <\/div>\n<\/div>"
+          }
+        },
+        "product_inquire_yyQA4n": {
+          "type": "product_inquire",
+          "settings": {
+            "text": "PRODUCT INQUIRY"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "description",
+        "variant_picker",
+        "custom_liquid_tBUNNm",
+        "buy_buttons",
+        "custom_liquid_8kjmU4",
+        "product_inquire_yyQA4n"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "product_details_jNCXcC": {
+      "type": "product-details",
+      "settings": {
+        "title": "PRODUCT DETAILS",
+        "text_details": "RING DETAILS",
+        "text_stone": "CENTER STONE",
+        "text_side": "SIDE STONES",
+        "text_band": "BAND DETAILS",
+        "text_stone_details": "STONE DETAILS",
+        "text_earrings": "EARRINGS DETAILS",
+        "text_metal": "METAL DETAILS",
+        "text_chain": "CHAIN DETAILS",
+        "text_pendant": "PENDANT DETAILS",
+        "text_watch": "WATCH DETAILS",
+        "text_movement": "MOVEMENT",
+        "text_band_watch": "BAND DETAILS",
+        "padding_top": 70,
+        "padding_bottom": 0
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "YOU MAY ALSO LIKE",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "product_banner_gXKpWj": {
+      "type": "product-banner",
+      "settings": {
+        "style": "left",
+        "margin_right": 113,
+        "margin_left": 53,
+        "arrow": false,
+        "image_banner": "shopify:\/\/shop_images\/Schedule_an_appointment_1.png",
+        "padding_top_bottom": 70,
+        "image_banner_mobile": "shopify:\/\/shop_images\/Rectangle_328_2_1.png",
+        "title": "READY TO FIND THE PERFECT PIECE?",
+        "title_font_size": 48,
+        "desc": "Book an appointment with our expert jewelry consultants today.",
+        "desc_font_weight": "400",
+        "desc_font_size": 18,
+        "caption": "",
+        "title_size": 470,
+        "color_title": "#1e54a5",
+        "desc_size": 440,
+        "color_desc": "#1e54a5",
+        "button_link": "shopify:\/\/pages\/schedule-an-appointment",
+        "button_title": "SCHEDULE AN APPOINTMENT",
+        "color_scheme": "",
+        "padding_top": 80,
+        "padding_bottom": 100,
+        "padding_top_mob": 40,
+        "padding_bottom_mob": 40
+      }
+    },
+    "title_border_x9nEhi": {
+      "type": "title-border",
+      "disabled": true,
+      "settings": {
+        "title": "Follow Us",
+        "color_scheme": "",
+        "desc": "",
+        "desc_color": "#4f4f4f",
+        "padding_top": 70,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "breadcrumb_XcChKF",
+    "main",
+    "product_details_jNCXcC",
+    "related-products",
+    "product_banner_gXKpWj",
+    "title_border_x9nEhi"
+  ]
+}

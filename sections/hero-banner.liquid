@@ -1,0 +1,192 @@
+<div
+  id="hero-slider{{ section.id }}"
+  class="swiper hero-slider scroll-trigger animate-slide-in bg-[var(--color-section-bg)] color-{{ section.settings.color_scheme }}"
+>
+  <div class="swiper-wrapper">
+    {% for block in section.blocks %}
+
+      <div
+        class="min-h-[700px] bg-[url('{{ block.settings.image | img_url: '1900x' }}')] flex swiper-slide hero-item bg-cover bg-center relative h-full max-sm:bg-[url('{{ block.settings.image_mobile | img_url: '390x' }}')] max-sm:min-h-[538px]"
+      >
+        <div class="wrap-hero-content page-width flex justify-start items-center w-full m-auto max-w-[calc(var(--page-width)] z-9 max-sm:mt-[32px] text-center">
+          <div class="hero-content w-full max-w-[438px] max-sm:h-full">
+            {{
+              block.settings.head_logo
+              | image_url: width: 178
+              | image_tag: loading: 'lazy', class: 'max-sm:inline-block'
+            }}
+            <h2 class="hero-title text-left text-[36px] font-light leading-[45px] text-[rgba(var(--color-foreground))] font-bold m-0 mb-[18px] mt-[18px] max-sm:text-[32px] max-sm:leading-[normal] max-sm:text-center">
+              {{ block.settings.title }}
+            </h2>
+            <div class="flex item-center gap-[21px] max-sm:justify-center">
+              <h6 class="hero-desc text-[16px] font-light text-[rgba(var(--color-foreground))] m-0">
+                {{ block.settings.desc }}
+              </h6>
+              {{
+                block.settings.exclusively
+                | image_url: width: 112
+                | image_tag: loading: 'lazy', class: 'h-[fit-content]'
+              }}
+            </div>
+
+            <div class="mt-[48px] max-sm:mt-[118px]">
+              {% render 'button-arrow',
+                text: block.settings.button_title,
+                arrow: true,
+                url: block.settings.button_link,
+                class: 'text-[14px] w-full max-w-[260px] font-normal  flex justify-center items-center gap-[10px] px-[38px] py-[18px] bg-[rgba(var(--color-button))] text-[rgba(var(--color-button-text))] group max-sm:inline-flex text-center'
+              %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-pagination "></div>
+</div>
+
+<style>
+  :root {
+    --swiper-pagination-color: #66a7de;
+    --swiper-pagination-bullet-inactive-color: #66a7de;
+  }
+
+  .hero-slider-show .swiper-pagination-bullet {
+    width: 50px;
+    height: 2px;
+    border-radius: 5px;
+  }
+  .hero-slider-show .swiper-pagination {
+    bottom: 6%;
+  }
+  @media only screen and (max-width: 780px) {
+    .hero-title {
+      @apply text-[40px] leading-[48.5px];
+    }
+    .hero-desc {
+      @apply text-[20px] leading-[24px];
+    }
+    .hero-slider-show .swiper-pagination {
+      bottom: 1%;
+    }
+  }
+
+  @media only screen and (max-width: 750px) {
+    .wrap-hero-content {
+      @apply p-0 px-[5rem];
+    }
+  }
+
+  @media only screen and (max-width: 430px) {
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+      @apply text-[25px];
+    }
+    .hero-title {
+      @apply text-[30px] leading-[40.5px];
+    }
+    .hero-desc {
+      @apply text-[20px] leading-[24px];
+    }
+    .hero-item {
+      @apply min-h-[480px];
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const heroSwiper = new Swiper('.hero-slider', {
+      grabCursor: true,
+      effect: 'creative',
+      speed: 1000,
+      creativeEffect: {
+        prev: {
+          shadow: true,
+          translate: [0, 0, -400],
+        },
+        next: {
+          translate: ['100%', 0, 0],
+        },
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "Hero Slider",
+  "class": "hero-slider-show",
+  "tag": "section",
+  "max_blocks": 30,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Section Color Schema",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Slide",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "head_logo",
+          "label": "Head logo"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Express Your Style Personalize Your Dream Ring"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "label": "Desc",
+          "default": "Exclusively at"
+        },
+        {
+          "type": "image_picker",
+          "id": "exclusively",
+          "label": "Image"
+        },
+
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "text",
+          "id": "button_title",
+          "label": "Button Title",
+          "default": "SHOP COLLECTION"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

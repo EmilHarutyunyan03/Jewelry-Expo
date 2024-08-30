@@ -1,0 +1,218 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "card_more_rHXzbc": {
+      "type": "card-more",
+      "blocks": {
+        "featured_image_DYUetm": {
+          "type": "featured_image",
+          "settings": {
+            "image_banner": "shopify:\/\/shop_images\/Background_19.jpg",
+            "mobile_banner": "shopify:\/\/shop_images\/Background_20.jpg",
+            "excerpt": "",
+            "image_height": "adapt"
+          }
+        },
+        "content_txcciB": {
+          "type": "content",
+          "settings": {
+            "right_content": "",
+            "richtext": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_image_DYUetm",
+        "content_txcciB"
+      ],
+      "settings": {
+      }
+    },
+    "rich_text_xFFCdT": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_jTarnK": {
+          "type": "heading",
+          "settings": {
+            "heading": "Now & Forever Care",
+            "heading_size": "h1"
+          }
+        },
+        "text_pTa8Q4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>After your purchase, we encourage you to stop by every 6 months or so. We will check your jewelry to make sure all your stones are secure and we will offer a free cleaning and steam out your jewelry to make sure all your pieces shine just like the day you purchased it. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_jTarnK",
+        "text_pTa8Q4"
+      ],
+      "custom_css": [
+        "h2.rich-text__heading.rte.inline-richtext.h1 {text-align: center; font-family: \"Museo Sans Cyrl\"; font-size: 24px; font-style: normal; font-weight: 400; line-height: 180%; text-transform: uppercase; margin-bottom: 12px;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-9a252f54-1410-40d2-8f4e-c2c75dd36e46",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_WKgggW": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_YwGmDb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Competitive Pricing",
+            "heading_size": "h1"
+          }
+        },
+        "text_FWNikP": {
+          "type": "text",
+          "settings": {
+            "text": "<p>After 43 years and counting as an independent jewelery store, we make sure to offer competitive pricing, so there is no need to haggle, and no fear that you are being overcharged, because our goal is to have you come back and see us again because we offered you a great deal! You will get more diamonds for your dollar when shopping at Barclay's Jewelers. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YwGmDb",
+        "text_FWNikP"
+      ],
+      "custom_css": [
+        "h2.rich-text__heading.rte.inline-richtext.h1 {text-align: center; font-family: \"Museo Sans Cyrl\"; font-size: 24px; font-style: normal; font-weight: 400; line-height: 180%; text-transform: uppercase; margin-bottom: 12px;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-9a252f54-1410-40d2-8f4e-c2c75dd36e46",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_nAhEEC": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_yyAFNz": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lifetime Diamond Credit*",
+            "heading_size": "h1"
+          }
+        },
+        "text_L9F9HN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When you purchase a loose certified diamond from Barclay's, your purchase will retain its market value toward a future upgrade ! <span style=\"text-decoration:underline\">*Subject to change based on market conditions.<\/span><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_yyAFNz",
+        "text_L9F9HN"
+      ],
+      "custom_css": [
+        "h2.rich-text__heading.rte.inline-richtext.h1 {text-align: center; font-family: \"Museo Sans Cyrl\"; font-size: 24px; font-style: normal; font-weight: 400; line-height: 180%; text-transform: uppercase; margin-bottom: 12px;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-9a252f54-1410-40d2-8f4e-c2c75dd36e46",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_XGQ6Bn": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_GTFgtm": {
+          "type": "heading",
+          "settings": {
+            "heading": "Family Owned",
+            "heading_size": "h1"
+          }
+        },
+        "text_Kqbncf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Barclay's is a family-owned business, and we have grown with the South Florida community to be one of Miami's top fine jewelry destinations for generations. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_GTFgtm",
+        "text_Kqbncf"
+      ],
+      "custom_css": [
+        "h2.rich-text__heading.rte.inline-richtext.h1 {text-align: center; font-family: \"Museo Sans Cyrl\"; font-size: 24px; font-style: normal; font-weight: 400; line-height: 180%; text-transform: uppercase; margin-bottom: 12px;}"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-9a252f54-1410-40d2-8f4e-c2c75dd36e46",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "product_banner_q3JXjX": {
+      "type": "product-banner",
+      "settings": {
+        "style": "left",
+        "margin_right": 113,
+        "margin_left": 53,
+        "arrow": true,
+        "image_banner": "shopify:\/\/shop_images\/Schedule_an_appointment_2_1.png",
+        "padding_top_bottom": 70,
+        "image_banner_mobile": "shopify:\/\/shop_images\/Rectangle_328_7_1.jpg",
+        "title": "READY TO FIND THE PERFECT PIECE?",
+        "title_font_size": 48,
+        "desc": "Book an appointment with our expert jewelry consultants today.",
+        "desc_font_weight": "400",
+        "desc_font_size": 18,
+        "caption": "",
+        "title_size": 470,
+        "color_title": "#1E54A5",
+        "desc_size": 425,
+        "color_desc": "#1E54A5",
+        "button_link": "",
+        "button_title": "SCHEDULE AN APPOINTMNENT",
+        "color_scheme": "",
+        "padding_top": 70,
+        "padding_bottom": 100,
+        "padding_top_mob": 40,
+        "padding_bottom_mob": 40
+      }
+    }
+  },
+  "order": [
+    "main",
+    "card_more_rHXzbc",
+    "rich_text_xFFCdT",
+    "rich_text_WKgggW",
+    "rich_text_nAhEEC",
+    "rich_text_XGQ6Bn",
+    "product_banner_q3JXjX"
+  ]
+}

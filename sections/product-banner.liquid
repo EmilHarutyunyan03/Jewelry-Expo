@@ -1,0 +1,287 @@
+{% style %}
+  #product-banner-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media only screen and (max-width: 768px) {
+    #product-banner-{{ section.id }} {
+      padding-top:  {{section.settings.padding_top_mob}}px;
+      padding-bottom: {{section.settings.padding_bottom_mob}}px;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .article.custom-design {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+  }
+{% endstyle %}
+
+<div id="product-banner-{{ section.id }}" class="{{template.name}} {{template.suffix}} page-width color-{{ section.settings.color_scheme }} {% if section.settings.style == 'left' %} max-[1500px]:!pl-[0] max-md:!pl-[1.5rem] {% else %} max-[1500px]:!pr-[0] max-md:!pr-[1.5rem] {% endif %} ">
+  <div class="bg-[url('{{ section.settings.image_banner | img_url: 'master' }}')] relative [background-size:100%_100%]  bg-[center_center] bg-no-repeat max-md:bg-none">
+    <div class="w-full py-[50px] max-md:flex flex-col max-lg:py-[20px]">
+      <div class="flex relative py-[{{section.settings.padding_top_bottom}}px] {% if section.settings.style == 'left' %} ml-[{{section.settings.margin_left}}px] max-md:ml-[0] max-md:mb-[-40%] {% else %} mr-[{{section.settings.margin_right}}px] max-md:mr-[0] justify-end max-md:justify-center max-md:order-2 max-md:mt-[-40%]{% endif %} max-md:p-0 max-md:justify-center">
+        <div class="max-w-[700px] w-full relative max-md:max-w-[90%]">
+          <div class="max-w-[700px] w-full bg-[rgba(251,_251,_251,_0.95)] px-[70px] py-[70px] max-md:py-[16px] max-md:px-[24px]">
+            {% if section.settings.caption != blank %}
+              <p class="text-[16px] font-normal leading-[48px] text-[{{ section.settings.color_title}}]">{{ section.settings.caption }}</p>
+            {% endif %}
+
+            <p class="text-[{{section.settings.title_font_size}}px] text-[{{ section.settings.color_title}}] max-w-[{{ section.settings.title_size}}px] w-full not-italic font-[250] leading-[48px] mb-[28px] text-[rgba(var(--color-foreground))] max-md:text-[24px] max-md:leading-[normal] max-md:mb-[8px]">
+              {{ section.settings.title }}
+            </p>
+            <p class="text-[{{section.settings.desc_font_size}}px] w-full text-[{{ section.settings.color_desc}}] max-w-[{{ section.settings.desc_size}}px] not-italic font-[{{ section.settings.desc_font_weight }}] leading-[24px] text-[rgba(var(--color-foreground))] max-md:text-[14px] max-md:max-w-[250px]">
+              {{ section.settings.desc }}
+            </p>
+            {%- if section.settings.button_title != blank -%}
+              <div class="mt-[48px] max-md:mt-[24px]">
+                {% render 'button-arrow'
+                  ,
+ text: section.settings.button_title
+                  ,
+ url: section.settings.button_link
+                  ,
+ arrow: section.settings.arrow
+                  ,
+ class: 'text-[14px] w-[fit-content] text-nowrap font-normal  flex justify-center items-center gap-[10px] px-[38px] py-[18px] bg-[rgba(var(--color-button))] text-[rgba(var(--color-button-text))] group max-md:py-[16px] max-md:px-[24px] max-[390px]:text-[10px]'
+                %}
+              </div>
+            {%- endif -%}
+
+          </div>
+          <div class="text-[0px] absolute right-[-18%] bottom-[-20%] max-lg:top-[-12%] max-lg:overflow-hidden max-lg:max-w-[107px] max-lg:right-[-5%]">
+            {{ section.settings.image_product
+ | image_url: width: 350
+ | image_tag: loading: 'lazy', class: 'max-w-[350px] w-auto block object-cover max-lg:max-w-[none]  max-lg:w-full '
+            }}
+          </div>
+        </div>
+      </div>
+      <div class="hidden max-md:!block">
+        {{ section.settings.image_banner_mobile
+ | image_url: width: 1000
+ | image_tag: loading: 'lazy', class: 'w-full  block object-cover'
+        }}
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Product Banner",
+    "tag": "section",
+    "class": "product-banner",
+    "settings": [
+      {
+        "type": "select",
+        "id": "style",
+        "label": "Style Left Or Right",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      },
+      {
+        "type": "range",
+        "id": "margin_right",
+        "min": 50,
+        "max": 150,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin Right Column",
+        "default": 113
+      },
+      {
+        "type": "range",
+        "id": "margin_left",
+        "min": 50,
+        "max": 150,
+        "step": 1,
+        "unit": "px",
+        "label": "Margin Left Column",
+        "default": 53
+      },
+      {
+        "type": "checkbox",
+        "id": "arrow",
+        "label": "Arrow Show",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "image_banner",
+        "label": "Image Banner"
+      },
+      {
+        "type": "range",
+        "id": "padding_top_bottom",
+        "min": 50,
+        "max": 200,
+        "step": 10,
+        "unit": "px",
+        "label": "Padding Top Bottom",
+        "default": 70
+      },
+      {
+        "type": "image_picker",
+        "id": "image_banner_mobile",
+        "label": "Mobile Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "title"
+      },
+      {
+        "type": "range",
+        "id": "title_font_size",
+        "min": 14,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Title Font Size",
+        "default": 48
+      },
+      {
+        "type": "text",
+        "id": "desc",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "desc_font_weight",
+        "label": "Desc Font Weight",
+        "default": "400"
+      },
+      {
+        "type": "range",
+        "id": "desc_font_size",
+        "min": 14,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Desc Font Size",
+        "default": 18
+      },
+      {
+        "type": "text",
+        "id": "caption",
+        "label": "Caption"
+      },
+      {
+        "type": "range",
+        "id": "title_size",
+        "min": 230,
+        "max": 630,
+        "step": 10,
+        "unit": "px",
+        "label": "Title Max Size",
+        "default": 230
+      },
+      {
+        "type": "color",
+        "id": "color_title",
+        "label": "Color Title",
+        "default": "#1E54A5"
+      },
+      {
+        "type": "range",
+        "id": "desc_size",
+        "min": 425,
+        "max": 700,
+        "step": 5,
+        "unit": "px",
+        "label": "Desc Max Size",
+        "default": 425
+      },
+      {
+        "type": "color",
+        "id": "color_desc",
+        "label": "Color Desc",
+        "default": "#1E54A5"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_product",
+        "label": "Image Product"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      },
+      {
+        "type": "text",
+        "id": "button_title",
+        "label": "Button Title",
+        "default": "SHOP COLLECTION"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "default": "scheme_1",
+        "label": "Color Scheme"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mob",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "Mobile Padding Top",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mob",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "Mobile Padding Bottom",
+        "default": 40
+      }
+
+
+    ],
+    "presets": [
+      {
+        "name": "Product Banner",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

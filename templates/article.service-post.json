@@ -1,0 +1,76 @@
+{
+  "sections": {
+    "breadcrumb_cCQGah": {
+      "type": "breadcrumb",
+      "disabled": true,
+      "settings": {
+        "show_breadcrumb_nav": true,
+        "breadcrumb_delimeter": "angle_right",
+        "breadcrumb_text_color": "#465076"
+      }
+    },
+    "main": {
+      "type": "main-article-card",
+      "blocks": {
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_banner": "{{ article.metafields.custom.services.value.banner.value }}",
+            "image_height": "adapt"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {
+            "right_content": "{{ article.metafields.custom.services.value.right_description | metafield_tag }}"
+          }
+        },
+        "title": {
+          "type": "title",
+          "disabled": true,
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "featured_image",
+        "content",
+        "title",
+        "share"
+      ],
+      "settings": {
+      }
+    },
+    "question_form_CpK36X": {
+      "type": "question-form",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "background": "shopify:\/\/shop_images\/Rectangle_367_1.jpg",
+        "litle_text": "Try Out Our",
+        "title": "EST. 1979",
+        "desc": "For over 40 years, Barclays Jewelers has been one of the most trusted names in jewelry in the Miami region. We are a well-established jewelry store that has grown with our community from a small store to a multiple brand jewelry retailer. We have served generations of families as their trusted jeweler for brilliant diamonds, beautiful fine jewelry, elegant watches, treasured gifts, custom made styles and expert jewelry repairs.",
+        "title_contact": "Ask a Question",
+        "desc_contact": "Send us a message or contact us <a href=\"#\" target=\"_blank\" title=\"#\">directly<\/a>",
+        "title_form": "",
+        "button_link": "",
+        "button_title": "MORE ABOUT US",
+        "padding_top": 70,
+        "padding_bottom": 70
+      }
+    }
+  },
+  "order": [
+    "breadcrumb_cCQGah",
+    "main",
+    "question_form_CpK36X"
+  ]
+}

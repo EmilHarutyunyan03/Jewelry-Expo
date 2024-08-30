@@ -1,0 +1,120 @@
+{{ 'ringbuilder.css' | asset_url | stylesheet_tag }}
+
+<script type="text/javascript">
+	const _rb_product = {{ product | json}};
+	{% if template.name == 'product' %}
+		_rb_product.metafields = {{ product.metafields.global | json }}
+	{% endif %}
+	const _rb_product_collections = {{ product.collections | json }};
+	const _rb_current_collection = {{ collection | json }};
+	if(_rb_current_collection) _rb_current_collection.metafields = {{ collection.metafields.global | json}}
+	const _rb_is_available = {% if template.name == 'product' or template.name == 'collection' or template == 'page.diamondsearch' %} true  {% else %} false {% endif %}
+	const _rb_is_diamondsearch_page = {% if template == 'page.diamondsearch' %} true {% else %} false {% endif %}
+	const _rb_is_ringbuilder_page = {% if template == 'page.ringbuilder' %} true {% else %} false {% endif %}
+</script>
+
+<div id="MainRingBuilder" class="ringbuilder-wrapper" v-show="(is_collection_page || is_product_page || is_diamondsearch_page || is_ringbuilder_page)" style="display: none;" :class="{ 'ringbuilder-visible-mobile': visibleMobile }">
+	<div class="ringbuilder-container">
+        <div class="ringbuilder-mobile-toggle">
+            <div class="ringbuilder-mobile-toggle-inner my-2">
+                <div class="center mt-2">
+                    <button class="capitalise" @click="toggleMobileView">
+                        <span class="icon large">
+                            <img v-show="(is_collection_page || is_product_page)" style="display: none" src="{{ 'ring.svg' | asset_url}}" alt="ring" title="ring" width="42" height="42" class="h-auto" loading="lazy" />
+                            <img v-show="_rb_is_diamondsearch_page" style="display: none" src="{{ 'diamond.svg' | asset_url}}" alt="ring" title="ring" width="42" height="42" class="h-auto" loading="lazy" />
+                            <img v-show="is_ringbuilder_page" style="display: none" src="{{ 'full-ring-hand.svg' | asset_url}}" alt="ring" title="ring" width="42" height="42" class="h-auto" loading="lazy" />
+                        </span>
+                        <span class="text">Build your ring</span>
+                        <span class="toggle-arrow">
+                            <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></svg>
+                        </span>
+
+                    </button>
+                </div>
+                <div class="ringbuilder-highlights mt-2">
+                    <div class="highlight-item" :class="{'active': (is_collection_page || is_product_page) }"></div>
+                    <div class="highlight-item" :class="{'active': _rb_is_diamondsearch_page }"></div>
+                    <div class="highlight-item highlight-item-final" :class="{'active': is_ringbuilder_page }"></div>
+                </div>
+            </div>
+        </div>
+        <div class="relative">
+            <div class="ringbuilder-inner">
+                <div class="ringbuilder-step" :class="{'highlight': (is_collection_page || is_product_page), 'reverse-order': (selectedDiamond && !selectedRing) }">
+                    <div class="ringbuilder-step-metadata">
+                        <div v-if="!selectedRing">
+                            <div class="step-sub-title"><a href="/collections/engagement-rings">Select a Design</a></div>
+                            <div v-if="!selectedRing"><a class="browse-link" href="/collections/engagement-rings"><u>Browse Rings</u></a></div>
+                        </div>
+                        <div v-if="selectedRing">
+                            <div class="step-sub-title"><a href="/collections/engagement-rings">Selected Ring</a></div>
+                            <div class="step-meta">
+                                <div class="name">
+                                    <a :href="'/collections/engagement-rings?filter.p.m.global.collection_name='+selectedRing.product.metafields.collection_name">[[selectedRing.product.title]]</a>
+                                </div>
+                                <div class="separation">|</div>
+                                <div class="price-selector">[[selectedRing.priceFormatted]]</div>
+                            </div>
+                            <div class="step-actions">
+                                <a :href="'/products/' + selectedRing.product.handle + '?variant=' + selectedRing.variant.id">View</a>
+                                <a href="/collections/engagement-rings">Change</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ringbuilder-step-icon" v-if="!selectedRing">
+                        <img src="{{ 'ring.svg' | asset_url }}" alt="ring" title="ring" width="42" height="42" loading="lazy" />
+                    </div>
+                    <div class="ringbuilder-step-image" v-if="selectedRing">
+                        <img v-if="selectedRing.productImageSmall" :src="selectedRing.productImageSmall" width="42" loading="lazy" />
+                    </div>
+                </div>
+                <div class="ringbuilder-step" :class="{'highlight': _rb_is_diamondsearch_page, 'push-order': (selectedDiamond && !selectedRing)}">
+                    <div class="ringbuilder-step-metadata">
+                        <div v-if="!selectedDiamond">
+                            <div class="step-sub-title"><a href="/pages/diamondsearch">Select Diamond</a></div>
+                            <div v-if="!selectedDiamond"><a class="browse-link" href="/pages/diamondsearch"><u>Browse Diamonds</u></a></div>
+
+                        </div>
+                        <div v-if="selectedDiamond">
+                            <div class="step-sub-title"><a href="/pages/diamondsearch">Selected Diamond</a></div>
+                            <div class="step-meta">
+                                <div class="name capitalise">
+                                    <a :href="'/pages/diamondsearch/'+[[selectedDiamond.customUrl]]">[[selectedDiamond.carat]] Carat [[selectedDiamond.shapeLabel]]</a>
+                                </div>
+                                <div class="price-selector">[[Shopify.formatMoney(selectedDiamond.priceNumber)]]</div>
+                            </div>
+                            <div class="step-actions">
+                                <a :href="'/pages/diamondsearch/'+[[selectedDiamond.customUrl]]">View</a>
+                                <a href="/pages/diamondsearch">Change</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ringbuilder-step-icon" v-if="!selectedDiamond">
+                        <img src="{{ 'diamond.svg' | asset_url}}" alt="ring" title="ring" width="42" height="42" loading="lazy" />
+                    </div>
+                    <div class="ringbuilder-step-image" v-if="selectedDiamond">
+                        <img :src="[[diamond_shapes_images[selectedDiamond.shapeLabel]]]" width="42" loading="lazy" />
+                    </div>
+                </div>
+                <div class="ringbuilder-step">
+                    <div class="ringbuilder-step-metadata">
+                        <div v-if="!selectedRing || !selectedDiamond || !selectedRingBuildSettings">
+                            <div class="step-sub-title">Complete Your Ring</div>
+                            <div><u class="browse-link">Preview Ring</u></div>
+                        </div>
+                        <div v-if="selectedRing && selectedDiamond && selectedRingBuildSettings">
+                            <div class="step-sub-title"><a href="/pages/ringbuilder">Complete Your Ring</a></div>
+                            <div class="step-meta">
+                                <div class="name">Total</div>
+                                <div class="price-selector">[[selectedRingBuildSettings.total]]</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ringbuilder-step-icon large">
+                        <img src="{{ 'full-ring-hand.svg' | asset_url }}" alt="ring" title="ring" width="42" height="42" loading="lazy" />
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>

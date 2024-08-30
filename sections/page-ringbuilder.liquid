@@ -1,0 +1,167 @@
+<div id="MainRingBuilerPageReview" class="page-width ringbuilder-page">
+	<div class="!flex product !flex-nowrap max-[989px]:!flex-wrap product--large product--left product--thumbnail_slider product--mobile-show grid grid--1-col grid--2-col-tablet" v-if="selectedRing && selectedDiamond && selectedRingRealProduct" v-show="ready" style="display: none;">
+		<div class="grid__item flex-1 max-[989px]:!flex-[auto] product__media-wrapper">
+
+			<div class="selection-featured-pictures">
+				<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M16.0004 0.360001C7.37067 0.360001 0.360352 7.37032 0.360352 16C0.360352 24.6297 7.37067 31.64 16.0004 31.64C24.63 31.64 31.6404 24.6297 31.6404 16C31.6404 7.37032 24.63 0.360001 16.0004 0.360001ZM16.0004 1.72C23.895 1.72 30.2804 8.10532 30.2804 16C30.2804 23.8947 23.895 30.28 16.0004 30.28C8.10567 30.28 1.72035 23.8947 1.72035 16C1.72035 8.10532 8.10567 1.72 16.0004 1.72ZM15.3204 7.84V15.32H7.84035V16.68H15.3204V24.16H16.6804V16.68H24.1604V15.32H16.6804V7.84H15.3204Z" fill="#E1E1E1"/>
+				</svg>
+				<div class="featured-product-media">
+					<div class="featured-product-media-inner">
+						<div class="featured-product-media-item" v-if="selectedRingFeaturedImage">
+							<img v-if="selectedRingFeaturedImage" :src="selectedRingFeaturedImage" loading="lazy">
+						</div>
+					</div>
+				</div>
+				<div class="featured-product-media">
+					<div class="featured-product-media-inner">
+						<div :id="'media-'+selectedDiamond.sku" :data-id="selectedDiamond.sku" class="featured-product-media-item" v-if="selectedDiamond?.pictures[0]">
+							<img v-if="selectedDiamond?.pictures[0]" :src="selectedDiamond?.pictures[0]" width="auto" height="auto" loading="lazy">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="selection-featured-pictures">
+				<div class="featured-product-media">
+					<div class="price__container" style="text-align: center;">
+						<div class="priced_item_title capitalise">[[ selectedRing?.variant?.name ]]</div>
+						<div class="price__regular">
+							<span class="price-item price-item--regular">[[selectedRing?.priceFormatted]]</span>
+						</div>
+						<div class="priced_item_change uppercase"><a href="/collections/engagement-rings"><u>Change Setting</u></a></div>
+					</div>
+				</div>
+				<div class="featured-product-media">
+					<div class="price__container" style="text-align: center;">
+						<div class="priced_item_title capitalise">[[selectedDiamond.carat]] Carat [[selectedDiamond.shapeLabel]] [[selectedDiamond.color]] Color [[selectedDiamond.type]] Diamond</div>
+						<div class="price__regular">
+							<span class="price-item price-item--regular">[[Shopify.formatMoney(selectedDiamond.priceNumber)]]</span>
+						</div>
+						<div class="priced_item_change uppercase"><a href="/pages/diamondsearch"><u>Change Center Stone</u></a></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="selection-products-price" style="display: none">
+				<div class="center price price--large price--show-badge my-2">
+					<div class="price__container" style="text-align: center;">
+						<div class="price__regular">
+							<span class="price-item price-item--regular">[[selectedRing?.priceFormatted]]</span>
+						</div>
+					</div>
+				</div>
+				<div class="center price price--large price--show-badge my-2">
+					<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M16.0004 0.360001C7.37067 0.360001 0.360352 7.37032 0.360352 16C0.360352 24.6297 7.37067 31.64 16.0004 31.64C24.63 31.64 31.6404 24.6297 31.6404 16C31.6404 7.37032 24.63 0.360001 16.0004 0.360001ZM16.0004 1.72C23.895 1.72 30.2804 8.10532 30.2804 16C30.2804 23.8947 23.895 30.28 16.0004 30.28C8.10567 30.28 1.72035 23.8947 1.72035 16C1.72035 8.10532 8.10567 1.72 16.0004 1.72ZM15.3204 7.84V15.32H7.84035V16.68H15.3204V24.16H16.6804V16.68H24.1604V15.32H16.6804V7.84H15.3204Z" fill="#E1E1E1"/>
+					</svg>	
+				</div>
+				<div class="center price price--large price--show-badge my-2">
+					<div class="price__container" style="text-align: center;">
+						<div class="price__regular">
+							<span class="price-item price-item--regular">[[Shopify.formatMoney(selectedDiamond.priceNumber)]]</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="product__info-wrapper grid__item" v-if="selectedRing">
+			<div class="caption-with-letter-spacing caption-with-letter-spacing--large">[[selectedRing?.product?.metafields?.collection_name]]</div>
+			<div class="product__title">
+				<h1 class="capitalise">[[selectedRing?.product?.title +' With A '+selectedDiamond?.carat +' Carat '+ selectedDiamond.color+' Color, '+ selectedDiamond.clarity+' '+ selectedDiamond.shapeLabel+' Diamond']]</h1>
+			</div>
+			<div class=" price price--large price--show-badge">
+				<div class="price__container">
+					<div class="price__regular">
+						<span class="price-item price-item--regular">[[selectedRingBuildSettings.total]]</span>
+						<span style="font-weight: 400;"><small>(Setting + Center Diamond)</small></span>
+					</div>
+				</div>
+			</div>
+			<div class="product__description rte quick-add-hidden mt-3" v-html="selectedRing?.product?.description"></div>
+            <div style="display: none;" class="product-form__input product-form__input--dropdown" style="margin-bottom: 20px;">
+                <label class="form__label" for="Option-template--14560192888890__main-0">Metal</label>
+                <div class="select" style="">
+                    <select id="Option-template--14560192888890__main-0" class="select__select" name="options[Metal]" form="product-form-template--14560192888890__main" v-model="selectedRing.variant.id">
+						<option v-for="variant in selectedRing.product.variants" :value="variant.id">[[ variant.title ]]</option>
+                    </select> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12.6836 3.49373C12.5681 3.49646 12.4583 3.54479 12.3783 3.62817L7.0001 9.00634L1.62193 3.62817C1.58115 3.58617 1.53235 3.55279 1.47844 3.52999C1.42452 3.50719 1.36658 3.49544 1.30804 3.49544C1.22097 3.49546 1.13589 3.52146 1.06368 3.5701C0.99147 3.61875 0.935416 3.68784 0.902689 3.76852C0.869963 3.84921 0.862053 3.93782 0.879971 4.02303C0.89789 4.10823 0.940821 4.18615 1.00327 4.24682L6.69077 9.93432C6.77282 10.0163 6.88409 10.0624 7.0001 10.0624C7.11611 10.0624 7.22738 10.0163 7.30943 9.93432L12.9969 4.24682C13.0605 4.18576 13.1042 4.1069 13.1223 4.02057C13.1403 3.93425 13.1318 3.8445 13.0979 3.76308C13.0641 3.68166 13.0064 3.61238 12.9324 3.56431C12.8585 3.51625 12.7718 3.49165 12.6836 3.49373Z" fill="#5B5B5B"></path></svg>
+                </div>
+            </div>
+
+
+            <div style="display: none;" class="product-form__input product-form__input--dropdown" style="margin-bottom: 20px;">
+                <label class="form__label" for="Option-template--14560192888891__main-1">Ring Size</label>
+                <div class="select" style="">
+                    <select id="Option-template--14560192888891__main-1" class="select__select ring-size-selector ring-size" name="options[ring-size]" form="product-form-template--14560192888891__main" v-model="selectedRing.ringsize">
+						<option value="">-- Please Select --</option>
+                        <option value="3">3</option>
+                        <option value="3.25">3.25</option>
+                        <option value="3.5">3.5</option>
+                        <option value="3.75">3.75</option>
+                        <option value="4">4</option>
+                        <option value="4.25">4.25</option>
+                        <option value="4.5">4.5</option>
+                        <option value="4.75">4.75</option>
+                        <option value="5">5</option>
+                        <option value="5.25">5.25</option>
+                        <option value="5.5">5.5</option>
+                        <option value="5.75">5.75</option>
+                        <option value="6">6</option>
+                        <option value="6.25">6.25</option>
+                        <option value="6.5">6.5</option>
+                        <option value="6.75">6.75</option>
+                        <option value="7">7</option>
+                        <option value="7.25">7.25</option>
+                        <option value="7.75">7.75</option>
+                        <option value="8">8</option>   
+                    </select> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12.6836 3.49373C12.5681 3.49646 12.4583 3.54479 12.3783 3.62817L7.0001 9.00634L1.62193 3.62817C1.58115 3.58617 1.53235 3.55279 1.47844 3.52999C1.42452 3.50719 1.36658 3.49544 1.30804 3.49544C1.22097 3.49546 1.13589 3.52146 1.06368 3.5701C0.99147 3.61875 0.935416 3.68784 0.902689 3.76852C0.869963 3.84921 0.862053 3.93782 0.879971 4.02303C0.89789 4.10823 0.940821 4.18615 1.00327 4.24682L6.69077 9.93432C6.77282 10.0163 6.88409 10.0624 7.0001 10.0624C7.11611 10.0624 7.22738 10.0163 7.30943 9.93432L12.9969 4.24682C13.0605 4.18576 13.1042 4.1069 13.1223 4.02057C13.1403 3.93425 13.1318 3.8445 13.0979 3.76308C13.0641 3.68166 13.0064 3.61238 12.9324 3.56431C12.8585 3.51625 12.7718 3.49165 12.6836 3.49373Z" fill="#5B5B5B"></path></svg>
+                </div>
+            </div>
+
+			<fieldset class="js product-form__input my-2" style="display: none;" v-if="selectedRingRealProduct.Material">
+				<legend class="form__label">[[selectedRingRealProduct.Material.name]]</legend>
+				<div class="evosem-dynamic-dropdown product-form__input">
+					<div class="evosem-dynamic-dropdown-inner select">
+
+						<div class="select__select">
+							<div class="selected_value" @click="toggleRingSizeDropDown">
+								<div>[[_.head(selectedRingRealProduct.Material.values.filter( value => value === selectedRing.variant.title))]]</div>
+								<svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor" />
+								</svg>
+							</div>
+							<div class="evosem-dynamic-dropdown-list" style="display: none;" :class="{active: visibleRingSizesDropdown}">
+								<div class="evosem-dynamic-dropdown-list-backdrop" @click="toggleRingSizeDropDown"></div>
+								<div 
+									@click="pickRingSize(value)"
+									:data-for="'main-1-'+index" 
+									:data-name="selectedRingRealProduct.Material.name" 
+									:data-value="value" 
+									class="dropdown-list-item" 
+									v-for="(value, index) in selectedRingRealProduct.Material.values">[[value]]</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</fieldset>
+			<div>
+				<div class="product-form__buttons">
+					<button type="submit" name="add" class="product-form__submit button button--full-width button--secondary" :class="{loading: addingToCart}" :disabled="!diamondExist" @click="addToCart">
+						<span v-if="!addingToCart">{{ 'products.product.add_to_cart' | t }}</span>
+						<span class="uppercase" v-if="addingToCart">Preparing your ring</span>
+						<div class="loading-overlay__spinner" :class="{hidden: !addingToCart}">
+							<svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"> <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle></svg>
+						</div> 
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div>

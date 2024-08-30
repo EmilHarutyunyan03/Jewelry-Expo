@@ -1,0 +1,210 @@
+<div class="  py-[48px] flex gap-[120px] justify-center bg-[#FBFBFB] flex-wrap max-md:gap-[32px]">
+  <div class="">
+    <p class="flex items-center gap-[8px] mb-[18px] text-[#333] text-[14px] font-semibold leading-[24px] tracking-[1.4px] justify-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="22"
+        height="24"
+        viewBox="0 0 22 24"
+        fill="none">
+        <circle
+          cx="11"
+          cy="13"
+          r="10.25"
+          stroke="#1D54A6"
+          stroke-width="1.5" />
+        <circle
+          cx="11"
+          cy="13"
+          r="7.25"
+          stroke="#1D54A6"
+          stroke-width="1.5" />
+        <line
+          x1="9"
+          y1="1"
+          x2="13"
+          y2="1"
+          stroke="#1D54A6"
+          stroke-width="2" />
+      </svg>
+      {{ section.settings.text_details }}
+    </p>
+    <div class=" max-w-[250px] w-full flex gap-[32px] justify-between">
+      <div class="flex flex-col items-start gap-[18px] justify-start mb-[8px]">
+        {%- if product.metafields.custom.sku.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">SKU:</p>
+        {% endif %}
+        {%- if product.metafields.custom.category.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Category:</p>
+        {% endif %}
+        
+        {%- if product.metafields.custom.metal.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Metal:</p>
+        {% endif %}
+        {%- if  product.metafields.custom.gender.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Gender:</p>
+        {% endif %}
+        {%- if  product.metafields.custom.setting_.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Setting:</p>
+        {% endif %}
+        {%- if  product.metafields.custom.style_.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Style:</p>
+        {% endif %}
+      </div>
+      <div class="flex flex-col items-start gap-[18px] justify-start mb-[8px]">
+        {%- if product.metafields.custom.sku.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+          {{ product.metafields.custom.sku.value }}
+        </p>
+        {% endif %}
+        {%- if product.metafields.custom.category.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+          {{ product.metafields.custom.category.value }}
+        </p>
+        {% endif %}
+        
+        {%- if product.metafields.custom.metal.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+            {{ product.metafields.custom.metal.value }}
+          </p>
+        {% endif %}
+        {%- if  product.metafields.custom.gender.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+          {{ product.metafields.custom.gender.value }}
+        </p>
+      {% endif %}
+        {%- if  product.metafields.custom.setting_.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+          {{ product.metafields.custom.setting_.value }}
+        </p>
+      {% endif %}
+        {%- if  product.metafields.custom.style_.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+          {{ product.metafields.custom.style_.value }}
+        </p>
+        {% endif %}
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-[228px] w-full">
+    <p class="flex items-center gap-[8px] mb-[18px] text-[#333] text-[14px] font-semibold leading-[24px] tracking-[1.4px] justify-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none">
+        <path d="M12 20.625L2.41666 9.125L5.29166 3.375H18.7083L21.5833 9.125L12 20.625ZM9.31666 8.40625H14.6833L12.8864 4.8125H11.1135L9.31666 8.40625ZM11.2812 17.5344V9.84375H4.88436L11.2812 17.5344ZM12.7187 17.5344L19.1156 9.84375H12.7187V17.5344ZM16.2885 8.40625H19.5469L17.75 4.8125H14.4917L16.2885 8.40625ZM4.45311 8.40625H7.71145L9.50832 4.8125H6.24999L4.45311 8.40625Z" fill="#1D54A6" />
+        <path
+          d="M8 9L11.1257 16.8142C11.4533 17.6334 12.604 17.6577 12.9661 16.8532L16.5 9"
+          stroke="#1D54A6"
+          stroke-width="1.5" />
+      </svg>
+      {{ section.settings.text_stone }}
+    </p>
+    <div class="max-w-[250px] w-full flex gap-[32px] justify-between">
+      <div class="flex flex-col items-start gap-[18px] justify-start mb-[8px]">
+        {%- if product.metafields.custom.center_stone_shape.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Center Stone Shape:</p>
+        {% endif %}
+        {%- if product.metafields.custom.center_stone_weight.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Center Stone Weight:</p>
+        {%- endif -%}
+        {%- if product.metafields.custom.center_stone_color.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Center Stone Color:</p>
+        {%- endif -%}
+        {%- if  product.metafields.custom.center_stone_clarity.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Center Stone Clarity:</p>
+        {%- endif -%}
+        
+      </div>
+      <div class="flex flex-col items-start gap-[18px] justify-start mb-[8px]">
+        {%- if product.metafields.custom.center_stone_shape.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+          {{ product.metafields.custom.center_stone_shape.value }}
+        </p>
+        {%- endif -%}
+
+        {%- if product.metafields.custom.center_stone_weight.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+            {{ product.metafields.custom.center_stone_weight.value }}
+          </p>
+        {%- endif -%}
+        
+        {%- if product.metafields.custom.center_stone_color.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+            {{ product.metafields.custom.center_stone_color.value }}
+          </p>
+        {%- endif -%}
+        {%- if  product.metafields.custom.center_stone_clarity.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+          {{ product.metafields.custom.center_stone_clarity.value }}
+        </p>
+        {%- endif -%}
+        
+      </div>
+    </div>
+  </div>
+  <div class="max-w-[228px] w-full">
+    <p class="flex items-center gap-[8px] mb-[18px] text-[#333] text-[14px] font-semibold leading-[24px] tracking-[1.4px] justify-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="35"
+        height="18"
+        viewBox="0 0 35 18"
+        fill="none">
+        <path d="M9.00002 15.375L1.91669 6.875L4.04169 2.625H13.9584L16.0834 6.875L9.00002 15.375ZM7.01669 6.34375H10.9834L9.65523 3.6875H8.34481L7.01669 6.34375ZM8.46877 13.0906V7.40625H3.74065L8.46877 13.0906ZM9.53127 13.0906L14.2594 7.40625H9.53127V13.0906ZM12.1698 6.34375H14.5781L13.25 3.6875H10.8417L12.1698 6.34375ZM3.4219 6.34375H5.83023L7.15835 3.6875H4.75002L3.4219 6.34375Z" fill="#1D54A6" />
+        <path d="M6.04346 6.78259L8.12566 11.9881C8.45332 12.8073 9.604 12.8316 9.96605 12.0271L12.3261 6.78259" stroke="#1D54A6" />
+        <path d="M26 15.375L18.9167 6.875L21.0417 2.625H30.9584L33.0834 6.875L26 15.375ZM24.0167 6.34375H27.9834L26.6552 3.6875H25.3448L24.0167 6.34375ZM25.4688 13.0906V7.40625H20.7406L25.4688 13.0906ZM26.5313 13.0906L31.2594 7.40625H26.5313V13.0906ZM29.1698 6.34375H31.5781L30.25 3.6875H27.8417L29.1698 6.34375ZM20.4219 6.34375H22.8302L24.1584 3.6875H21.75L20.4219 6.34375Z" fill="#1D54A6" />
+        <path d="M23.0435 6.78259L25.1257 11.9881C25.4533 12.8073 26.604 12.8316 26.9661 12.0271L29.3261 6.78259" stroke="#1D54A6" />
+      </svg>
+      {{ section.settings.text_side }}
+    </p>
+    <div class="max-w-[250px] w-full flex gap-[32px] justify-between">
+      <div class="flex flex-col items-start gap-[18px] justify-start mb-[8px]">
+        {%- if product.metafields.custom.side_stone_shapes.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Side Stone Shapes:</p>
+        {%- endif -%}
+        {%- if  product.metafields.custom.number_of_stones.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Number of Stones:</p>
+        {%- endif -%}
+
+        {%- if  product.metafields.custom.total_carat_weight.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Total Carat Weight:</p>
+        {%- endif -%}
+        
+        {%- if  product.metafields.custom.side_stone_color.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Side Stone Color:</p>
+        {%- endif -%}
+        
+      </div>
+      <div class="flex flex-col items-start gap-[18px] justify-start mb-[8px]">
+        {%- if product.metafields.custom.side_stone_shapes.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+            {{ product.metafields.custom.side_stone_shapes.value }}
+          </p>
+        {%- endif -%}
+        {%- if  product.metafields.custom.number_of_stones.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+          {{ product.metafields.custom.number_of_stones.value }}
+        </p>
+        {%- endif -%}
+        
+        {%- if  product.metafields.custom.total_carat_weight.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+            {{ product.metafields.custom.total_carat_weight.value }}
+          </p>
+        {%- endif -%}
+      
+        {%- if  product.metafields.custom.side_stone_color.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+          {{ product.metafields.custom.side_stone_color.value }}
+        </p>
+        {%- endif -%}
+        
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+{
+  "sections": {
+    "breadcrumb_RNhHjf": {
+        "disabled": true,
+      "type": "breadcrumb",
+      "settings": {
+        "show_breadcrumb_nav": true,
+        "breadcrumb_delimeter": "angle_right",
+        "breadcrumb_text_color": "#1d54a6"
+      }
+    },
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "title": { "type": "title", "settings": {} },
+        "featured_image": {
+          "type": "featured_image",
+          "source": "{{ article.metafields.custom.education_banner.value }}",
+          "settings": {
+            "image_banner": "{{ article.metafields.custom.education_banner.value.banner.value }}",
+            "mobile_banner": "{{ article.metafields.custom.education_banner.value.mobile_banner.value }}",
+            "image_height": "adapt"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": false,
+            "share_label": "Share"
+          }
+        },
+        "content": { "type": "content", "settings": {} }
+      },
+      "block_order": ["title", "featured_image", "share", "content"],
+      "settings": {}
+    },
+    "blog_also_like_PQqR4E": {
+      "type": "blog-also-like",
+      "settings": {
+        "blog": "our-blog",
+        "title": "YOU MAY ALSO LIKE",
+        "padding_top": 80,
+        "padding_bottom": 100
+      }
+    },
+    "product_banner_mEXcWX": {
+      "type": "product-banner",
+      "settings": {
+        "style": "left",
+        "margin_right": 113,
+        "margin_left": 53,
+        "arrow": true,
+        "image_banner": "shopify://shop_images/Schedule_an_appointment_2_1.png",
+        "padding_top_bottom": 70,
+        "image_banner_mobile": "shopify://shop_images/Rectangle_328_7_1.jpg",
+        "title": "READY TO FIND THE PERFECT PIECE?",
+        "title_font_size": 48,
+        "desc": "Book an appointment with our expert jewelry consultants today.",
+        "desc_font_weight": "400",
+        "desc_font_size": 18,
+        "caption": "",
+        "title_size": 470,
+        "color_title": "#1e54a5",
+        "desc_size": 425,
+        "color_desc": "#1e54a5",
+        "button_link": "",
+        "button_title": "SCHEDULE AN APPOINTMENT",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 70,
+        "padding_top_mob": 40,
+        "padding_bottom_mob": 40
+      }
+    }
+  },
+  "order": [
+    "breadcrumb_RNhHjf",
+    "main",
+    "blog_also_like_PQqR4E",
+    "product_banner_mEXcWX"
+  ]
+}

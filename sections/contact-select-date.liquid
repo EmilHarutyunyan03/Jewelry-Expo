@@ -1,0 +1,322 @@
+{% style %}
+  #contact-select-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  #ContactFormDateTime::-webkit-calendar-picker-indicator {
+    color: #66A7DE;
+  }
+
+  #ContactFormDateTime {
+    position: relative;
+    padding: 10px;
+  }
+
+  #ContactFormDateTime::-webkit-calendar-picker-indicator {
+    color: transparent;
+    background: none;
+    z-index: 1;
+  }
+
+  #ContactFormDateTime:before {
+    color: transparent;
+    background: none;
+    display: block;
+    content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIuMzc1IDAuNUMxLjEzNTQyIDAuNSAwLjEyNSAxLjUxMDQyIDAuMTI1IDIuNzVWMTMuMjVDMC4xMjUgMTQuNDg5NiAxLjEzNTQyIDE1LjUgMi4zNzUgMTUuNUgxMy42MjVDMTQuODY0NiAxNS41IDE1Ljg3NSAxNC40ODk2IDE1Ljg3NSAxMy4yNVYyLjc1QzE1Ljg3NSAxLjUxMDQyIDE0Ljg2NDYgMC41IDEzLjYyNSAwLjVIMi4zNzVaTTIuMzc1IDQuNjI1SDEzLjYyNUMxNC4wMzkxIDQuNjI1IDE0LjM3NSA0Ljk2MDk0IDE0LjM3NSA1LjM3NVYxMy4yNUMxNC4zNzUgMTMuNjY0MSAxNC4wMzkxIDE0IDEzLjYyNSAxNEgyLjM3NUMxLjk2MDk0IDE0IDEuNjI1IDEzLjY2NDEgMS42MjUgMTMuMjVWNS4zNzVDMS42MjUgNC45NjA5NCAxLjk2MDk0IDQuNjI1IDIuMzc1IDQuNjI1Wk02LjEyNSA1Ljc1QzUuOTE5MjcgNS43NSA1Ljc1IDUuOTE5MjcgNS43NSA2LjEyNVY2Ljg3NUM1Ljc1IDcuMDgwNzMgNS45MTkyNyA3LjI1IDYuMTI1IDcuMjVINi44NzVDNy4wODA3MyA3LjI1IDcuMjUgNy4wODA3MyA3LjI1IDYuODc1VjYuMTI1QzcuMjUgNS45MTkyNyA3LjA4MDczIDUuNzUgNi44NzUgNS43NUg2LjEyNVpNOS4xMjUgNS43NUM4LjkxOTI3IDUuNzUgOC43NSA1LjkxOTI3IDguNzUgNi4xMjVWNi44NzVDOC43NSA3LjA4MDczIDguOTE5MjcgNy4yNSA5LjEyNSA3LjI1SDkuODc1QzEwLjA4MDcgNy4yNSAxMC4yNSA3LjA4MDczIDEwLjI1IDYuODc1VjYuMTI1QzEwLjI1IDUuOTE5MjcgMTAuMDgwNyA1Ljc1IDkuODc1IDUuNzVIOS4xMjVaTTEyLjEyNSA1Ljc1QzExLjkxOTMgNS43NSAxMS43NSA1LjkxOTI3IDExLjc1IDYuMTI1VjYuODc1QzExLjc1IDcuMDgwNzMgMTEuOTE5MyA3LjI1IDEyLjEyNSA3LjI1SDEyLjg3NUMxMy4wODA3IDcuMjUgMTMuMjUgNy4wODA3MyAxMy4yNSA2Ljg3NVY2LjEyNUMxMy4yNSA1LjkxOTI3IDEzLjA4MDcgNS43NSAxMi44NzUgNS43NUgxMi4xMjVaTTMuMTI1IDguMzc1QzIuOTE5MjcgOC4zNzUgMi43NSA4LjU0NDI3IDIuNzUgOC43NVY5LjVDMi43NSA5LjcwNTczIDIuOTE5MjcgOS44NzUgMy4xMjUgOS44NzVIMy44NzVDNC4wODA3MyA5Ljg3NSA0LjI1IDkuNzA1NzMgNC4yNSA5LjVWOC43NUM0LjI1IDguNTQ0MjcgNC4wODA3MyA4LjM3NSAzLjg3NSA4LjM3NUgzLjEyNVpNNi4xMjUgOC4zNzVDNS45MTkyNyA4LjM3NSA1Ljc1IDguNTQ0MjcgNS43NSA4Ljc1VjkuNUM1Ljc1IDkuNzA1NzMgNS45MTkyNyA5Ljg3NSA2LjEyNSA5Ljg3NUg2Ljg3NUM3LjA4MDczIDkuODc1IDcuMjUgOS43MDU3MyA3LjI1IDkuNVY4Ljc1QzcuMjUgOC41NDQyNyA3LjA4MDczIDguMzc1IDYuODc1IDguMzc1SDYuMTI1Wk05LjEyNSA4LjM3NUM4LjkxOTI3IDguMzc1IDguNzUgOC41NDQyNyA4Ljc1IDguNzVWOS41QzguNzUgOS43MDU3MyA4LjkxOTI3IDkuODc1IDkuMTI1IDkuODc1SDkuODc1QzEwLjA4MDcgOS44NzUgMTAuMjUgOS43MDU3MyAxMC4yNSA5LjVWOC43NUMxMC4yNSA4LjU0NDI3IDEwLjA4MDcgOC4zNzUgOS44NzUgOC4zNzVIOS4xMjVaTTEyLjEyNSA4LjM3NUMxMS45MTkzIDguMzc1IDExLjc1IDguNTQ0MjcgMTEuNzUgOC43NVY5LjVDMTEuNzUgOS43MDU3MyAxMS45MTkzIDkuODc1IDEyLjEyNSA5Ljg3NUgxMi44NzVDMTMuMDgwNyA5Ljg3NSAxMy4yNSA5LjcwNTczIDEzLjI1IDkuNVY4Ljc1QzEzLjI1IDguNTQ0MjcgMTMuMDgwNyA4LjM3NSAxMi44NzUgOC4zNzVIMTIuMTI1Wk0zLjEyNSAxMUMyLjkxOTI3IDExIDIuNzUgMTEuMTY5MyAyLjc1IDExLjM3NVYxMi4xMjVDMi43NSAxMi4zMzA3IDIuOTE5MjcgMTIuNSAzLjEyNSAxMi41SDMuODc1QzQuMDgwNzMgMTIuNSA0LjI1IDEyLjMzMDcgNC4yNSAxMi4xMjVWMTEuMzc1QzQuMjUgMTEuMTY5MyA0LjA4MDczIDExIDMuODc1IDExSDMuMTI1Wk02LjEyNSAxMUM1LjkxOTI3IDExIDUuNzUgMTEuMTY5MyA1Ljc1IDExLjM3NVYxMi4xMjVDNS43NSAxMi4zMzA3IDUuOTE5MjcgMTIuNSA2LjEyNSAxMi41SDYuODc1QzcuMDgwNzMgMTIuNSA3LjI1IDEyLjMzMDcgNy4yNSAxMi4xMjVWMTEuMzc1QzcuMjUgMTEuMTY5MyA3LjA4MDczIDExIDYuODc1IDExSDYuMTI1Wk05LjEyNSAxMUM4LjkxOTI3IDExIDguNzUgMTEuMTY5MyA4Ljc1IDExLjM3NVYxMi4xMjVDOC43NSAxMi4zMzA3IDguOTE5MjcgMTIuNSA5LjEyNSAxMi41SDkuODc1QzEwLjA4MDcgMTIuNSAxMC4yNSAxMi4zMzA3IDEwLjI1IDEyLjEyNVYxMS4zNzVDMTAuMjUgMTEuMTY5MyAxMC4wODA3IDExIDkuODc1IDExSDkuMTI1WiIgZmlsbD0iIzY2QTdERSIvPgo8L3N2Zz4K");
+    width: 15px;
+    height: 20px;
+    position: absolute;
+    top: 12px;
+    right: 6px;
+    color: #999;
+  }
+{% endstyle %}
+
+<div
+  id="contact-select-{{ section.id }}"
+  class="color-{{ section.settings.color_scheme }} page-width flex items-center  justify-center max-lg:flex-wrap max-lg:!px-[0px]"
+>
+  <div
+    style="background-image: url({{ section.settings.background | img_url: 'master' }});"
+    class="flex w-full min-h-[800px] max-w-[700px] relative [background-size:cover] pt-[50px] pb-[50px] bg-[center_center] bg-no-repeat max-lg:max-w-[100%]"
+  >
+    <div class="flex flex-col mt-[auto] p-[40px] max-xl:max-w-[510px] max-sm:p-[20px]">
+      <p class="text-[48px] mb-[18px] font-[250] leading-[48px] text-white">{{ section.settings.title }}</p>
+      <p class="text-[16px] w-full max-w-[500px] font-normal leading-[24px] text-white mb-[48px]">
+        {{ section.settings.desc }}
+      </p>
+      <div>
+        {% render 'button-arrow',
+          text: section.settings.button_title,
+          url: section.settings.button_link,
+          class: 'text-[14px] w-[fit-content]  font-normal  border-[1px] border-[solid] border-[white]
+                                        flex justify-center items-center gap-[10px] px-[38px] py-[18px] bg-[transparent] text-white group '
+        %}
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full max-w-[700px] p-[60px] bg-[#FBFBFB] ml-[-4vw] z-10 max-lg:ml-[0]  max-lg:max-w-[100%] max-sm:p-[20px]">
+    {% form 'contact', class: 'contact-form' %}
+      {%- if form.posted_successfully? -%}
+        <h2
+          class="form-status form-status-list form__message"
+          tabindex="-1"
+          autofocus
+        >
+          {% render 'icon-success' %}
+          {{ 'templates.contact.form.post_success' | t }}
+        </h2>
+      {%- elsif form.errors -%}
+        <div class="form__message">
+          <h2
+            class="form-status caption-large text-body"
+            role="alert"
+            tabindex="-1"
+            autofocus
+          >
+            {% render 'icon-error' %}
+            {{ 'templates.contact.form.error_heading' | t }}
+          </h2>
+        </div>
+        <ul class="form-status-list caption-large" role="list">
+          <li>
+            <a href="#ContactForm-email" class="link">
+              {{ form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email }}
+            </a>
+          </li>
+        </ul>
+      {%- endif -%}
+      <div class="flex flex-col gap-[18px] w-full max-w-[420px] items-center text-center pb-[60px] m-auto max-sm:gap-[12px] max-sm:mt-[40px]">
+        <h2 class="text-[36px] font-light uppercase max-sm:text-[24px] max-sm:mb-[0px] ">
+          {{ section.settings.title_contact }}
+        </h2>
+        <p class="text-[16px] font-normal leading-[24px] text-[#5B5B5B] max-sm:text-[14px]">
+          {{ section.settings.desc_contact }}
+        </p>
+        <p class="text-[16px] font-normal leading-[24px] ">{{ section.settings.title_form }}</p>
+      </div>
+
+      <div class="flex justify-between max-sm:flex-wrap max-sm:gap-[24px]">
+        <!-- <label for="ContactFormFirstName">First Name</label> -->
+        <input
+          class="max-w-[270px] w-full border-b [border-bottom-style:solid] [border-bottom-color:rgb(211,_211,_211)] px-[6px] py-[12px] bg-transparent focus-visible:shadow-none outline-none max-sm:max-w-[100%]"
+          type="text"
+          id="ContactFormFirstName"
+          name="contact[first_name]"
+          placeholder="First Name"
+          required
+        >
+
+        <!-- <label for="ContactFormLastName">Last Name</label> -->
+        <input
+          class="max-w-[270px] w-full border-b [border-bottom-style:solid] [border-bottom-color:rgb(211,_211,_211)] px-[6px] py-[12px] bg-transparent focus-visible:shadow-none outline-none max-sm:max-w-[100%]"
+          type="text"
+          id="ContactFormLastName"
+          name="contact[last_name]"
+          placeholder="Last Name"
+          required
+        >
+      </div>
+
+      <div class="input-fields flex justify-between max-sm:flex-wrap max-sm:gap-[24px] max-sm:mt-[24px]">
+        <!-- <label for="ContactFormEmail">Email Address</label> -->
+        <input
+          class=" max-w-[270px] w-full border-b [border-bottom-style:solid] [border-bottom-color:rgb(211,_211,_211)] px-[6px] py-[12px] bg-transparent focus-visible:shadow-none outline-none max-sm:max-w-[100%]"
+          type="email"
+          id="ContactFormEmail"
+          name="contact[email]"
+          placeholder="Email Address"
+          required
+        >
+
+        <!-- <label for="ContactFormEmail">Email Address</label> -->
+        <input
+          class="max-w-[270px] w-full border-b [border-bottom-style:solid] [border-bottom-color:rgb(211,_211,_211)] px-[6px] py-[12px] bg-transparent focus-visible:shadow-none outline-none max-sm:max-w-[100%]"
+          type="tel"
+          id="ContactFormTel"
+          name="contact[tel]"
+          placeholder="Phone Number"
+          required
+        >
+      </div>
+      <div class="flex justify-between m-t-[30px] max-sm:flex-wrap max-sm:gap-[24px] max-sm:mt-[24px]">
+        <!-- <label for="ContactFormInterest">I’m Interested In...</label> -->
+        <select
+          defaultV
+          id="ContactFormInterest"
+          name="contact[interest]"
+          class="max-w-[270px] w-full border-b [border-bottom-style:solid] [border-bottom-color:rgb(211,_211,_211)] px-[6px] py-[12px] bg-transparent focus-visible:shadow-none outline-none max-sm:max-w-[100%]"
+        >
+          <option
+            value=""
+            selected
+            disabled
+            hidden
+          >
+            I'm Interested In...
+          </option>
+          <option value="Engagement Rings">Engagement Rings</option>
+          <option value="Wedding Bands">Wedding Bands</option>
+          <option value="Diamonds">Diamonds</option>
+          <option value="Custom Design">Custom Design</option>
+          <option value="Other">Other</option>
+          <!-- Add more options as needed -->
+        </select>
+
+        <!-- <label for="ContactFormDateTime">Preferred Date/Time</label> -->
+        <input
+          type="text"
+          id="ContactFormDateTime"
+          value="Date/time"
+          name="contact[date_time]"
+          required
+          class="[::-webkit-calendar-picker-indicator:red] max-w-[270px] w-full border-b [border-bottom-style:solid] [border-bottom-color:rgb(211,_211,_211)] px-[6px] py-[12px] bg-transparent focus-visible:shadow-none outline-none max-sm:max-w-[100%]"
+        >
+      </div>
+
+      <!-- <label for="ContactFormMessage">Anything Else We Should Know...</label> -->
+      <textarea
+        id="ContactFormMessage"
+        name="contact[body]"
+        rows="1"
+        placeholder="Anything Else We Should Know..."
+        required
+        class="resize-none	 w-full border-b [border-bottom-style:solid] [border-bottom-color:rgb(211,_211,_211)] px-[6px] py-[12px] bg-transparent focus-visible:shadow-none outline-none max-sm:mt-[24px]"
+      ></textarea>
+
+      {%- if form.errors contains 'email' -%}
+        <small class="contact__field-error" id="ContactForm-email-error">
+          <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+          <span class="form__message">
+            {%- render 'icon-error' -%}
+            {{- form.errors.translated_fields.email | capitalize }}
+            {{ form.errors.messages.email -}}
+          </span>
+        </small>
+      {%- endif -%}
+      <button
+        type="submit"
+        class="bg-[rgb(var(--color-button))] text-[rgb(var(--color-button-text))] mx-auto mt-[66px] text-[14px] w-[fit-content]  font-normal  flex justify-center items-center gap-[10px] px-[38px] py-[18px] bg-[rgba(var(--color-button))] text-[rgba(var(--color-button-text))] group"
+      >
+        SCHEDULE APPOINTMENT
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="29"
+          height="9"
+          viewBox="0 0 29 9"
+          fill="none"
+          class="group-hover"
+        >
+          <path
+            id="Arrow 1"
+            d="M28.3536 4.85355C28.5488 4.65829 28.5488 4.34171 28.3536 4.14645L25.1716 0.964466C24.9763 0.769204 24.6597 0.769204 24.4645 0.964466C24.2692 1.15973 24.2692 1.47631 24.4645 1.67157L27.2929 4.5L24.4645 7.32843C24.2692 7.52369 24.2692 7.84027 24.4645 8.03553C24.6597 8.2308 24.9763 8.2308 25.1716 8.03553L28.3536 4.85355ZM0 5H28V4H0L0 5Z"
+            fill="white" />
+        </svg>
+      </button>
+    {% endform %}
+  </div>
+</div>
+<script>
+  document.getElementById("ContactFormDateTime").addEventListener("focus",(event) => {
+    console.log(event)
+    event.target.type="datetime-local"
+  })
+  // document.getElementById("ContactFormDateTime").addEventListener("onfocus",(event) => {
+  //   console.log("onfucs",event)
+  // })
+</script>
+{% schema %}
+{
+  "name": "Contact Select Date",
+  "tag": "section",
+  "class": "contact-select-date",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme"
+    },
+    {
+      "type": "image_picker",
+      "id": "background",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "litle_text",
+      "label": "Litle Text",
+      "default": "Try Out Our"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title Text",
+      "default": "EST. 1979"
+    },
+
+    {
+      "type": "inline_richtext",
+      "id": "desc",
+      "label": "Description",
+      "default": "For over 40 years, Barclays Jewelers has been one of the most trusted names in jewelry in the Miami region. We are a well-established jewelry store that has grown with our community from a small store to a multiple brand jewelry retailer. We have served generations of families as their trusted jeweler for brilliant diamonds, beautiful fine jewelry, elegant watches, treasured gifts, custom made styles and expert jewelry repairs."
+    },
+    {
+      "type": "text",
+      "id": "title_contact",
+      "label": "Contact Title",
+      "default": "EXPERIENCE OUR STORE"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "desc_contact",
+      "label": "ContactDescription",
+      "default": "We provide personalized service. Each of our consultants are trained jewelers, not sales people."
+    },
+    {
+      "type": "text",
+      "id": "title_form",
+      "label": "Form Title",
+      "default": "Schedule An Appointment"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "button_title",
+      "label": "Button Title",
+      "default": "MORE ABOUT US"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 70
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Select Date",
+      "category": "custom"
+    }
+  ]
+}
+{% endschema %}

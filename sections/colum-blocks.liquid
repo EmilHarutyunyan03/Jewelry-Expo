@@ -1,0 +1,108 @@
+<div class="jewelry-collections px-[50px] py-[60px] bg-[section.setting.color]  text-center color-{{section.settings.color_scheme}}">
+  <div class="container mx-auto">
+    <h2 class="text-[40px] mb-[24px] font-normal leading-[50px] tracking-[2.4px] uppercase">{{ section.settings.heading }}</h2>
+    <p class="text-[16px]  font-normal leading-[26px] tracking-[1.28px] text-[rgb(var(--colot-second-text))]">{{ section.settings.subheading }}</p>
+    <div class="collections-grid flex justify-center gap-[32px] flex-wrap mt-[48px]">
+      {% for block in section.blocks %}
+        <div class="max-w-[425px] w-full flex flex-col">
+          {%- if block.settings.image -%}
+            {{ block.settings.image | image_url: width: 425 | image_tag: class: "block w-full object-cover" }}
+           
+          {%- endif -%}
+          <h3 class="text-[rgb(var(--color-foreground))] text-[24px] heading-[28px] font-medium leading-[28px] mt-[24px] mb-[16px]">{{ block.settings.title }}</h3>
+          <a href="{{ block.settings.link }}" class="text-[rgb(var(--color-foreground))] font-medium hover:underline">Shop Collection</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Column Blocks",
+    "tag": "section",
+    "max_blocks": 3,
+    "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color Scheme",
+        "default": "1"
+      },
+      {
+        "type": "color",
+        "id": "color",
+        "label": "Background Color",
+        "default": "#F9FAFB"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "DISCOVER TIMELESS ELEGANCE IN EVERY PIECE"
+      },
+      {
+        "type": "textarea",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection_item",
+        "name": "Collection Item",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Collection Title"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Colum Blocks",
+        "category": "Custom Sections",
+        "blocks": [
+          {
+            "type": "collection_item",
+            "settings": {
+              "image": "",
+              "title": "Engagement Rings",
+              "link": ""
+            }
+          },
+          {
+            "type": "collection_item",
+            "settings": {
+              "image": "",
+              "title": "Wedding Bands",
+              "link": ""
+            }
+          },
+          {
+            "type": "collection_item",
+            "settings": {
+              "image": "",
+              "title": "Diamond Earrings",
+              "link": ""
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

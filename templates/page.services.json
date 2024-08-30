@@ -1,0 +1,188 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "breadcrumb_fV8FHy": {
+      "type": "breadcrumb",
+      "disabled": true,
+      "settings": {
+        "show_breadcrumb_nav": true,
+        "breadcrumb_delimeter": "angle_right",
+        "breadcrumb_text_color": "#465076"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "page_banner_McWdRK": {
+      "type": "page-banner",
+      "settings": {
+        "title": "",
+        "desc": "At Barclays Jewelry, we're here to take care of your precious pieces. Our skilled team is dedicated to keeping your jewelry looking its best.",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 40
+      }
+    },
+    "service_card_qjGAwd": {
+      "type": "service-card",
+      "blocks": {
+        "card_PdWLCH": {
+          "type": "card",
+          "settings": {
+            "url": "https:\/\/barclaysjewelry.myshopify.com\/pages\/corporate-gifts",
+            "image": "shopify:\/\/shop_images\/Services-item_ff1f8163-0447-453d-b52f-d6f622aeea73.jpg",
+            "title": "Corporate Gifts",
+            "excerpt": "Show your appreciation for employees and others"
+          }
+        },
+        "card_DfWMB9": {
+          "type": "card",
+          "settings": {
+            "url": "shopify:\/\/pages\/custom-design",
+            "image": "shopify:\/\/shop_images\/Services-item-1_1ec52413-7b33-4aa9-92af-a929c6d40287.jpg",
+            "title": "Custom Designs",
+            "excerpt": "We create custom handcrafted jewelry just for you."
+          }
+        },
+        "card_TDhLtg": {
+          "type": "card",
+          "settings": {
+            "url": "shopify:\/\/pages\/financing",
+            "image": "shopify:\/\/shop_images\/Services-item-2_35f59051-f7fb-4d5e-8bc1-bf21caf6fb96.jpg",
+            "title": "Financing",
+            "excerpt": "Buy now, and pay over time. It’s really that convenient!"
+          }
+        },
+        "card_zkAt78": {
+          "type": "card",
+          "settings": {
+            "url": "shopify:\/\/pages\/gold-diamond-buying",
+            "image": "shopify:\/\/shop_images\/Services-item-3_a43be36b-dd8a-4beb-8b04-6bd11ec344b8.jpg",
+            "title": "Gold & Diamond Buying",
+            "excerpt": "We buy at competitive prices."
+          }
+        },
+        "card_7UxrBB": {
+          "type": "card",
+          "settings": {
+            "url": "shopify:\/\/pages\/jewelry-appraisals",
+            "image": "shopify:\/\/shop_images\/Services-item-4_b6dc340f-96ac-4d6d-8bea-32b02df36e62.jpg",
+            "title": "Jewelry Appraisals",
+            "excerpt": "Appraise and insure your precious family heirlooms."
+          }
+        },
+        "card_hDRX7q": {
+          "type": "card",
+          "settings": {
+            "url": "shopify:\/\/pages\/jewelry-engraving",
+            "image": "shopify:\/\/shop_images\/Services-item-5_6fa43f06-bf82-4d9f-a705-874c7ba1c37d.jpg",
+            "title": "Jewelry Engraving",
+            "excerpt": "Send a message with personalized engraving."
+          }
+        },
+        "card_WecmLf": {
+          "type": "card",
+          "settings": {
+            "url": "shopify:\/\/pages\/jewelry-insurance",
+            "image": "shopify:\/\/shop_images\/Services-item-6_629fa62c-f9ed-4bb3-8d14-274523c9bf29.jpg",
+            "title": "Jewelry Insurance",
+            "excerpt": "Get a free quote from Jewelers Mutual Insurance."
+          }
+        },
+        "card_dgkVDm": {
+          "type": "card",
+          "settings": {
+            "url": "shopify:\/\/pages\/jewelry-repairs",
+            "image": "shopify:\/\/shop_images\/Services-item-7_333ed0c8-f0aa-4852-9601-eacdaccb058d.jpg",
+            "title": "Jewelry Repairs",
+            "excerpt": "We can fix almost anything. Free estimates while you wait."
+          }
+        },
+        "card_EFRnGp": {
+          "type": "card",
+          "settings": {
+            "url": "shopify:\/\/pages\/pearl-bead-restringing",
+            "image": "shopify:\/\/shop_images\/Services-item-8_b4dc0f70-e69a-4e24-887d-8b8785a6dca9.jpg",
+            "title": "Pearl & Bead Restringing",
+            "excerpt": "Restringing services for pearl jewelry."
+          }
+        },
+        "card_3yR94e": {
+          "type": "card",
+          "settings": {
+            "url": "shopify:\/\/pages\/watch-repairs",
+            "image": "shopify:\/\/shop_images\/Services-item-9_b80a5b10-acc6-47cf-9148-5dcb7fc15156.jpg",
+            "title": "Watch Repairs",
+            "excerpt": "Trust in our experienced experts to fix your timepiece or watch."
+          }
+        }
+      },
+      "block_order": [
+        "card_PdWLCH",
+        "card_DfWMB9",
+        "card_TDhLtg",
+        "card_zkAt78",
+        "card_7UxrBB",
+        "card_hDRX7q",
+        "card_WecmLf",
+        "card_dgkVDm",
+        "card_EFRnGp",
+        "card_3yR94e"
+      ],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product_banner_aNpg7E": {
+      "type": "product-banner",
+      "settings": {
+        "style": "left",
+        "margin_right": 113,
+        "margin_left": 53,
+        "arrow": false,
+        "image_banner": "shopify:\/\/shop_images\/Schedule_an_appointment_2_1.png",
+        "padding_top_bottom": 70,
+        "image_banner_mobile": "shopify:\/\/shop_images\/Rectangle_328_7_1.jpg",
+        "title": "READY TO FIND THE PERFECT PIECE?",
+        "title_font_size": 48,
+        "desc": "Book an appointment with our expert jewelry consultants today.",
+        "desc_font_weight": "400",
+        "desc_font_size": 18,
+        "caption": "",
+        "title_size": 470,
+        "color_title": "#1e54a5",
+        "desc_size": 425,
+        "color_desc": "#1e54a5",
+        "button_link": "shopify:\/\/pages\/schedule-an-appointment",
+        "button_title": "SCHEDULE AN APPOINTMENT",
+        "color_scheme": "",
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "padding_top_mob": 40,
+        "padding_bottom_mob": 40
+      }
+    }
+  },
+  "order": [
+    "breadcrumb_fV8FHy",
+    "main",
+    "page_banner_McWdRK",
+    "service_card_qjGAwd",
+    "product_banner_aNpg7E"
+  ]
+}

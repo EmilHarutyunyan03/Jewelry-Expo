@@ -1,0 +1,108 @@
+<div class="  py-[48px] flex gap-[120px] justify-center bg-[#FBFBFB] flex-wrap max-md:gap-[32px]">
+  <div class="">
+    <p class="flex items-center gap-[8px] mb-[18px] text-[#333] text-[14px] font-semibold leading-[24px] tracking-[1.4px] justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22" fill="none">
+      <g clip-path="url(#clip0_783_1477)">
+      <path d="M18.9907 7.84276C17.989 6.37364 16.5935 5.23952 14.9551 4.56312C14.8208 4.50765 14.7339 4.37792 14.7339 4.23268V4.23259C14.7339 3.66053 14.4406 3.15588 13.9967 2.86051C14.4332 2.13499 14.3392 1.17723 13.7141 0.552135C13.1158 -0.0462713 12.2125 -0.158252 11.5001 0.216149C10.7875 -0.158252 9.88419 -0.0462284 9.28587 0.552092C8.66082 1.17718 8.56685 2.13495 9.00334 2.86046C8.55941 3.15584 8.26614 3.66053 8.26614 4.23255C8.26614 4.37783 8.1787 4.50782 8.04342 4.56368C6.39289 5.24545 4.99042 6.39048 3.98753 7.87485C2.95912 9.39712 2.42414 11.1769 2.44042 13.0218C2.46174 15.4327 3.41242 17.6909 5.11735 19.3804C6.82212 21.0697 9.08889 22 11.5001 22C16.4957 22 20.56 17.9357 20.56 12.94C20.56 11.111 20.0173 9.3484 18.9907 7.84276ZM10.1974 1.46367C10.3142 1.34692 10.4675 1.28856 10.6208 1.28856C10.7742 1.28856 10.9275 1.34692 11.0443 1.46367C11.296 1.71534 11.704 1.71534 11.9558 1.46367C12.1893 1.23017 12.5691 1.23017 12.8027 1.46367C13.0362 1.69717 13.0362 2.07707 12.8027 2.31057L11.5 3.61318L10.1974 2.31057C9.96394 2.07707 9.96394 1.69712 10.1974 1.46367ZM11.5001 20.7109C7.2529 20.7109 3.76705 17.2565 3.72954 13.0104C3.70135 9.82068 5.58784 6.97282 8.53561 5.75517C9.15503 5.49932 9.55525 4.90164 9.55525 4.23255C9.55525 4.0351 9.71588 3.87452 9.91328 3.87452H9.93838L11.0443 4.98041C11.1701 5.10627 11.3351 5.16922 11.5 5.16922C11.6649 5.16922 11.8299 5.10627 11.9558 4.98041L13.0617 3.87452H13.0868C13.2842 3.87452 13.4448 4.03515 13.4448 4.23259C13.4448 4.90177 13.8446 5.49928 14.4632 5.75465C17.3837 6.9604 19.2708 9.78081 19.2708 12.94C19.2709 17.2249 15.7849 20.7109 11.5001 20.7109Z" fill="#1D54A6"/>
+      <path d="M11.5 6.46951C7.93211 6.46951 5.02942 9.37221 5.02942 12.9401C5.02942 16.508 7.93211 19.4107 11.5 19.4107C15.068 19.4107 17.9707 16.508 17.9707 12.9401C17.9707 9.37217 15.068 6.46951 11.5 6.46951ZM11.5 18.1216C8.64297 18.1216 6.31853 15.7971 6.31853 12.9401C6.31853 10.083 8.64293 7.75863 11.5 7.75863C14.3571 7.75863 16.6815 10.083 16.6815 12.9401C16.6815 15.7971 14.3571 18.1216 11.5 18.1216Z" fill="#1D54A6"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_783_1477">
+      <rect width="22" height="22" fill="white" transform="translate(0.5)"/>
+      </clipPath>
+      </defs>
+      </svg>
+      {{ section.settings.text_band }}
+    </p>
+    <div class=" max-w-[250px] w-full flex gap-[32px] justify-between">
+      <div class="flex flex-col items-start gap-[18px] justify-start mb-[8px]">
+        {%- if product.metafields.custom.sku.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">SKU:</p>
+        {% endif %}
+        {%- if product.metafields.custom.category.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Category:</p>
+        {% endif %}
+        
+        {%- if product.metafields.custom.metal.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Metal:</p>
+        {% endif %}
+        {%- if  product.metafields.custom.gender.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Gender:</p>
+        {% endif %}
+      
+       
+       
+    
+      </div>
+      <div class="flex flex-col items-start gap-[18px] justify-start mb-[8px]">
+        {%- if product.metafields.custom.sku.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+          {{ product.metafields.custom.sku.value }}
+        </p>
+        {% endif %}
+        {%- if product.metafields.custom.category.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+          {{ product.metafields.custom.category.value }}
+        </p>
+        {% endif %}
+        
+        {%- if product.metafields.custom.metal.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+            {{ product.metafields.custom.metal.value }}
+          </p>
+        {% endif %}
+        {%- if  product.metafields.custom.gender.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+          {{ product.metafields.custom.gender.value }}
+        </p>
+        {% endif %}
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-[228px] w-full">
+    <p class="flex items-center gap-[8px] mb-[18px] text-[#333] text-[14px] font-semibold leading-[24px] tracking-[1.4px] justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="23" height="24" viewBox="0 0 23 24" fill="none">
+      <path d="M11.5 20.625L1.91663 9.125L4.79163 3.375H18.2083L21.0833 9.125L11.5 20.625ZM8.81663 8.40625H14.1833L12.3864 4.8125H10.6135L8.81663 8.40625ZM10.7812 17.5344V9.84375H4.38433L10.7812 17.5344ZM12.2187 17.5344L18.6156 9.84375H12.2187V17.5344ZM15.7885 8.40625H19.0468L17.25 4.8125H13.9916L15.7885 8.40625ZM3.95308 8.40625H7.21142L9.00829 4.8125H5.74996L3.95308 8.40625Z" fill="#1D54A6"/>
+      <path d="M7.5 9L10.6257 16.8142C10.9533 17.6334 12.104 17.6577 12.4661 16.8532L16 9" stroke="#1D54A6" stroke-width="1.5"/>
+      </svg>
+      {{ section.settings.text_stone_details }}
+    </p>
+    <div class="max-w-[250px] w-full flex gap-[32px] justify-between">
+      <div class="flex flex-col items-start gap-[18px] justify-start mb-[8px]">
+        {%- if product.metafields.custom.stone_type.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Stone Type:</p>
+        {%- endif -%}
+        {%- if product.metafields.custom.stone_shape.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Stone Shape:</p>
+        {% endif %}
+        {%- if product.metafields.custom.total_carat_weight.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Total Carat Weight:</p>
+        {%- endif -%}
+        
+        
+      </div>
+      <div class="flex flex-col items-start gap-[18px] justify-start mb-[8px]">
+        {%- if product.metafields.custom.stone_type.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+          {{ product.metafields.custom.stone_type.value }}
+        </p>
+        {%- endif -%}
+
+        {%- if product.metafields.custom.stone_shape.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+            {{ product.metafields.custom.stone_shape.value }}
+          </p>
+        {%- endif -%}
+        
+        {%- if  product.metafields.custom.total_carat_weight.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+          {{ product.metafields.custom.total_carat_weight.value }}
+        </p>
+        {%- endif -%}
+        
+      </div>
+    </div>
+  </div>
+</div>

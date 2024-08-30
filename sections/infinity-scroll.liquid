@@ -1,0 +1,110 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            scroll: 'scroll 10s linear infinite',
+          },
+          keyframes: {
+            scroll: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' }, // Adjust based on your content's width
+            },
+          },
+        },
+      },
+    };
+  });
+</script>
+{%- style -%}
+ #infinity-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (max-width: 750px) {
+    /* .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    } */
+  }
+{%- endstyle -%}
+<div id="infinity-{{section.id}}" class="page-width overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+  <div class="flex animate-scroll gap-[100px] items-center  max-sm:gap-[32px]">
+    {% for block in section.blocks %}
+      <div  class="inf-svg">
+        {{  block.settings.logo}}
+
+      </div>
+      {% comment %} <img src="{{  block.settings.logo | img_url: 'master' }}" loading="lazy" class="block"> {% endcomment %}
+    {% endfor %}
+    {% for block in section.blocks %}
+      <div  class="inf-svg">
+        {{  block.settings.logo}}
+
+      </div>
+      {% comment %} {{  block.settings.logo}} {% endcomment %}
+      {% comment %} <img src="{{  block.settings.logo | img_url: 'master' }}" loading="lazy" class="block"> {% endcomment %}
+    {% endfor %}
+    {% for block in section.blocks %}
+      <div class="inf-svg">
+        {{  block.settings.logo}}
+
+      </div>
+      {% comment %} {{  block.settings.logo}} {% endcomment %}
+      {% comment %} <img src="{{  block.settings.logo | img_url: 'master' }}" loading="lazy" class="block"> {% endcomment %}
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Infinity Scroll",
+  "class": "infiny-scroll",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Logo",
+      "type": "logo",
+      "settings": [
+        {
+          "type": "html",
+          "id": "logo",
+          "label": "Svg Logo"
+        }
+       
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Infinity Scroll",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,148 @@
+{% style %}
+  #service-banner-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+{% endstyle %}
+<div id="service-banner-{{ section.id }}">
+  <div
+ 
+  style="background-image: url({{ section.settings.image_back | img_url: 'master' }});"
+  class="color-{{ section.settings.color_scheme }} relative bg-cover bg-[center_center] bg-no-repeat min-h-[778px] bg-fixed bg-blend-color bg-[{{section.settings.color}}] "
+>
+  <div class="max-w-[1100px] w-full m-auto pt-[70px] pb-[80px] max-md:px-[20px] max-md:pt-[40px]">
+    <h2 class=" text-[36px] font-light leading-[normal] text-center text-white max-md:text-[24px] leading-[normal]">{{ section.settings.title }}</h2>
+    <p class=" text-[16px] not-italic font-normal leading-[24px] text-white max-w-[800px] w-full m-auto text-center mt-[18px] max-md:text-[14px] leading-[24px]">
+      {{ section.settings.desc }}
+    </p>
+    <div class="grid grid-cols-[repeat(auto-fill,_minmax(118px,_1fr))] gap-8 mt-[75px] gap-x-[92px] gap-y-[50px] max-md:gap-x-[20px]">
+      {% for block in section.blocks %}
+        <div class="text-center flex direction-column content-center items-center transition-all ease-in-out delay-150 gap-[10px] flex-col  cursor-pointer  hover:scale-110">
+          {% if block.settings.icon != blank %}
+            {{
+              block.settings.icon
+              | image_url: width: 50
+              | image_tag: loading: 'lazy', class: 'w-full max-w-[50px] block object-cover'
+            }}
+          {% endif %}
+
+          <p class="text-[14px] leading-[18px]  font-normal max-w-[138px] w-full m-auto text-white">
+            {{ block.settings.title }}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="flex justify-center mt-[72px]">
+      {% render 'button-arrow',
+        text: section.settings.button_title,
+        url: section.settings.button_link,
+        class: 'text-[14px] w-[fit-content]  font-normal  flex justify-center items-center gap-[10px] px-[38px] py-[18px] bg-[rgba(var(--color-button))] text-[rgba(var(--color-button-text))] group '
+      %}
+    </div>
+
+    <div class="flex justify-center mt-[18px]">
+      <a href="tel:+13053713476" class="text-white text-[14px] not-italic font-normal leading-[normal] inline-flex px-[38px] py-[18px] justify-center items-center gap-[10px] border-[1px] border-[solid] border-[#FFF]">
+        {{ section.settings.info }}
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Service Banner",
+  "tag": "section",
+  "class": "service-banner",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_back",
+      "label": "Image Background"
+    },
+    {
+      "type": "color_background",
+      "id": "color",
+      "label": "Backgroudn Color",
+      "default": "#0009"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "desc",
+      "label": "Description"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "button_title",
+      "label": "Button Title",
+      "default": "SHOP COLLECTION"
+    },
+    {
+      "type": "text",
+      "id": "info",
+      "label": "Info",
+      "default": "CALL US: (305) 371-3476"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 70
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Icon Text",
+      "type": "icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Service Banner",
+      "category": "custom"
+    }
+  ]
+}
+{% endschema %}

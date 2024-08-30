@@ -1,0 +1,95 @@
+<div class="color-{{ section.settings.color_scheme }}">
+  <div class="bg-[rgba(var(--color-background))] text-white text-xs lg:text-sm">
+    <div class="page-width flex justify-between items-center py-[12px] ">
+      <div class="flex items-center gap-[18px] w-[33%]  flex-wrap max-lg:w-auto">
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when 'left' -%}
+              <div class="flex items-center gap-[5px] text-[rgba(var(--color-foreground))] max-lg:last:hidden">
+                {{ block.settings.svg }}
+                <span class="text-[12px] font-normal max-lg:hidden w-auto">{{ block.settings.text }}</span>
+              </div>
+          {%- endcase -%}
+        {% endfor %}
+      </div>
+      <div class="lg:flex text-[rgba(var(--color-foreground))] text-[12px] font-normal w-[33%] justify-center text-center	max-lg:w-full">
+        <span>
+          {{ section.settings.info }}
+        </span>
+      </div>
+      <div class="flex items-center gap-[18px] w-[33%] justify-end max-lg:w-auto">
+        <div class="flex items-center">
+          {% for block in section.blocks %}
+            {%- case block.type -%}
+              {%- when 'right' -%}
+                <div class="flex items-center gap-[5px] text-[rgba(var(--color-foreground))]">
+                  {{ block.settings.svg }}
+                  <span class="text-[12px] font-normal max-lg:hidden">{{ block.settings.text }}</span>
+                </div>
+            {%- endcase -%}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Annoucement",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "info",
+      "label": "Title"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "left",
+      "name": "Left Info",
+      "settings": [
+        {
+          "type": "html",
+          "id": "svg",
+          "label": "Svg Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "right",
+      "name": "Right Info",
+      "settings": [
+        {
+          "type": "html",
+          "id": "svg",
+          "label": "Svg Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Annoucement",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

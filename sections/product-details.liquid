@@ -1,0 +1,184 @@
+{%- style -%}
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  table {
+    table-layout: auto !important;
+    max-width: 228px;
+    width: 100%;
+  }
+  table,
+  th,
+  td,
+  tr {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0;
+  }
+
+  #product-details-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media only screen and (max-width: 1024px) {
+    #product-details-{{ section.id }} {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+{%- endstyle -%}
+{%- assign name = product.type | downcase -%}
+{%- assign ringErings = true -%}
+{% if name contains 'earrings' %}
+  {%- assign ringErings = false -%}
+{% endif %}
+
+{%- if name contains 'ring' and ringErings -%}
+  <div id="product-details-{{ section.id }}" class="max-w-[1120px] w-full m-auto">
+    <p class="text-center text-[24px] font-light leading-[48px] mb-[24px]">{{ section.settings.title }}</p>
+    {% render 'ring-details' %}
+  </div>
+  {%- elsif name contains 'band' -%}
+    <div id="product-details-{{ section.id }}" class="max-w-[1120px] w-full m-auto">
+      <p class="text-center text-[24px] font-light leading-[48px] mb-[24px]">{{ section.settings.title }}</p>
+      {% render 'band-details' %}
+    </div>
+  {%- elsif name contains 'earrings' -%}
+    <div id="product-details-{{ section.id }}" class="max-w-[1120px] w-full m-auto">
+      <p class="text-center text-[24px] font-light leading-[48px] mb-[24px]">{{ section.settings.title }}</p>
+      {% render 'earrings-details' %}
+    </div>
+  {%- elsif name contains 'necklace' -%}
+    <div id="product-details-{{ section.id }}" class="max-w-[1120px] w-full m-auto">
+      <p class="text-center text-[24px] font-light leading-[48px] mb-[24px]">{{ section.settings.title }}</p>
+      {% render 'necklace-details' %}
+    </div>
+  {%- elsif name contains 'pendant' -%}
+    <div id="product-details-{{ section.id }}" class="max-w-[1120px] w-full m-auto">
+      <p class="text-center text-[24px] font-light leading-[48px] mb-[24px]">{{ section.settings.title }}</p>
+      {% render 'pendant-details' %}
+    </div>
+  {%- elsif name contains 'watch' -%}
+    <div id="product-details-{{ section.id }}" class="max-w-[1120px] w-full m-auto">
+      <p class="text-center text-[24px] font-light leading-[48px] mb-[24px]">{{ section.settings.title }}</p>
+      {% render 'watch-details' %}
+    </div>
+  {%- endif -%}
+
+{% schema %}
+  {
+    "name": "Product Details",
+    "tag": "section",
+    "class": "product-details",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Main Title",
+        "default": "Product Details"
+      },
+      {
+        "type": "text",
+        "id": "text_details",
+        "label": "Title",
+        "default": "RING DETAILS"
+      },
+
+      {
+        "type": "text",
+        "id": "text_stone",
+        "label": "Title",
+        "default": "CENTER STONE"
+      },
+
+      {
+        "type": "text",
+        "id": "text_side",
+        "label": "Title",
+        "default": "SIDE STONES"
+      },
+      {
+        "type": "text",
+        "id": "text_band",
+        "label": "Title",
+        "default": "BAND DETAILS"
+      },
+      {
+        "type": "text",
+        "id": "text_stone_details",
+        "label": "Title",
+        "default": "STONE DETAILS"
+      },
+      {
+        "type": "text",
+        "id": "text_earrings",
+        "label": "Title",
+        "default": "EARRINGS DETAILS"
+      },
+      {
+        "type": "text",
+        "id": "text_metal",
+        "label": "Title",
+        "default": "METAL DETAILS"
+      },
+      {
+      "type": "text",
+        "id": "text_chain",
+        "label": "Title",
+        "default": "CHAIN DETAILS"
+      },
+      {
+        "type": "text",
+        "id": "text_pendant",
+        "label": "Title",
+        "default": "PENDANT DETAILS"
+      },
+      {
+        "type": "text",
+        "id": "text_watch",
+        "label": "Title",
+        "default": "WATCH DETAILS"
+      },
+      {
+        "type": "text",
+        "id": "text_movement",
+        "label": "Title",
+        "default": "MOVEMENT"
+      },
+      {
+        "type": "text",
+        "id": "text_band_watch",
+        "label": "Title Watch Band",
+
+        "default": "BAND DETAILS"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 0
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Details",
+        "category": "custom"
+      }
+    ]
+  }
+{% endschema %}

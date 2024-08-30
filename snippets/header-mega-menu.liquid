@@ -1,0 +1,193 @@
+{% comment %}
+  Renders a megamenu for the header.
+
+  Usage:
+  {% render 'header-mega-menu', menu:menu, menuHandlers:section.blocks %}
+{% endcomment %}
+{%- assign megaMenuImages = '' -%}
+{% for menuHandler in menuHandlers %}
+  {% case menuHandler.type %}
+    {% when 'mega-menu-handlers' %}
+      {% assign megaMenuImages = megaMenuImages | append: menuHandler.settings['mega_menu-images'] %}
+  {% endcase %}
+{% endfor %}
+
+
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in menu.links -%}
+
+      <li>
+        {%- if link.links != blank -%}
+          <header-menu>
+            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+              <summary id="HeaderMenu-{{ link.handle }}" class="header__menu-item list-menu__item link focus-inset">
+                <a
+                  href="{{ link.url }}"
+                  {%- if link.child_active %}
+                  class="header__active-menu-item"
+                  {% endif %}>
+                  {{- link.title | escape -}}
+                </a>
+                {% render 'icon-caret' %}
+              </summary>
+              <div
+                id="MegaMenu-Content-{{ forloop.index }}"
+                class="mega-menu-psevdo mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                tabindex="-1">
+                {% comment %} {% if link.levels == 1 and   %} mega-menu__list--condensed{% endif %} {% endcomment %}
+                <ul class="
+                    page-width
+                    mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}
+                    {% if megaMenuImages contains link.handle %} !flex !flex-wrap !gap-[10px] !items-center max-w-[1370px] !justify-start {% else %} !flex !flex-wrap !gap-[10px] !justify-between !px-[242px]{% endif %}
+                  " role="list">
+                  {%- for childlink in link.links -%}
+                    {% if megaMenuImages contains link.handle %}
+                      {% assign metaLinks = shop.metaobjects.mega_menu_designers.values | where: 'link_name', childlink.handle
+                      %}
+
+                      {% for meta in metaLinks -%}
+                        <li class="w-[310px] h-[172px]">
+                          <a href="{{ childlink.url }}" class="bg-[url('{{  meta.image |  image_url   }}')] flex items-center justify-center [&>img]:max-w-[fit_content]  w-full h-full  block bg-center bg-no-repeat bg-cover">
+                              {%- assign nameSvg = childlink.title | downcase |  replace: ' ', '-' | append: '.svg'  -%}
+                              {{
+                                nameSvg | asset_url | img_tag
+                              }} 
+
+                            
+                           
+                          </a>
+                        </li>
+                      {%- endfor %}
+
+                    {% else %}
+                      <li>
+                        <a
+                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }} "
+                          href="{{ childlink.url }}"
+                          class="link{% if childlink.current %} mega-menu__link--active{% endif %} text-[#242424] text-[14px] not-italic font-semibold leading-[24px] p-0 mb-[18px] uppercase no-underline"
+                          {% if childlink.current %}
+                          aria-current="page"
+                          {% endif %}>
+                          {{ childlink.title | escape }}
+                        </a>
+                        {%- if childlink.links != blank -%}
+                          <ul class="list-unstyled" role="list">
+                            {%- for grandchildlink in childlink.links -%}
+                              <li>
+                                {%- if childlink.handle contains 'metal' -%}
+                                  {% assign metaLinks = shop.metaobjects.mega_menu_metal.values | where: 'link_name', grandchildlink.handle
+                                  %}
+
+                                  {% for meta in metaLinks -%}
+                                    <a
+                                    id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                    href="{{ grandchildlink.url }}"
+                                    class=" link{% if grandchildlink.current %} mega-menu__link--active{% endif %} !flex !flex-wrap !gap-[12px] !items-center text-[#5B5B5B] text-[13px] not-italic font-normal leading-[24px] uppercase no-underline mb-[12px] hover:underline"
+                                    {% if grandchildlink.current %}
+                                    aria-current="page"
+                                    {% endif %}>
+                                    {% comment %} {% assign new_value = grandchildlink.title | downcase %}
+                                    {% assign icon_name = new_value | replace: ' ', '-' %}
+                                    {% assign clean_string = icon_name | replace: '-&', '' | append: '.svg' %} {% endcomment %}
+                                    {% assign clean_string = grandchildlink.handle  | append: '.svg' %} 
+                                    {%- if grandchildlink.handle == 'platinum' -%}
+                                      {% assign clean_string = 'platinum-1'  | append: '.svg' %} 
+                                    {%- endif -%}
+
+                                    <img
+                                      src="{{clean_string |  asset_url}}"
+                                      width="22"
+                                      height="22"
+                                      class="max-w-[22px] w-auto block object-cover" />
+
+
+                                    {{ grandchildlink.title | escape }}
+                                  </a>
+                                  {% endfor %}
+                                 
+
+                                {%- elsif childlink.handle contains 'shape' -%}
+                                  {% assign metaLinks = shop.metaobjects.mega_menu_shape.values | where: 'link_name', grandchildlink.handle
+                                  %}
+
+                                  {% for meta in metaLinks -%}
+                                    <a
+                                      id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                      href="{{ grandchildlink.url }}"
+                                      class="link{% if grandchildlink.current %} mega-menu__link--active{% endif %} !flex !flex-wrap !gap-[12px] !items-center text-[#5B5B5B] text-[13px] not-italic font-normal leading-[24px] uppercase no-underline mb-[12px] hover:underline"
+                                      {% if grandchildlink.current %}
+                                      aria-current="page"
+                                      {% endif %}>
+                                      {{
+                                        meta.image | image_url: width: 22, height: 22 | image_tag: class: 'max-w-[22px] w-auto block object-cover'
+                                      }}
+                                      {{ grandchildlink.title | escape }}
+                                    </a>
+                                  {%- endfor %}
+                                {% else %}
+                                  <a
+                                    id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                    href="{{ grandchildlink.url }}"
+                                    class=" link{% if grandchildlink.current %} mega-menu__link--active{% endif %} text-[#5B5B5B] text-[13px] not-italic font-normal leading-[24px] uppercase no-underline mb-[12px] hover:underline"
+                                    {% if grandchildlink.current %}
+                                    aria-current="page"
+                                    {% endif %}>
+                                    {% assign new_value = grandchildlink.title | downcase %}
+                                    {%- if new_value contains 'start with a setting' -%}
+                                      
+                                      <div class="flex items-center gap-[12px]">
+                                        <img
+                                        src="{{ 'ring.svg'  |  asset_url}}"
+                                        width="18"
+                                        height="18"
+                                        class="max-w-[18px] w-auto block object-cover" />
+                                        {{ grandchildlink.title | escape }}
+
+                                      </div>
+                                      {%  elsif  new_value contains 'start with a natural' or new_value contains 'start with a lab'%} 
+                                        <div class="flex items-center gap-[12px]">
+                                        <img
+                                        src="{{ 'diamond.svg'  |  asset_url}}"
+                                        width="18"
+                                        height="18"
+                                        class="max-w-[18px] w-auto block object-cover" />
+                                        {{ grandchildlink.title | escape }}
+
+                                      </div>
+                                      {% else %}
+                                      {{ grandchildlink.title | escape }}
+                                    {%- endif -%}
+                                  </a>
+                                {% endif %}
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        {%- endif -%}
+                      </li>
+                    {% endif %}
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </details>
+          </header-menu>
+        {%- else -%}
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset"
+            {% if link.current %}
+            aria-current="page"
+            {% endif %}>
+            <span
+              {%- if link.current %}
+              class="header__active-menu-item"
+              {% endif %}>
+              {{- link.title | escape -}}
+            </span>
+          </a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>

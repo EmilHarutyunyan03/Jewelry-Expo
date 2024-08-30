@@ -1,0 +1,30 @@
+<div class="page-width w-full">
+    {{ section.settings.image |  image_url: width: 1337 | image_tag: class:"block object-cover max-[475px]:hidden m-auto"   }}
+    {{ section.settings.image_mobile |  image_url: width: 366 | image_tag: class:"block object-cover hidden m-auto max-[475px]:!block"   }}
+</div>
+{% schema %}
+  {
+    "name": "Image Single",
+    "tag": "section",
+    "class": "image-single",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Image Mobile"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image Single",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

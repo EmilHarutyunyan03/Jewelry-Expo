@@ -1,0 +1,235 @@
+<style>
+  :root {
+    ---swiper-navigation-sides-offset: 60px;
+  }
+  .product-swipper .swiper-scrollbar-drag {
+    background-color: rgba(var(--color-foreground));
+  }
+  .product-price-wrap .price {
+    text-align: center;
+    color: rgba(var(--colot-second-text));
+  }
+  .product-nav::after,
+  .product-nav::before {
+    display: none;
+  }
+  .product-swipper .swiper-button-next,
+  .product-swipper .swiper-button-prev {
+    top: calc(50% - 43px);
+  }
+  .item-wishlist-product.swym-button::after {
+    font-size: 20px ;
+  }
+
+</style>
+<div class="product-slider page-width">
+  <div class="swiper product-swipper px-[30px]">
+    <div class="swiper-wrapper pb-[43px]">
+      {% for product in section.settings.collection.products limit: 12 %}
+        <div class="swiper-slide swiper-slide-product bg-white flex flex-col h-full max-w-[320px] mx-auto relative">
+          <button
+           
+            data-with-epi="true"
+            data-swaction="addToWishlist"
+            aria-label="Add to Wishlist"
+            class="item-wishlist-product swym-button swym-add-to-wishlist-view-product product_{{product.id}} !absolute right-[14px] top-[13px] " 
+            data-product-id="{{product.id | json}}"
+            data-variant-id="{{product.variants[0].id}}" 
+            data-product-url="{{ shop.url }}{{ product.url }}"
+            >
+           
+          </button>
+          <a href="{{ product.url }}" class="no-underline text-current">
+            <div class="product-slide-item">
+              <div class="flex items-center justify-center bg-[#FBFBFB] p-[47px]">
+                <img
+                  srcset="
+                    {%- if product.featured_image.width >= 165 -%}{{ product.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
+                    {%- if product.featured_image.width >= 330 -%}{{ product.featured_image | image_url: width: 330 }} 330w,{%- endif -%}
+                    {%- if product.featured_image.width >= 535 -%}{{ product.featured_image | image_url: width: 535 }} 535w,{%- endif -%}
+                    {%- if product.featured_image.width >= 750 -%}{{ product.featured_image | image_url: width: 750 }} 750w,{%- endif -%}
+                    {%- if product.featured_image.width >= 1000 -%}{{ product.featured_image | image_url: width: 1000 }} 1000w,{%- endif -%}
+                    {%- if product.featured_image.width >= 1500 -%}{{ product.featured_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                    {%- if product.featured_image.width >= 3000 -%}{{ product.featured_image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                    {{ product.featured_image | image_url }} {{ product.featured_image.width }}w
+                  "
+                  src="{{ product.featured_image | image_url: width: 320 }}"
+                  sizes="
+                    (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: columns }}px,
+                    (min-width: 750px) calc((100vw - 10rem) / 2),
+                    calc(100vw - 3rem)
+                  "
+                  alt=""
+                  height="{{ product.featured_image.height }}"
+                  width="{{ product.featured_image.width }}"
+                  loading="lazy"
+                  class="mix-blend-multiply	block aspect-square max-w-[320px] w-full max-md:max-w-[204px]">
+              </div>
+              <div class="product-vendor-wrap pt-[18px] pb-[10px]">
+                <p class="text-center	 capitalize text-[16px] font-normal tracking-wide text-[rgba(var(--colot-second-text))] m-0">
+                  {{ product.vendor }}
+                </p>
+              </div>
+              <div class="product-title-wrap pb-[14px]">
+                <p class="text-[16px] font-normal text-center m-0 text-[rgba(var(--color-foreground))]">
+                  {{ product.title }}
+                </p>
+              </div>
+              <div class="product-price-wrap m-0 text-[14px] font-normal text-[rgba(var(--colot-second-text))]">
+                {% render 'price'
+                  , product: product
+                  , price_class: ''
+                  , show_compare_at_price: false %}
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-scrollbar"></div>
+    <div class="swiper-button-next product-nav w-[50px] h-[50px]">
+
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="50"
+        height="50"
+        viewBox="0 0 50 50"
+        fill="none">
+        <circle
+          cx="25"
+          cy="25"
+          r="24.5"
+          fill="white"
+          stroke="#EAEAEA" />
+        <path d="M21.4649 32.3764C21.3021 32.3764 21.1393 32.3135 21.0178 32.1876C20.7769 31.9402 20.7813 31.5452 21.0287 31.3044L27.4957 24.9936L21.0417 18.6958C20.7943 18.455 20.7899 18.06 21.0308 17.8126C21.2717 17.5652 21.6689 17.5609 21.9141 17.8017L28.8281 24.5465C28.9475 24.6637 29.0169 24.8243 29.0169 24.9936C29.0169 25.1629 28.9475 25.3234 28.8281 25.4406L21.9011 32.1985C21.7795 32.3178 21.6233 32.3764 21.4649 32.3764Z" fill="#66A7DE" />
+      </svg>
+    </div>
+    <div class="swiper-button-prev product-nav w-[50px] h-[50px]">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="50"
+        height="50"
+        viewBox="0 0 50 50"
+        fill="none">
+        <circle
+          cx="25"
+          cy="25"
+          r="24.5"
+          fill="white"
+          stroke="#EAEAEA" />
+        <path d="M28.5351 32.3764C28.6979 32.3764 28.8607 32.3135 28.9822 32.1876C29.2231 31.9402 29.2187 31.5452 28.9713 31.3044L22.5043 24.9936L28.9583 18.6958C29.2057 18.455 29.2101 18.06 28.9692 17.8126C28.7283 17.5652 28.3311 17.5609 28.0859 17.8017L21.1719 24.5465C21.0525 24.6637 20.9831 24.8243 20.9831 24.9936C20.9831 25.1629 21.0525 25.3234 21.1719 25.4406L28.0989 32.1985C28.2205 32.3178 28.3767 32.3764 28.5351 32.3764Z" fill="#ACACAC" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', () => {
+    const productSlider = new Swiper('.product-swipper', {
+      grabCursor: true,
+      slidesPerView: 4,
+      spaceBetween: 30,
+      speed: 600,
+
+// freeMode: true,
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        hide: false,
+        draggable: true
+
+      },
+      navigation: {
+        nextEl: '.swiper-button-next.product-nav',
+        prevEl: '.swiper-button-prev.product-nav'
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+
+// centeredSlides: true,
+        },
+        476: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+
+        990: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 18
+        },
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 18
+        },
+        1500: {
+          slidesPerView: 4,
+          spaceBetween: 40
+        }
+      }
+    });
+  });
+{% endjavascript %}
+
+{% schema %}
+  {
+    "name": "Collection Slider",
+    "class": "product-slider",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+      },
+
+      {
+        "type": "checkbox",
+        "id": "button_style_secondary",
+        "default": false,
+        "label": "t:sections.image-with-text.blocks.button.settings.outline_button.label"
+      },
+
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Text Heading",
+        "default": "SHOP"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "SHOP ALL"
+      },
+      {
+        "type": "color",
+        "id": "arrow_color",
+        "label": "Arrow Color",
+        "default": "#fff"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Section Color Schema",
+        "default": "scheme-1"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection Slider",
+        "category": "custom"
+      }
+    ]
+  }
+{% endschema %}

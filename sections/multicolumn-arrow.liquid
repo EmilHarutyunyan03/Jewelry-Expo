@@ -1,0 +1,149 @@
+{% style %}
+  #multicolumn-arrow-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media only screen and (max-width: 1024px) {
+    #multicolumn-arrow-{{ section.id }} {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+{% endstyle %}
+<div id="multicolumn-arrow-{{section.id}}" class="page-width">
+  <div class="flex gap-[21px] items-center justify-center text-center max-md:flex-wrap max-md:gap-[60px]">
+    {%- for block in section.blocks -%}
+
+      <div class="flex flex-col items-center max-w-[325px] w-full">
+        <div class="w-full max-w-[190px] mb-[40px]">
+          {{ block.settings.image | image_url: width: 190 | image_tag: loading: 'lazy', class: 'block w-full object-cover max-[190px]' }}
+
+        </div>
+        {%- assign svg = 'svg_' | append: forloop.index -%}
+        <h2 class="text-[24px] text-center font-light mb-[12px] text-[{{section.settings.title_color}}]">
+          {{ block.settings.title }}
+        </h2>
+        <p class="text-[14px] font-normal leading-[24px] text-[{{section.settings.desc_color}}]">
+          {{ block.settings.desc }}
+        </p>
+      </div>
+
+      {%- if section.settings[svg] -%}
+        <div class="max-md:!hidden">
+          {{ section.settings[svg] }}
+        </div>
+      {%- endif -%}
+
+    {%- endfor -%}
+  </div>
+
+  <div class="flex justify-center mt-[60px]">
+    {% render 'button-arrow'
+      ,
+ text: section.settings.button_title
+      ,
+ url: section.settings.button_link
+      ,
+ class: 'text-[14px] w-[fit-content] font-normal  flex justify-center items-center gap-[10px] px-[38px] py-[18px] bg-[rgba(var(--color-button))] text-[rgba(var(--color-button-text))] group '
+    %}
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Multicolumn Arrow",
+    "tag": "section",
+    "class": "multicolumn-arrow",
+    "max_blocks": 3,
+    "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "default": "scheme_1",
+        "label": "Color Scheme"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      },
+      {
+        "type": "text",
+        "id": "button_title",
+        "label": "Button Title",
+        "default": "CREATE MY DESIGN"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title Color",
+        "default": "#1E54A5"
+      },
+      {
+        "type": "color",
+        "id": "desc_color",
+        "label": "Description Color",
+        "default": "#5B5B5B"
+      },
+      {
+        "type": "html",
+        "id": "svg_1",
+        "label": "Svg Arrow 1"
+      },
+      {
+        "type": "html",
+        "id": "svg_2",
+        "label": "Svg Arrow 2"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 0
+      }
+    ],
+    "blocks": [
+      {
+        "name": "column",
+        "type": "column",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "desc",
+            "label": "Description"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Multicolumn Arrow"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,106 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{% style %}
+    #blog-more-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media only screen and (max-width:1024px) {
+    #blog-nore-{{ section.id }} {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  }
+{% endstyle %}
+
+<div id="blog-more-{{ section.id }}" class="page-width">
+  <p class="text-center text-[24px] font-light leading-[48px] mb-[32px] max-sm:text-[24px]">{{ section.settings.title }}</p>
+  <div class="main-blog">
+    <div class="flex items-center justify-center gap-x-[40px] gap-y-[32px] flex-wrap max-sm:gap-x-[20px] max-sm:gap-y-[20px]">
+
+      {%- if section.settings.blog.articles_count > 1 -%}
+        {%- assign count = 1 -%}
+        {%- for art in section.settings.blog.articles -%}
+          {% if article.id != art.id %}
+            {%- if count == 5 -%}
+              {% break %}
+            {% else %}
+            {% assign count = count | plus: 1 %}
+            <div
+              class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} w-full max-w-[320px]  max-sm:max-w-[165px]"
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+                style="--animation-order: {{ forloop.index }};"
+              {% endif %}
+            >
+
+            {%- if blog.handle == 'our-blog' -%}
+              {%- render 'article-card',
+                  article: art,
+                  media_height: art.image.height,
+                  media_aspect_ratio: art.image.aspect_ratio,
+                  show_image: true,
+                  show_date: false,
+                  show_author: false,
+                  show_excerpt: true
+          -%}
+            {% else %}
+              {%- render 'article-card-banner', article: art, media_aspect_ratio: art.image.aspect_ratio -%}
+
+            {%- endif -%}
+            </div>
+          {%- endif -%}
+          {% endif %}
+        {%- endfor -%}
+
+      {%- else -%}
+        <p>Empty Other Articles</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blog Also Like",
+  "tag": "section",
+  "class": "blog-also-like",
+  "settings": [
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "YOU MAY ALSO LIKE"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Also Like"
+    }
+  ]
+}
+{% endschema %}

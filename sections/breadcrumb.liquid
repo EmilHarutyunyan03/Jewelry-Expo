@@ -1,0 +1,157 @@
+
+
+{% unless template == 'index' or template == 'cart' or template == 'list-collections' %}
+  {%- style -%}
+    .breadcrumbs {
+      color: {{ section.settings.breadcrumb_text_color }};
+      padding-top: 32px;
+      padding-bottom: 25px;
+    }
+  
+    .breadcrumbs li {
+      display: inline-block;
+    }
+  
+    .breadcrumbs a,
+    .breadcrumbs span {
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 1.2px;
+      text-transform:uppercase
+    }
+  
+    .breadcrumb-delimeter:not(:last-child):after {
+      {%- if section.settings.breadcrumb_delimeter == "angle_right" -%}
+        content: "›";
+        font-size: 18px;
+      {%- elsif section.settings.breadcrumb_delimeter == "slash" -%}
+        content: "/";
+        font-size: 16px;
+      {%- endif -%}
+      display: inline-block;
+      margin-left: 0.75rem;
+      margin-right: 0.50rem;
+      speak: none;
+    }
+  
+    .breadcrumbs [aria-current="page"] {
+      color: inherit;
+      font-weight: normal;
+      text-decoration: none;
+    }
+  {%- endstyle -%}
+  <nav
+    class="breadcrumbs page-width"
+    role="navigation"
+    aria-label="breadcrumbs">
+    <a href="/" title="Home">Home</a>
+
+    {% if template contains 'page' %}
+      <span>/</span>
+
+      <span>{{ page.title }}</span>
+
+    {% elsif template contains 'product' %}
+      {% if collection.url %}
+        <span>/</span>
+
+        {{ collection.title | link_to: collection.url }}
+      {% endif %}
+
+      <span>/</span>
+
+      <span>{{ product.title }}</span>
+
+    {% elsif template contains 'collection' and collection.handle %}
+      <span>/</span>
+
+      {% if current_tags %}
+        {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+
+        {{ collection.title | link_to: url }}
+
+        <span>/</span>
+
+        <span>{{ current_tags | join: ' + ' }}</span>
+
+      {% else %}
+        <span>{{ collection.title }}</span>
+      {% endif %}
+
+    {% elsif template == 'blog' %}
+      <span>/</span>
+
+      {% if current_tags %}
+        {{ blog.title | link_to: blog.url }}
+
+        <span>/</span>
+
+        <span>{{ current_tags | join: ' + ' }}</span>
+
+      {% else %}
+        <span>{{ blog.title }}</span>
+      {% endif %}
+
+    {% elsif template == 'article' or template == 'article.service-post' or template == 'article.education-post'%}
+      
+      <span>/</span>
+
+      {{ blog.title | link_to: blog.url }}
+
+      <span>/</span>
+
+      <span class="{{article.title}}">{{ article.title }}</span>
+
+    {% else %}
+      <span>/</span>
+
+      <span>{{ page_title }}</span>
+    {% endif %}
+  </nav>
+{% endunless %}
+
+
+
+{% schema %}
+  {
+    "name": "Breadcrumb",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_breadcrumb_nav",
+        "label": "Show breadcrumb navigation",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "breadcrumb_delimeter",
+        "info": "The icon that is between every link in the breadcrumb",
+        "label": "Breadcrumb Delimeter Icon",
+        "options": [
+          {
+            "value": "angle_right",
+            "label": "Angle Right"
+          },
+          {
+            "value": "slash",
+            "label": "Slash"
+          }
+        ],
+        "default": "angle_right"
+      },
+      {
+        "type": "color",
+        "id": "breadcrumb_text_color",
+        "label": "Breadcrumb Color",
+        "default": "#1D54A6"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Breadcrumb"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,168 @@
+{% style %}
+  #collection-banners-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media only screen and (max-width: 768px) {
+    #collection-banners-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+  }
+{% endstyle %}
+<div id="collection-banners-{{section.id}}" class="color-{{section.settings.color_schema}} flex  gap-[32px] page-width justify-center">
+  <div class="max-w-[600px] w-full flex flex-col justify-between">
+    <div class="max-w-[572px] w-full m-auto mb-[40px]">
+      <h2 class="text-[40px] font-normal leading-[50px] uppercase">
+        {{ section.settings.title }}
+      </h2>
+    </div>
+    <div class="relative">
+      <div>
+        {%- if section.settings.image -%}
+          {{ section.settings.image | image_url: width: 600 | image_tag: class: "block w-full object-cover" }}
+        {%- endif -%}
+      </div>
+      <div class="absolute left-2/4 bottom-[0%] -translate-x-1/2 -translate-y-1/2">
+        <a href="{{ section.settings.button_link }}" class=" w-auto px-[24px] py-[10px] text-[#F8F9FA] border-[1px] border-[solid] border-[#F8F9FA] flex gap-[8px] text-[14px] font-medium leading-[24px]">
+          {{ section.settings.svg }}
+          {{ section.settings.button_text }}
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-[600px] w-full flex flex-col justify-between">
+    <div class="w-full mb-[40px]">
+      <div class="text-[12px] font-normal leading-[26px] uppercase">
+        {{ section.settings.desc }}
+      </div>
+    </div>
+    <div class="relative">
+      <div>
+        {%- if section.settings.image_second -%}
+          {{ section.settings.image_second | image_url: width: 600 | image_tag: class: "block w-full object-cover" }}
+
+        {%- endif -%}
+      </div>
+      <div class="absolute left-2/4 bottom-[0%] -translate-x-1/2 -translate-y-1/2">
+        <a href="{{ section.settings.button_link_second }}" class="w-auto px-[24px] py-[10px] text-[#F8F9FA]  border-[1px] border-[solid] border-[#F8F9FA] flex gap-[8px] text-[14px] font-medium leading-[24px]">
+          {{ section.settings.svg_second }}
+          {{ section.settings.button_text_second }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Collection Banners Info",
+    "tag": "section",
+    "class": "collection-banners-info",
+    "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_schema",
+        "label": "Color Shema",
+        "default": "1"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "desc",
+        "label": "Description"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "First Image"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Title",
+        "default": "SHOP COLLECTION"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      },
+      {
+        "type": "html",
+        "id": "svg",
+        "label": "Svg Icon Shop"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_second",
+        "label": "Second Image"
+      },
+      {
+        "type": "text",
+        "id": "button_text_second",
+        "label": "Button Title Second",
+        "default": "SHOP COLLECTION"
+      },
+      {
+        "type": "url",
+        "id": "button_link_second",
+        "label": "Button Link Second"
+      },
+      {
+        "type": "html",
+        "id": "svg_second",
+        "label": "Svg Icon Shop Second"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 70
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 70
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mob",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Mobile Padding Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mob",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Mobile Padding Bottom",
+        "default": 40
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection Banners Info",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

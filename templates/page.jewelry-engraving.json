@@ -1,0 +1,70 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "card_more_rHXzbc": {
+      "type": "card-more",
+      "blocks": {
+        "featured_image_DYUetm": {
+          "type": "featured_image",
+          "settings": {
+            "image_banner": "shopify:\/\/shop_images\/Background_70c67af2-5da5-4abf-b382-961d2db427d5.jpg",
+            "mobile_banner": "shopify:\/\/shop_images\/Background_1b23af19-1386-4bcd-b0e3-6be5088d6636.jpg",
+            "excerpt": "<p>Send a message with personalized engraving.<\/p>",
+            "image_height": "adapt"
+          }
+        },
+        "content_3AiELw": {
+          "type": "content",
+          "settings": {
+            "right_content": "<p>One of the most wonderful ways to personalize your new purchase is with a custom engraving. Our engraving specialists can add your heartfelt message in a number of different fonts and styles.<\/p>",
+            "richtext": "<p>When it comes to corporate gifts, we can engrave your company name and logo on precious metals, leather, wood, marble, stainless steel, brass, glass and other materials. Essentially, we can engrave anything on any material — even the rounded surface of a picture frame or a wine bottle.<\/p><p>When the gift is unique and the moment is special, adding a message in your own words is the perfect touch. You'll be impressed with our cutting-edge technology and quick turnaround times.<\/p><p>Give us a call today or stop in to discuss the perfect personalization of your next purchase.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "featured_image_DYUetm",
+        "content_3AiELw"
+      ],
+      "settings": {
+      }
+    },
+    "question_form_qDLQD7": {
+      "type": "question-form",
+      "settings": {
+        "color_scheme": "",
+        "background": "shopify:\/\/shop_images\/Rectangle_367_1.jpg",
+        "litle_text": "Try Out Our",
+        "title": "EST. 1979",
+        "desc": "For over 40 years, Barclays Jewelers has been one of the most trusted names in jewelry in the Miami region. We are a well-established jewelry store that has grown with our community from a small store to a multiple brand jewelry retailer. We have served generations of families as their trusted jeweler for brilliant diamonds, beautiful fine jewelry, elegant watches, treasured gifts, custom made styles and expert jewelry repairs.",
+        "title_contact": "Ask a Question",
+        "desc_contact": "Send us a message or contact us <a href=\"#\" target=\"_blank\" title=\"#\">directly<\/a>",
+        "title_form": "",
+        "button_link": "shopify:\/\/pages\/about-us",
+        "button_title": "MORE ABOUT US",
+        "padding_top": 70,
+        "padding_bottom": 70
+      }
+    }
+  },
+  "order": [
+    "main",
+    "card_more_rHXzbc",
+    "question_form_qDLQD7"
+  ]
+}

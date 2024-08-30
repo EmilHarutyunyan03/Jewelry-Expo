@@ -1,0 +1,24 @@
+{% comment %}
+  Renders product buy-buttons.
+  Accepts:
+  - text: {String}
+  - url: {String}
+  - class: {String}
+  - arrow: {Boolean}
+
+  Usage:
+  {% render 'button-arrow', text: text, url: url, class: class %}
+{% endcomment %}
+
+<a
+  href="{{url}}"
+  class="{{ class }}"
+>
+  <span >{{ text }}</span>
+  {% if arrow %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="29" height="9" viewBox="0 0 29 9" fill="none" class="group-hover">
+      <path id="Arrow 1" d="M28.3536 4.85355C28.5488 4.65829 28.5488 4.34171 28.3536 4.14645L25.1716 0.964466C24.9763 0.769204 24.6597 0.769204 24.4645 0.964466C24.2692 1.15973 24.2692 1.47631 24.4645 1.67157L27.2929 4.5L24.4645 7.32843C24.2692 7.52369 24.2692 7.84027 24.4645 8.03553C24.6597 8.2308 24.9763 8.2308 25.1716 8.03553L28.3536 4.85355ZM0 5H28V4H0L0 5Z" fill="white"/>
+    </svg>
+
+  {% endif %}
+</a>

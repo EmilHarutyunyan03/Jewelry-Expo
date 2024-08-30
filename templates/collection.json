@@ -1,0 +1,59 @@
+{
+  "sections": {
+    "breadcrumb_WpmKzM": {
+        "disabled": true,
+      "type": "breadcrumb",
+      "settings": {
+        "show_breadcrumb_nav": true,
+        "breadcrumb_delimeter": "angle_right",
+        "breadcrumb_text_color": "#465076"
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 9,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "title_border_HeLjgY": {
+      "type": "title-border",
+      "disabled": true,
+      "settings": {
+        "title": "Follow Us",
+        "color_scheme": "",
+        "desc": "",
+        "desc_color": "#4f4f4f",
+        "padding_top": 70,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "breadcrumb_WpmKzM",
+    "banner",
+    "product-grid",
+    "title_border_HeLjgY"
+  ]
+}

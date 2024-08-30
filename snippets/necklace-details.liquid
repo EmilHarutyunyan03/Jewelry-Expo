@@ -1,0 +1,98 @@
+<div class="  py-[48px] flex gap-[120px] justify-center bg-[#FBFBFB] flex-wrap max-md:gap-[32px]">
+  <div class="">
+    <p class="flex items-center gap-[8px] mb-[18px] text-[#333] text-[14px] font-semibold leading-[24px] tracking-[1.4px] justify-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="22"
+        height="22"
+        viewBox="0 0 22 22"
+        fill="none">
+        <path d="M17.5445 4.91338C15.7298 4.2816 14.5103 2.56621 14.5103 0.644531V0H7.563V0.644531C7.563 2.56621 6.34377 4.2816 4.52884 4.91338L1.41797 5.99615V7.91263C1.41797 10.4819 2.4185 12.8973 4.23528 14.7139C5.53407 16.0127 7.13885 16.8941 8.88698 17.2912V20.7109H5.75378V22H16.3197V20.7109H13.1864V17.2912C14.9345 16.8941 16.5393 16.0127 17.8382 14.7139C19.6548 12.8973 20.6554 10.4819 20.6554 7.91263V5.99615L17.5445 4.91338ZM8.81631 1.28906H13.257C13.4544 3.05783 14.4556 4.63072 15.9443 5.56512C15.3138 7.71675 13.3136 9.23828 11.0368 9.23828C8.75471 9.23828 6.75902 7.71877 6.12892 5.56529C7.61755 4.63089 8.61893 3.058 8.81631 1.28906ZM11.8973 20.7109H10.176V17.4928C10.4607 17.5178 10.7476 17.5312 11.0368 17.5312C11.3258 17.5312 11.6128 17.5178 11.8973 17.4928V20.7109ZM19.3663 7.91246C19.3663 12.5056 15.6297 16.2422 11.0368 16.2422C6.44363 16.2422 2.70703 12.5056 2.70703 7.91246V6.91226L4.95265 6.13077C4.95349 6.13043 4.95416 6.1301 4.955 6.12976C5.8075 8.71896 8.25168 10.5273 11.0368 10.5273C12.5205 10.5273 13.9669 10.008 15.1094 9.06506C16.0445 8.29347 16.7412 7.26944 17.1178 6.12959C17.1189 6.12993 17.1199 6.13043 17.1207 6.13077L19.3663 6.91226V7.91246Z" fill="#1D54A6" />
+      </svg>
+      {{ section.settings.text_chain }}
+    </p>
+    <div class=" max-w-[250px] w-full flex gap-[32px] justify-between">
+      <div class="flex flex-col items-start gap-[18px] justify-start mb-[8px]">
+        {%- if product.metafields.custom.sku.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">SKU:</p>
+        {% endif %}
+        {%- if product.metafields.custom.category.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Category:</p>
+        {% endif %}
+
+        {%- if product.metafields.custom.metal.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Metal:</p>
+        {% endif %}
+        {%- if product.metafields.custom.gender.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Gender:</p>
+        {% endif %}
+
+
+      </div>
+      <div class="flex flex-col items-start gap-[18px] justify-start mb-[8px]">
+        {%- if product.metafields.custom.sku.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+            {{ product.metafields.custom.sku.value }}
+          </p>
+        {% endif %}
+        {%- if product.metafields.custom.category.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+            {{ product.metafields.custom.category.value }}
+          </p>
+        {% endif %}
+
+        {%- if product.metafields.custom.metal.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+            {{ product.metafields.custom.metal.value }}
+          </p>
+        {% endif %}
+        {%- if product.metafields.custom.gender.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+            {{ product.metafields.custom.gender.value }}
+          </p>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-[228px] w-full">
+    <p class="flex items-center gap-[8px] mb-[18px] text-[#333] text-[14px] font-semibold leading-[24px] tracking-[1.4px] justify-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="31"
+        height="22"
+        viewBox="0 0 31 22"
+        fill="none">
+        <path d="M1.51423 12.7132L1.00558 16.0722C0.991945 16.1649 1.00341 16.2594 1.03881 16.3463C1.07421 16.4331 1.1323 16.5093 1.20718 16.5669L6.83654 20.897C6.87986 20.9294 6.92797 20.9552 6.97921 20.9733H6.99472C7.04699 20.9891 7.10132 20.9973 7.156 20.9977C7.18176 21.0008 7.20778 21.0008 7.23354 20.9977C7.26737 20.9914 7.30058 20.9822 7.33279 20.9703H7.3514L7.42274 20.9336L7.45685 20.9092L7.49717 20.8817L14.271 15.0584L24.4132 17.9899C24.4576 18.002 24.5035 18.0081 24.5496 18.0082C24.5898 18.0128 24.6304 18.0128 24.6706 18.0082C24.7068 17.9992 24.7421 17.9869 24.7761 17.9716C24.8054 17.9578 24.8334 17.9415 24.8598 17.9227C24.8688 17.9154 24.8771 17.9072 24.8846 17.8983C24.9132 17.878 24.9392 17.8544 24.9621 17.8281L28.8856 13.0736C28.9541 12.9873 28.9938 12.8824 28.9993 12.773C29.0049 12.6637 28.976 12.5554 28.9167 12.4628L26.7456 9.21684L26.7083 9.1863L26.6773 9.14966C26.6613 9.13184 26.6436 9.11549 26.6246 9.1008L26.6029 9.08248C26.5763 9.06167 26.5471 9.04423 26.516 9.03057H26.4819C26.4629 9.02265 26.4432 9.01652 26.423 9.01225L22.4809 7.98928L22.5925 7.89462C22.649 7.84564 22.6945 7.78556 22.726 7.71825C22.7575 7.65093 22.7744 7.57787 22.7755 7.50376C22.7772 7.42993 22.7628 7.3566 22.7334 7.28867C22.704 7.22074 22.6602 7.15977 22.6049 7.10984L19.7639 4.51425C19.7375 4.49289 19.7095 4.4735 19.6802 4.45623H19.6616L15.0092 2.05913C14.9156 2.01161 14.81 1.99207 14.7053 2.00292C14.6006 2.01377 14.5014 2.05454 14.4199 2.12021L1.70033 12.3835C1.59824 12.4663 1.53177 12.5841 1.51423 12.7132ZM2.44471 13.7729L5.96189 16.3318L6.42713 19.2388L2.11284 15.9043L2.44471 13.7729ZM17.6796 12.1269L23.1012 13.6141L23.8363 16.7227L15.2263 14.237L17.6796 12.1269ZM24.8381 16.3135L24.1278 13.3056L26.2679 10.4078L27.8187 12.6949L24.8381 16.3135ZM21.5907 8.85651L25.3902 9.8123L23.3338 12.585L18.6349 11.2964L21.5039 8.82598C21.5316 8.83932 21.5607 8.84956 21.5907 8.85651ZM7.5437 19.4526L7.03194 16.2402L19.3793 5.61051L21.4295 7.48543L7.5437 19.4526ZM14.7921 3.13401L18.4488 5.01199L6.42713 15.3607L2.88823 12.7896L14.7921 3.13401Z" fill="#1D54A6" />
+      </svg>
+      {{ section.settings.text_metal }}
+    </p>
+    <div class="max-w-[250px] w-full flex gap-[32px] justify-between">
+      <div class="flex flex-col items-start gap-[18px] justify-start mb-[8px]">
+        {%- if product.metafields.custom.metal_type.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Stone Shape:</p>
+        {% endif %}
+        {%- if product.metafields.custom.metal_finish.value -%}
+          <p class="!p-[0] text-[14px] !text-[#333] text-nowrap font-normal leading-[22px]">Total Carat Weight:</p>
+        {%- endif -%}
+
+
+      </div>
+      <div class="flex flex-col items-start gap-[18px] justify-start mb-[8px]">
+        {%- if product.metafields.custom.metal_type.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+            {{ product.metafields.custom.metal_type.value }}
+          </p>
+        {%- endif -%}
+        {%- if product.metafields.custom.metal_finish.value -%}
+          <p class="!p-[0] text-[14px] !text-[#4F4F4F] text-nowrap font-normal leading-[22px]">
+            {{ product.metafields.custom.metal_finish.value }}
+          </p>
+        {%- endif -%}
+
+
+      </div>
+    </div>
+  </div>
+</div>

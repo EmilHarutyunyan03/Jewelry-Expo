@@ -1,0 +1,50 @@
+.filter-shape.facets-layout-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  li label{
+    padding: 0;
+  }
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .facets__label.facet-checkbox.active {
+    svg path {
+      stroke: rgba(var(--color-button));
+    }
+  }
+}
+
+.filter-item-shape {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  span {
+    color: #4F4F4F;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 240% */
+    letter-spacing: 1px;
+  }
+}
+.filter-item-metal {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+  span {
+    color: #4F4F4F;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 240% */
+    letter-spacing: 1px;
+  }
+}
+.filter-metal.facets-layout-list .facets__label.facet-checkbox.active svg {
+  border: 2px solid  rgba(var(--color-button));;
+  border-radius: 50%;
+}

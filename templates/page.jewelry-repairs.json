@@ -1,0 +1,70 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "card_more_rHXzbc": {
+      "type": "card-more",
+      "blocks": {
+        "featured_image_DYUetm": {
+          "type": "featured_image",
+          "settings": {
+            "image_banner": "shopify:\/\/shop_images\/Background_994a1160-1012-4da9-aaa9-3fb110e26661.jpg",
+            "mobile_banner": "shopify:\/\/shop_images\/Background_1a1e21ec-fbfc-479e-a516-c565b3148453.jpg",
+            "excerpt": "<p>We can fix almost anything. Free estimates while you wait.<\/p>",
+            "image_height": "adapt"
+          }
+        },
+        "content_3AiELw": {
+          "type": "content",
+          "settings": {
+            "right_content": "<p>Has your fine jewelry seen better days? Why not bring your cherished pieces to Barclay's Jewelers, where our expert jewelers will make them look as good as new.<\/p>",
+            "richtext": "<p>Is your favorite chain broken, or are the prongs on your engagement ring wearing thin? Perhaps your ring is a bit too loose and needs to be sized. Or your white gold ring is looking dull and can use some rhodium plating.<\/p><p>We will evaluate your jewelry and give you an estimate for any repairs that may need to be done.<\/p><p>Our shop is equipped with the latest technology so every repair will be expertly done to our meticulous standards.<\/p><p>Among the services we provide are the following:<\/p><p> - Ring sizing<br\/> - Jewelry cleaning and polishing<br\/> - Ring shank replacement<br\/> - Stone tightening<br\/> - Stone replacement<br\/> - Prong tightening and retipping<br\/> - Soldering<br\/> - Chain shortening or lengthening<br\/> - Chain repairs & clasp replacement<br\/> - Rhodium plating<br\/><\/p><p><a href=\"https:\/\/www.barclaysjewelry.com\/services\/jewelry-repairs\/#\">Come in<\/a> for a free estimate today!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "featured_image_DYUetm",
+        "content_3AiELw"
+      ],
+      "settings": {
+      }
+    },
+    "question_form_qDLQD7": {
+      "type": "question-form",
+      "settings": {
+        "color_scheme": "",
+        "background": "shopify:\/\/shop_images\/Rectangle_367_1.jpg",
+        "litle_text": "Try Out Our",
+        "title": "EST. 1979",
+        "desc": "For over 40 years, Barclays Jewelers has been one of the most trusted names in jewelry in the Miami region. We are a well-established jewelry store that has grown with our community from a small store to a multiple brand jewelry retailer. We have served generations of families as their trusted jeweler for brilliant diamonds, beautiful fine jewelry, elegant watches, treasured gifts, custom made styles and expert jewelry repairs.",
+        "title_contact": "Ask a Question",
+        "desc_contact": "Send us a message or contact us <a href=\"#\" target=\"_blank\" title=\"#\">directly<\/a>",
+        "title_form": "",
+        "button_link": "shopify:\/\/pages\/about-us",
+        "button_title": "MORE ABOUT US",
+        "padding_top": 70,
+        "padding_bottom": 70
+      }
+    }
+  },
+  "order": [
+    "main",
+    "card_more_rHXzbc",
+    "question_form_qDLQD7"
+  ]
+}

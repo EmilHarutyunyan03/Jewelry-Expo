@@ -1,0 +1,23 @@
+{% comment %} {% style %}
+  .btn-inquire a {
+    max-width:44rem;
+    width:100%;
+  }
+{% endstyle %} {% endcomment %}
+<div class="py-[10px] btn-inquire text-center flex-1 h-[44px] border-[1px] border-[solid] border-[#1E54A5] ">
+  <button
+    class="button--secondary text-[14px] font-semibold text-[#1E54A5]"
+    onclick="openModal();"
+  >
+    {{ text }}
+  </button>
+</div>
+
+<script>
+  function openModal() {
+    document.querySelector(".inquire-wrap").classList.add("active");
+  }
+  function closeModal() {
+    document.querySelector(".inquire-wrap").classList.remove("active");
+  }
+</script>
